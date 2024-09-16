@@ -5,7 +5,7 @@ import { useState } from "react";
 import Avatar from "./Avatar";
 
 import {
-	IconArrowRight,
+	IconChevronRight,
 	IconBriefcase,
 	IconHomeBolt,
 	IconMessage,
@@ -84,7 +84,7 @@ export default function Sidebar() {
 
 	return (
 		<>
-			<div className="h-full bg-neutral-100 py-10 px-5 fixed left-0 flex flex-col justify-between w-fit">
+			<div className="h-full bg-neutral-100 py-10 px-5 fixed left-0 flex flex-col justify-between w-fit z-50">
 				<div className="flex flex-col gap-5">
 					<Avatar />
 					<div className="flex flex-col">
@@ -122,15 +122,15 @@ export default function Sidebar() {
 					</div>
 				</div>
 
-				<Link href={"/resume"} passHref>
+				<Link className="flex justify-center" href={"/resume"} passHref>
 					<button
 						onClick={(e) => {
 							e.preventDefault(), setSelect("resume"), router.push("/resume");
 						}}
 						type="button"
-						className="flex justify-between rounded-2xl text-white bold bg-gray-900 px-4 py-2 text-sm"
+						className="flex justify-between rounded-full text-white bold bg-gray-900 px-4 py-3 text-xs font-semibold items-center"
 					>
-						Read Resume {<IconArrowRight size={20} color="white" />}
+						Read Resume {<IconChevronRight size={15} color="white" />}
 					</button>
 				</Link>
 			</div>
