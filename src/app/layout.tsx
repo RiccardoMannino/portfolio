@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import Sidebar from "@/components/Sidebar";
+import MainLayout from "@/components/MainLayout";
 
 const geistSans = localFont({
 	src: "./fonts/GeistVF.woff",
@@ -15,8 +16,8 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-	title: "Riccardo mannino | Frontend Developer",
-	description: "Riccardo mannino Portfolio Website",
+	title: "Riccardo Mannino | Frontend Developer",
+	description: "Riccardo Mannino Portfolio Website",
 };
 
 export default function RootLayout({
@@ -30,7 +31,7 @@ export default function RootLayout({
 				className={`${geistSans.variable} ${geistMono.variable} flex h-screen overflow-hidden bg-slate-100`}
 			>
 				<Sidebar />
-				<div className="flex flex-1">{children}</div>
+				<MainLayout>{children}</MainLayout>
 			</body>
 		</html>
 	);

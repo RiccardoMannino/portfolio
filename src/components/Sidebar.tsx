@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 import Avatar from "./Avatar";
 
@@ -12,6 +13,8 @@ import {
 	IconMessageBolt,
 	IconBrandLinkedin,
 	IconBrandGithub,
+	IconLayoutSidebarRightCollapse,
+	IconLayoutSidebarRightExpand,
 } from "@tabler/icons-react";
 import { useRouter } from "next/navigation";
 
@@ -23,6 +26,7 @@ type Pagine = {
 
 export default function Sidebar() {
 	const [select, setSelect] = useState<string>("Home");
+	const [isVisible, setIsVisible] = useState(true);
 
 	const router = useRouter();
 
@@ -84,7 +88,10 @@ export default function Sidebar() {
 
 	return (
 		<>
-			<div className="h-full bg-neutral-100 py-10 px-5 fixed left-0 flex flex-col justify-between w-fit z-50">
+			<motion.div
+				animate={{ x: isVisible ? 0 : -200 }}
+				className="h-full bg-neutral-100 py-10 px-5 fixed left-0 flex flex-col justify-between w-fit z-50"
+			>
 				<div className="flex flex-col gap-5">
 					<Avatar />
 					<div className="flex flex-col">
@@ -133,7 +140,17 @@ export default function Sidebar() {
 						Read Resume {<IconChevronRight size={15} color="white" />}
 					</button>
 				</Link>
-			</div>
+			</motion.div>
+			<button
+				className="fixed lg:hidden bottom-10 right-10 border rounded-[50%] p-2 "
+				onClick={() => setIsVisible(!isVisible)}
+			>
+				{isVisible ? (
+					<IconLayoutSidebarRightCollapse />
+				) : (
+					<IconLayoutSidebarRightExpand />
+				)}
+			</button>
 		</>
 	);
 }
