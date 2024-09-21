@@ -12,9 +12,9 @@ export default function Avatar() {
 					width={40}
 					height={40}
 					className="rounded-[50%]"
+					priority={true}
 				/>
 			</div>
-
 			<div className="flex flex-col text-sm">
 				<p className="font-bold">Riccardo Mannino</p>
 				<p className="font-thin"> Frontend Developer</p>

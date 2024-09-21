@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 import Avatar from "./Avatar";
@@ -16,7 +16,7 @@ import {
 	IconLayoutSidebarRightCollapse,
 	IconLayoutSidebarRightExpand,
 } from "@tabler/icons-react";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 
 type Pagine = {
 	pagina: string;
@@ -25,10 +25,21 @@ type Pagine = {
 };
 
 export default function Sidebar() {
-	const [select, setSelect] = useState<string>("Home");
 	const [isVisible, setIsVisible] = useState(true);
 
 	const router = useRouter();
+	const pathname = usePathname();
+
+	const isActive = (path: string) => pathname === path;
+
+	useEffect(() => {
+		pathname === "/"
+			? (document.title = "Riccardo Mannino | Home")
+			: (document.title = `Riccardo Mannino | ${pathname
+					.slice(1)
+					.charAt(0)
+					.toUpperCase()}${pathname.slice(2)}`);
+	}, [pathname]);
 
 	const listaPagine: Pagine[] = [
 		{
@@ -37,7 +48,7 @@ export default function Sidebar() {
 			image: (
 				<IconHomeBolt
 					size={20}
-					className={select === "Home" ? "stroke-blue-600" : ""}
+					className={isActive(`/`) ? "stroke-blue-600" : ""}
 				/>
 			),
 		},
@@ -47,7 +58,7 @@ export default function Sidebar() {
 			image: (
 				<IconMessageBolt
 					size={20}
-					className={select === "About" ? "stroke-blue-600" : ""}
+					className={isActive(`/about`) ? "stroke-blue-600" : ""}
 				/>
 			),
 		},
@@ -57,7 +68,7 @@ export default function Sidebar() {
 			image: (
 				<IconBriefcase
 					size={20}
-					className={select === "Projects" ? "stroke-blue-600" : ""}
+					className={isActive(`/projects`) ? "stroke-blue-600" : ""}
 				/>
 			),
 		},
@@ -67,7 +78,7 @@ export default function Sidebar() {
 			image: (
 				<IconMessage
 					size={20}
-					className={select === "Contact" ? "stroke-blue-600" : ""}
+					className={isActive(`/contact`) ? "stroke-blue-600" : ""}
 				/>
 			),
 		},
@@ -89,7 +100,8 @@ export default function Sidebar() {
 	return (
 		<>
 			<motion.div
-				animate={{ x: isVisible ? 0 : -200 }}
+				animate={{ x: isVisible ? 0 : -210 }}
+				transition={{ type: "spring", duration: 1.5 }}
 				className="h-full bg-neutral-100 py-10 px-5 fixed left-0 flex flex-col justify-between w-fit z-50"
 			>
 				<div className="flex flex-col gap-5">
@@ -98,15 +110,13 @@ export default function Sidebar() {
 						{listaPagine.map((li) => (
 							<Link
 								key={li.href}
-								onClick={(e) => {
-									e.preventDefault();
-									setSelect(li.pagina);
+								onClick={() => {
 									router.push(li.href);
 								}}
 								className={
-									select === li.pagina
-										? "flex flex-row p-[6px] shadow-lg rounded-md w-full bg-white stroke-blue-600  text-sm items-center"
-										: "flex p-[6px] text-sm  text-neutral-500 stroke-neutral-500 ease-in-out hover:text-neutral-700 hover:stroke-neutral-700 "
+									(isActive(`${li.href}`) &&
+										"flex flex-row p-[6px] shadow-lg rounded-md w-full bg-white stroke-blue-600  text-sm items-center") ||
+									"flex p-[6px] text-sm  text-neutral-500 stroke-neutral-500 ease-in-out hover:text-neutral-700 hover:stroke-neutral-700 "
 								}
 								href={li.href}
 							>
@@ -132,7 +142,7 @@ export default function Sidebar() {
 				<Link className="flex justify-center" href={"/resume"} passHref>
 					<button
 						onClick={(e) => {
-							e.preventDefault(), setSelect("resume"), router.push("/resume");
+							e.preventDefault(), router.push("/resume");
 						}}
 						type="button"
 						className="flex justify-between rounded-full text-white bold bg-gray-900 px-4 py-3 text-xs font-semibold items-center"
@@ -141,7 +151,9 @@ export default function Sidebar() {
 					</button>
 				</Link>
 			</motion.div>
-			<button
+			<motion.button
+				animate={{ rotate: !isVisible ? 0 : 180 }}
+				transition={{ duration: 1 }}
 				className="fixed lg:hidden bottom-10 right-10 border rounded-[50%] p-2 "
 				onClick={() => setIsVisible(!isVisible)}
 			>
@@ -150,7 +162,7 @@ export default function Sidebar() {
 				) : (
 					<IconLayoutSidebarRightExpand />
 				)}
-			</button>
+			</motion.button>
 		</>
 	);
 }
