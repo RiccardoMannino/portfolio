@@ -8,9 +8,8 @@ import Avatar from "./Avatar";
 import {
 	IconChevronRight,
 	IconBriefcase,
-	IconHomeBolt,
+	IconHome,
 	IconMessage,
-	IconMessageBolt,
 	IconBrandLinkedin,
 	IconBrandGithub,
 	IconLayoutSidebarRightCollapse,
@@ -34,8 +33,8 @@ export default function Sidebar() {
 
 	useEffect(() => {
 		pathname === "/"
-			? (document.title = "Riccardo Mannino | Home")
-			: (document.title = `Riccardo Mannino | ${pathname
+			? (document.title = "Riccardo Mannino - Home")
+			: (document.title = `Riccardo Mannino - ${pathname
 					.slice(1)
 					.charAt(0)
 					.toUpperCase()}${pathname.slice(2)}`);
@@ -46,7 +45,7 @@ export default function Sidebar() {
 			pagina: "Home",
 			href: "/",
 			image: (
-				<IconHomeBolt
+				<IconHome
 					size={20}
 					className={isActive(`/`) ? "stroke-blue-600" : ""}
 				/>
@@ -56,7 +55,7 @@ export default function Sidebar() {
 			pagina: "About",
 			href: "/about",
 			image: (
-				<IconMessageBolt
+				<IconMessage
 					size={20}
 					className={isActive(`/about`) ? "stroke-blue-600" : ""}
 				/>

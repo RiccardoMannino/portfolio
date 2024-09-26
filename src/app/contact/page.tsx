@@ -21,24 +21,10 @@ export default function Contact() {
 	};
 
 	useEffect(() => {
-		(async function () {
+		(async () => {
 			const cal = await getCalApi({ namespace: "30min" });
 			cal("ui", {
-				theme: "dark",
-				cssVarsPerTheme: {
-					dark: {
-						"--cal-bg-primary": "#125405", // Colore di sfondo
-						// Colore secondario
-						"--cal-text-primary": "#ffffff", // Colore del testo
-						"--cal-accent-color": "#ff5722", // Colore degli accenti
-					},
-					light: {
-						"--cal-bg-primary": "#ffffff",
-						"--cal-bg-secondary": "#f0f0f0",
-						"--cal-text-primary": "#000000",
-						"--cal-accent-color": "#ff5722",
-					},
-				},
+				theme: "light",
 				hideEventTypeDetails: false,
 				layout: "month_view",
 			});
@@ -87,7 +73,7 @@ export default function Contact() {
 				</div>
 				<div className="flex justify-end w-full mt-10">
 					<button
-						className="bg-neutral-100 border-gray-700 px-4 py-2 rounded-full font-semibold"
+						className="bg-neutral-100 border-gray-700 px-4 py-2 rounded-full font-semibold w-full"
 						type="submit"
 					>
 						Invia!
@@ -95,7 +81,7 @@ export default function Contact() {
 				</div>
 			</form>
 
-			<div className="mt-6">
+			<div className="mt-7">
 				<button
 					className="px-3 py-3 rounded-full text-white bold bg-gray-900 text-xs font-semibold "
 					data-cal-namespace="30min"

@@ -17,7 +17,7 @@ export default function Avatar() {
 			</div>
 			<div className="flex flex-col text-sm">
 				<p className="font-bold">Riccardo Mannino</p>
-				<p className="font-thin"> Frontend Developer</p>
+				<p className="font-thin">Jr Frontend Developer</p>
 			</div>
 		</div>
 	);
