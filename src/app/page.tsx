@@ -1,21 +1,22 @@
 export default function Home() {
-	return (
-		<>
-			<h1 className="font-semibold md:text-4xl text-2xl">
-				Ciao a tutti! Sono Riccardo 👋
-			</h1>
-			<p className="mt-5 text-base">
-				Benvenuto nel mio Portfolio. Qui potrai scoprire i miei progetti e le
-				competenze che ho acquisito lavorando con tecnologie
-				all&apos;avanguardia come React.js, Material UI, Styled Components,
-				Tailwind CSS e Redux Toolkit.
-			</p>
-			<p className="mt-5 text-base">
-				Sono appassionato di sviluppo web, con una particolare attenzione alla
-				creazione di interfacce moderne, intuitive e performanti. Se stai
-				cercando uno sviluppatore creativo e attento ai dettagli, sei nel posto
-				giusto!
-			</p>
-		</>
-	);
+  return (
+    <>
+      <h1 className="text-2xl font-semibold md:text-4xl">
+        Ciao a tutti! Sono Riccardo 👋
+      </h1>
+      <p className="mt-5 text-base text-neutral-500">
+        Benvenuto nel mio portfolio! Sono Riccardo Mannino, uno sviluppatore web
+        frontend junior con esperienza nell&apos;utilizzo di tecnologie moderne
+        come React.js, Material UI, e Styled Components.
+      </p>
+      <p className="mt-5 text-base text-neutral-500">
+        Ho lavorato su progetti che integrano Redux per la gestione degli stati
+        globali e ho competenze nello sviluppo e nella manutenzione di siti web,
+        sia custom che su piattaforme come WordPress con Elementor. Dai
+        un’occhiata ai miei progetti e contattami per collaborazioni o
+        opportunità lavorative!
+      </p>
+      <h2 className="mt-5 text-xl font-medium">Tech Stack</h2>
+    </>
+  )
 }
