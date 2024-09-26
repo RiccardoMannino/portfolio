@@ -52,7 +52,7 @@ export default function Sidebar() {
 			),
 		},
 		{
-			pagina: "About",
+			pagina: "Chi sono",
 			href: "/about",
 			image: (
 				<IconMessage
@@ -62,7 +62,7 @@ export default function Sidebar() {
 			),
 		},
 		{
-			pagina: "Projects",
+			pagina: "Progetti",
 			href: "/projects",
 			image: (
 				<IconBriefcase
@@ -72,7 +72,7 @@ export default function Sidebar() {
 			),
 		},
 		{
-			pagina: "Contact",
+			pagina: "Contatti",
 			href: "/contact",
 			image: (
 				<IconMessage
@@ -103,9 +103,9 @@ export default function Sidebar() {
 				transition={{ type: "spring", duration: 1.5 }}
 				className="h-full bg-neutral-100 py-10 px-5 fixed left-0 flex flex-col justify-between w-fit z-50"
 			>
-				<div className="flex flex-col gap-5">
+				<div className="flex flex-col gap-7">
 					<Avatar />
-					<div className="flex flex-col">
+					<div className="flex flex-col ">
 						{listaPagine.map((li) => (
 							<Link
 								key={li.href}
@@ -114,8 +114,8 @@ export default function Sidebar() {
 								}}
 								className={
 									(isActive(`${li.href}`) &&
-										"flex flex-row p-[6px] shadow-lg rounded-md w-full bg-white stroke-blue-600  text-sm items-center") ||
-									"flex p-[6px] text-sm  text-neutral-500 stroke-neutral-500 ease-in-out hover:text-neutral-700 hover:stroke-neutral-700 "
+										"flex mb-2 flex-row p-[8px] shadow-lg rounded-md w-full bg-white stroke-blue-600  text-sm items-center") ||
+									"flex mb-2 p-[6px] text-sm  text-neutral-500 stroke-neutral-500 ease-in-out hover:text-neutral-700 hover:stroke-neutral-700 "
 								}
 								href={li.href}
 							>
