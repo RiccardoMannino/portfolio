@@ -90,6 +90,7 @@ export default function Contact() {
             onChange={handleChange}
             name="message"
             value={formData.message}
+            maxLength={250}
           />
         </div>
         <div className="mt-10 flex w-full justify-end">
