@@ -2,6 +2,7 @@
 import React, { useState } from 'react'
 import { getCalApi } from '@calcom/embed-react'
 import { useEffect } from 'react'
+import emailjs from '@emailjs/browser'
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -31,16 +32,36 @@ export default function Contact() {
     })()
   }, [])
 
+  //TODO : sistemare template dal sito Email.js
+  //TODO : creare toast a mano;
+  const sendEmail = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+
+    try {
+      const result = await emailjs.sendForm(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID as string,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID as string,
+        e.target as HTMLFormElement,
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY as string,
+      )
+      console.log(result.text)
+      alert('Messaggio inviato con successo!')
+    } catch (error) {
+      console.error("Errore nell'invio del messaggio:", error)
+      alert("Errore nell'invio del messaggio.")
+    }
+  }
+
   return (
     <>
       <h1 className="mb-4 text-3xl font-bold">
         Contattami <span>✉️</span>
       </h1>
-      <p>
+      <p className="text-neutral-500">
         Compila il Form sottostante e cercherò di risponderti il prima possibile
-        o prenota una chiamata
+        oppure prenota una chiamata.
       </p>
-      <form onSubmit={(e) => e.preventDefault()}>
+      <form onSubmit={sendEmail}>
         <div className="mt-6 grid grid-cols-2 grid-rows-[40px] gap-5">
           <input
             type="text"
