@@ -99,7 +99,7 @@ export default function Sidebar() {
   return (
     <>
       <motion.div
-        animate={{ x: isVisible ? 0 : -210 }}
+        animate={{ x: isVisible ? 0 : -215 }}
         transition={{ type: 'spring', duration: 1.5 }}
         className="fixed left-0 z-50 flex h-full w-fit flex-col justify-between bg-neutral-100 px-5 py-10"
       >
