@@ -58,8 +58,8 @@ export default function Contact() {
         Contattami <span>✉️</span>
       </h1>
       <p className="text-neutral-500">
-        Compila il Form sottostante e cercherò di risponderti il prima possibile
-        oppure prenota una chiamata.
+        Compila il Form sottostante e ti risponderò il prima possibile oppure
+        prenota una chiamata.
       </p>
       <form onSubmit={sendEmail}>
         <div className="mt-6 grid grid-cols-2 grid-rows-[40px] gap-5">

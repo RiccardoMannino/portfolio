@@ -4,8 +4,8 @@ import profilePic from '../assets/Me.jpg'
 
 export default function Avatar() {
   return (
-    <div className="flex space-x-2">
-      <div className="w-fit content-center">
+    <div className="mt-1 flex space-x-2">
+      <div className="w-fit">
         <Image
           src={profilePic}
           alt="Riccardo Mannino"
