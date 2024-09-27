@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} flex h-screen overflow-scroll bg-slate-100`}
+        className={`${geistSans.variable} ${geistMono.variable} flex h-dvh overflow-scroll bg-slate-100`}
       >
         <link rel="icon" href="favicon.png" sizes="any" />
         <Sidebar />
