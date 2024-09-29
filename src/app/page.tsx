@@ -91,7 +91,7 @@ export default function Home() {
             height={60}
             width={60}
             alt={i.alt}
-            className="mr-2"
+            className="mr-3"
           />
         ))}
       </div>
