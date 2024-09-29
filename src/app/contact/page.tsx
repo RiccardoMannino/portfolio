@@ -49,6 +49,7 @@ export default function Contact() {
     } catch (error) {
       console.error("Errore nell'invio del messaggio:", error)
       alert("Errore nell'invio del messaggio.")
+    } finally {
     }
   }
 
