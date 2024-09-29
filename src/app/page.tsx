@@ -83,7 +83,7 @@ export default function Home() {
         opportunità lavorative!
       </p>
       <h2 className="mb-5 mt-5 text-2xl font-medium">Tech Stack</h2>
-      <div className="flex flex-wrap gap-4">
+      <div className="flex flex-wrap justify-center gap-4 md:justify-start">
         {icons.map((i) => (
           <Image
             key={i.alt}
