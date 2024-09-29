@@ -8,6 +8,9 @@ import NextIcon from '../icons/nextjs.svg'
 import MaterialIcon from '../icons/material-ui.svg'
 import TailwindIcon from '../icons/tailwind-css.svg'
 import StyledIcon from '../icons/styled-components.svg'
+import SupabaseIcon from '../icons/supabase.svg'
+import GitIcon from '../icons/git.svg'
+import GithubIcon from '../icons/github.svg'
 
 const icons = [
   {
@@ -47,6 +50,18 @@ const icons = [
     icon: StyledIcon,
     alt: 'Styled-icon',
   },
+  {
+    icon: SupabaseIcon,
+    alt: 'SupaBase-icon',
+  },
+  {
+    icon: GitIcon,
+    alt: 'Git-icon',
+  },
+  {
+    icon: GithubIcon,
+    alt: 'Github-icon',
+  },
 ]
 
 export default function Home() {
@@ -60,7 +75,7 @@ export default function Home() {
         frontend junior con esperienza nell&apos;utilizzo di tecnologie moderne
         come React.js, Material UI, e Styled Components.
       </p>
-      <p className="mt-5 text-lg text-neutral-500">
+      <p className="mb-5 mt-5 text-lg text-neutral-500">
         Ho lavorato su progetti che integrano Redux per la gestione degli stati
         globali e ho competenze nello sviluppo e nella manutenzione di siti web,
         sia custom che su piattaforme come WordPress con Elementor. Dai
@@ -68,9 +83,16 @@ export default function Home() {
         opportunità lavorative!
       </p>
       <h2 className="mb-5 mt-5 text-2xl font-medium">Tech Stack</h2>
-      <div className="flex w-full space-x-7">
+      <div className="flex flex-wrap gap-4">
         {icons.map((i) => (
-          <Image key={i.alt} src={i.icon} height={50} width={50} alt={i.alt} />
+          <Image
+            key={i.alt}
+            src={i.icon}
+            height={60}
+            width={60}
+            alt={i.alt}
+            className="mr-2"
+          />
         ))}
       </div>
     </>
