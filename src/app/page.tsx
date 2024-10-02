@@ -67,31 +67,31 @@ const icons = [
 export default function Home() {
   return (
     <>
-      <h1 className="mb-4 text-3xl font-bold sm:text-wrap">
+      <h1 className="mb-4 text-wrap font-bold md:text-2xl lg:text-3xl">
         Ciao a tutti! Sono Riccardo 👋
       </h1>
-      <p className="mt-5 text-lg text-neutral-500">
+      <p className="mt-5 text-sm text-neutral-500 md:text-base lg:text-lg">
         Benvenuto nel mio portfolio! Sono Riccardo Mannino, uno sviluppatore web
         frontend junior con esperienza nell&apos;utilizzo di tecnologie moderne
         come React.js, Material UI, e Styled Components.
       </p>
-      <p className="mb-5 mt-5 text-lg text-neutral-500">
+      <p className="mb-5 mt-5 text-sm text-neutral-500 md:text-base lg:text-lg">
         Ho lavorato su progetti che integrano Redux per la gestione degli stati
         globali e ho competenze nello sviluppo e nella manutenzione di siti web,
         sia custom che su piattaforme come WordPress con Elementor. Dai
         un’occhiata ai miei progetti e contattami per collaborazioni o
         opportunità lavorative!
       </p>
-      <h2 className="mb-5 mt-5 text-2xl font-medium">Tech Stack</h2>
+      <h2 className="mb-5 mt-10 text-center text-lg font-medium md:text-left md:text-2xl">
+        Tech Stack
+      </h2>
       <div className="flex flex-wrap justify-center gap-4 md:justify-start">
         {icons.map((i) => (
           <Image
             key={i.alt}
             src={i.icon}
-            height={60}
-            width={60}
             alt={i.alt}
-            className="mr-3"
+            className="m-1 h-[45px] w-[45px] md:h-[60px] md:w-[60px]"
           />
         ))}
       </div>

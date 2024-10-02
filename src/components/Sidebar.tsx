@@ -100,7 +100,7 @@ export default function Sidebar() {
     <>
       <motion.div
         animate={{ x: isVisible ? 0 : -215 }}
-        transition={{ type: 'spring', duration: 1.5 }}
+        transition={{ type: 'spring', duration: 0.5 }}
         className="fixed left-0 z-50 flex h-full w-fit flex-col justify-between bg-neutral-100 px-5 py-10"
       >
         <div className="flex flex-col gap-7">
@@ -153,14 +153,14 @@ export default function Sidebar() {
       </motion.div>
       <motion.button
         animate={{ rotate: !isVisible ? 0 : 180 }}
-        transition={{ duration: 1 }}
-        className="fixed bottom-5 right-10 rounded-[50%] border p-2"
+        transition={{ duration: 0.3 }}
+        className="fixed bottom-4 right-4 rounded-[50%] border p-2"
         onClick={() => setIsVisible(!isVisible)}
       >
         {isVisible ? (
-          <IconLayoutSidebarRightCollapse />
+          <IconLayoutSidebarRightCollapse className="h-4 w-4" />
         ) : (
-          <IconLayoutSidebarRightExpand />
+          <IconLayoutSidebarRightExpand className="h-4 w-4" />
         )}
       </motion.button>
     </>

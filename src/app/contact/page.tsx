@@ -55,15 +55,15 @@ export default function Contact() {
 
   return (
     <>
-      <h1 className="mb-4 text-3xl font-bold">
+      <h1 className="mb-4 font-bold md:text-3xl">
         Contattami <span>✉️</span>
       </h1>
-      <p className="text-neutral-500">
+      <p className="text-sm text-neutral-500 md:text-base lg:text-lg">
         Compila il Form sottostante e ti risponderò il prima possibile oppure
         prenota una chiamata.
       </p>
       <form onSubmit={sendEmail}>
-        <div className="mt-6 grid grid-cols-2 grid-rows-[40px] gap-5">
+        <div className="mt-6 flex flex-col gap-5 sm:grid sm:grid-cols-2 sm:grid-rows-[40px]">
           <input
             type="text"
             placeholder="Nome"
@@ -71,7 +71,7 @@ export default function Contact() {
             value={formData.name}
             required
             onChange={handleChange}
-            className="rounded-xl border bg-neutral-100 indent-3 focus:border-gray-400 focus:outline-none focus:ring focus:ring-gray-300"
+            className="rounded-xl border bg-neutral-100 px-2 py-2 indent-3 text-sm text-neutral-500 focus:border-gray-400 focus:outline-none focus:ring focus:ring-gray-300 md:text-base lg:text-lg"
           />
           <input
             type="email"
@@ -80,11 +80,11 @@ export default function Contact() {
             value={formData.email}
             required
             onChange={handleChange}
-            className="rounded-xl border bg-neutral-100 indent-3 focus:border-gray-400 focus:outline-none focus:ring focus:ring-gray-300"
+            className="rounded-xl border bg-neutral-100 px-2 py-2 indent-3 text-sm text-neutral-500 focus:border-gray-400 focus:outline-none focus:ring focus:ring-gray-300 md:text-base lg:text-lg"
           />
 
           <textarea
-            className="col-span-2 rounded-xl border bg-neutral-100 pt-3 indent-3 focus:border-gray-400 focus:outline-none focus:ring focus:ring-gray-300"
+            className="col-span-2 rounded-xl border bg-neutral-100 pt-3 indent-3 text-sm text-neutral-500 focus:border-gray-400 focus:outline-none focus:ring focus:ring-gray-300 md:text-base lg:text-lg"
             rows={10}
             placeholder="Inserisci il tuo messaggio"
             required
@@ -96,7 +96,7 @@ export default function Contact() {
         </div>
         <div className="mt-10 flex w-full justify-end">
           <button
-            className="focus: w-full rounded-full border-gray-700 bg-neutral-100 px-4 py-2 font-semibold focus:outline-none focus:ring focus:ring-gray-300 active:outline-none active:ring active:ring-gray-300"
+            className="focus: w-full rounded-full border-gray-700 bg-neutral-100 px-4 py-2 text-sm font-semibold text-neutral-500 focus:outline-none focus:ring focus:ring-gray-300 active:outline-none active:ring active:ring-gray-300 md:text-base lg:text-lg"
             type="submit"
           >
             Invia!
