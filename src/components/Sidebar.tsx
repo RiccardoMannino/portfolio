@@ -99,8 +99,8 @@ export default function Sidebar() {
   return (
     <>
       <motion.div
-        animate={{ x: isVisible ? 0 : -215 }}
-        transition={{ type: 'spring', duration: 0.5 }}
+        animate={{ x: isVisible ? 0 : -200 }}
+        transition={{ type: 'ease', duration: 0.2 }}
         className="fixed left-0 z-50 flex h-full w-fit flex-col justify-between bg-neutral-100 px-5 py-10"
       >
         <div className="flex flex-col gap-7">
