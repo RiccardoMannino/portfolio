@@ -58,12 +58,12 @@ export default function Contact() {
       <h1 className="mb-4 font-bold md:text-3xl">
         Contattami <span>✉️</span>
       </h1>
-      <p className="text-sm text-neutral-500 md:text-base lg:text-lg">
+      <p className="mb-2 text-sm text-neutral-500 md:text-base lg:text-lg">
         Compila il Form sottostante e ti risponderò il prima possibile oppure
         prenota una chiamata.
       </p>
       <form onSubmit={sendEmail}>
-        <div className="mt-6 flex flex-col gap-5 sm:grid sm:grid-cols-2 sm:grid-rows-[40px]">
+        <div className="mt-7 flex flex-col gap-5 sm:grid sm:grid-cols-2 sm:grid-rows-[40px]">
           <input
             type="text"
             placeholder="Nome"
