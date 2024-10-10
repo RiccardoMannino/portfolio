@@ -91,7 +91,7 @@ export default function Home() {
             key={i.alt}
             src={i.icon}
             alt={i.alt}
-            className="m-1 h-[45px] w-[45px] md:h-[60px] md:w-[60px]"
+            className="m-1 h-[45px] w-[45px] transition duration-300 hover:-translate-y-2 md:h-[60px] md:w-[60px]"
           />
         ))}
       </div>

@@ -4,7 +4,7 @@ export default function About() {
   return (
     <>
       <h1 className="mb-4 font-bold md:text-3xl">
-        About Me <span>📓</span>
+        Chi sono <span>📖</span>
       </h1>
       <p className="mt-5 text-sm text-neutral-500 md:text-base lg:text-lg">
         Mi chiamo Riccardo Mannino e sono un appassionato frontend developer con

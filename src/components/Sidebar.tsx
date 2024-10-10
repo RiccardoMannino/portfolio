@@ -138,7 +138,6 @@ export default function Sidebar() {
             ))}
           </div>
         </div>
-
         <Link className="flex justify-center" href={'/resume'} passHref>
           <button
             onClick={(e) => {
@@ -147,7 +146,7 @@ export default function Sidebar() {
             type="button"
             className="bold flex items-center justify-between rounded-full bg-gray-900 px-4 py-3 text-xs font-semibold text-white"
           >
-            Read Resume {<IconChevronRight size={15} color="white" />}
+            Leggi Curriculum {<IconChevronRight size={15} color="white" />}
           </button>
         </Link>
       </motion.div>
