@@ -153,7 +153,7 @@ export default function Sidebar() {
       <motion.button
         animate={{ rotate: !isVisible ? 0 : 180 }}
         transition={{ duration: 0.3 }}
-        className="fixed bottom-4 right-4 rounded-[50%] border p-2"
+        className="fixed bottom-4 right-4 z-[100] rounded-[50%] border p-3"
         onClick={() => setIsVisible(!isVisible)}
       >
         {isVisible ? (

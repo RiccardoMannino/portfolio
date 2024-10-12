@@ -1,7 +1,7 @@
 'use client'
 import React, { useState } from 'react'
 import { getCalApi } from '@calcom/embed-react'
-import { useEffect } from 'react'
+// import { useEffect } from 'react'
 import emailjs from '@emailjs/browser'
 
 export default function Contact() {
@@ -21,19 +21,17 @@ export default function Contact() {
     }))
   }
 
-  useEffect(() => {
-    ;(async () => {
-      const cal = await getCalApi({ namespace: '30min' })
-      cal('ui', {
-        theme: 'light',
-        hideEventTypeDetails: false,
-        layout: 'month_view',
-      })
-    })()
-  }, [])
+  const prenotation = async () => {
+    const cal = await getCalApi({ namespace: '30min' })
+    cal('ui', {
+      theme: 'light',
+      hideEventTypeDetails: false,
+      layout: 'month_view',
+    })
+  }
 
-  //TODO : sistemare template dal sito Email.js
-  //TODO : creare toast a mano;
+  //TODO : aggiungere captcha
+  //TODO : creare toast a mano per l'invio mail
   const sendEmail = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
@@ -44,13 +42,17 @@ export default function Contact() {
         e.target as HTMLFormElement,
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY as string,
       )
-      console.log(result.text)
-      alert('Messaggio inviato con successo!')
     } catch (error) {
       console.error("Errore nell'invio del messaggio:", error)
       alert("Errore nell'invio del messaggio.")
     } finally {
     }
+
+    setFormData({
+      name: '',
+      email: '',
+      message: '',
+    })
   }
 
   return (
@@ -108,8 +110,9 @@ export default function Contact() {
         <button
           className="bold rounded-full bg-gray-900 px-3 py-3 text-xs font-semibold text-white"
           data-cal-namespace="30min"
-          data-cal-link="riccardo-mannino-mogao4/30min"
+          data-cal-link={`${process.env.NEXT_PUBLIC_CAL_LINK}`}
           data-cal-config='{"layout":"month_view"}'
+          onClick={prenotation}
         >
           Prenota chiamata
         </button>

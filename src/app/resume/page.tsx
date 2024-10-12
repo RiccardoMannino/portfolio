@@ -22,21 +22,21 @@ export default function page() {
               Sviluppatore Web Junior (Front-End).
             </p>
             <div className="my-2 flex items-start space-x-1">
-              <IconCircleCheckFilled className="h-4 w-4 text-emerald-200" />
+              <IconCircleCheckFilled className="h-4 w-8 text-emerald-200 sm:w-4" />
               <p className="text-sm text-neutral-500">
                 Creato componenti personalizzati con Material UI e Styled
                 Components in React.js per progetti privati.
               </p>
             </div>
             <div className="my-2 flex items-start space-x-1">
-              <IconCircleCheckFilled className="h-4 w-4 text-emerald-200" />
+              <IconCircleCheckFilled className="h-4 w-8 text-emerald-200 sm:w-4" />
               <p className="text-sm text-neutral-500">
                 Redux Toolkit per la gestione degli stati integrando anche la
                 comunicazione con API.
               </p>
             </div>
             <div className="my-2 flex items-start space-x-1">
-              <IconCircleCheckFilled className="h-4 w-4 text-emerald-200" />
+              <IconCircleCheckFilled className="h-4 w-8 text-emerald-200 sm:w-4" />
               <p className="text-sm text-neutral-500">
                 Implementato il routing delle pagine con Next.js e lavorato
                 anche con react router.
@@ -54,7 +54,7 @@ export default function page() {
               Corso intensivo Web Developer
             </p>
             <div className="my-2 flex items-start space-x-1">
-              <IconCircleCheckFilled className="h-4 w-4 text-emerald-200" />
+              <IconCircleCheckFilled className="h-4 w-8 text-emerald-200 sm:w-4" />
               <p className="text-sm text-neutral-500">
                 Prima parte: sviluppo con Html/CSS/Javascript, ad utilizzare Git
                 e a lavorare in team.
@@ -68,7 +68,7 @@ export default function page() {
               </p>
             </div>
             <div className="my-2 flex items-start space-x-1">
-              <IconCircleCheckFilled className="h-4 w-4 text-emerald-200" />
+              <IconCircleCheckFilled className="h-4 w-8 text-emerald-200 sm:w-4" />
               <p className="text-sm text-neutral-500">
                 Progetto finale con le seguenti tecnologie/librerie: Chartjs,
                 FullCalendar , CMS Headless Strapi.
@@ -86,7 +86,7 @@ export default function page() {
               Assistente Sito Web (Freelance)
             </p>
             <div className="my-2 flex items-start space-x-1">
-              <IconCircleCheckFilled className="h-4 w-4 text-emerald-200" />
+              <IconCircleCheckFilled className="h-4 w-8 text-emerald-200 sm:w-4" />
               <p className="text-sm text-neutral-500">
                 Uso base di Wordpress e del plugin Elementor per ripristinare e
                 mantenere il sito web aziendale.
