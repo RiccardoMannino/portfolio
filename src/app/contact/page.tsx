@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { getCalApi } from '@calcom/embed-react'
 // import { useEffect } from 'react'
 import emailjs from '@emailjs/browser'
+import toast from 'react-hot-toast'
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -31,7 +32,6 @@ export default function Contact() {
   }
 
   //TODO : aggiungere captcha
-  //TODO : creare toast a mano per l'invio mail
   const sendEmail = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
@@ -42,9 +42,12 @@ export default function Contact() {
         e.target as HTMLFormElement,
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY as string,
       )
+
+      if (result.status === 200) {
+        toast.success('Messaggio inviato con successo')
+      }
     } catch (error) {
-      console.error("Errore nell'invio del messaggio:", error)
-      alert("Errore nell'invio del messaggio.")
+      toast.error("Errore nell'invio del messaggio.")
     } finally {
     }
 
