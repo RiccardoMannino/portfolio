@@ -1,4 +1,13 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+  webpack(config, { dev, isServer }) {
+    if (!dev && !isServer) {
+      // Abilita le source maps solo in produzione
+      config.devtool = 'source-map'
+    }
 
-export default nextConfig;
+    return config
+  },
+}
+
+export default nextConfig
