@@ -31,7 +31,6 @@ export default function Contact() {
     })
   }
 
-  //TODO : aggiungere captcha
   const sendEmail = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
