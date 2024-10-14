@@ -1,4 +1,4 @@
-'use server'
+'use client'
 import React, { useState } from 'react'
 import { getCalApi } from '@calcom/embed-react'
 // import { useEffect } from 'react'
