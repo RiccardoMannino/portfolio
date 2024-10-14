@@ -8,6 +8,7 @@ const nextConfig = {
 
     return config
   },
+  productionBrowserSourceMaps: true,
 }
 
 export default nextConfig
