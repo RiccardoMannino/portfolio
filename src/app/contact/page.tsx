@@ -1,7 +1,8 @@
 'use client'
-import {  useState } from 'react'
+import { useEffect, useState } from 'react'
 import { getCalApi } from '@calcom/embed-react'
 import emailjs from '@emailjs/browser'
+
 import toast from 'react-hot-toast'
 
 export default function Contact() {
@@ -22,13 +23,13 @@ export default function Contact() {
   }
 
   async function prenotation() {
-      const cal = await getCalApi({ namespace: '30min' })
-      cal('ui', {
-        theme: 'light',
-        hideEventTypeDetails: false,
-        layout: 'month_view',
-      })
-    }
+    const cal = await getCalApi({ namespace: '30min' })
+    cal('ui', {
+      theme: 'light',
+      hideEventTypeDetails: false,
+      layout: 'month_view',
+    })
+    // Imposta un cookie per indicare che il widget è stato caricato
   }
 
   const sendEmail = async (e: React.FormEvent<HTMLFormElement>) => {
