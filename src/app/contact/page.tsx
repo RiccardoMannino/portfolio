@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { getCalApi } from '@calcom/embed-react'
 import emailjs from '@emailjs/browser'
 import toast from 'react-hot-toast'
@@ -21,14 +21,17 @@ export default function Contact() {
     }))
   }
 
-  async function prenotation() {
-    const cal = await getCalApi({ namespace: '30min' })
-    cal('ui', {
-      theme: 'light',
-      hideEventTypeDetails: false,
-      layout: 'month_view',
-    })
-  }
+  useEffect(() => {
+    async function prenotation() {
+      const cal = await getCalApi({ namespace: '30min' })
+      cal('ui', {
+        theme: 'light',
+        hideEventTypeDetails: false,
+        layout: 'month_view',
+      })
+    }
+    prenotation()
+  }, [])
 
   const sendEmail = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -64,6 +67,7 @@ export default function Contact() {
         Compila il Form sottostante e ti risponderò il prima possibile oppure
         prenota una chiamata.
       </p>
+
       <form onSubmit={sendEmail}>
         <div className="mt-7 flex flex-col gap-5 sm:grid sm:grid-cols-2 sm:grid-rows-[40px]">
           <input
@@ -112,7 +116,6 @@ export default function Contact() {
           data-cal-namespace="30min"
           data-cal-link={`${process.env.NEXT_PUBLIC_CAL_LINK}`}
           data-cal-config='{"layout":"month_view"}'
-          onClick={prenotation}
         >
           Prenota chiamata
         </button>
