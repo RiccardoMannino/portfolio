@@ -1,8 +1,7 @@
 'use client'
-import { useEffect, useState } from 'react'
+import {  useState } from 'react'
 import { getCalApi } from '@calcom/embed-react'
 import emailjs from '@emailjs/browser'
-import Cookies from 'js-cookie'
 import toast from 'react-hot-toast'
 
 export default function Contact() {
@@ -23,16 +22,12 @@ export default function Contact() {
   }
 
   async function prenotation() {
-    const widgetCookie = Cookies.get('cal_widget_loaded')
-    if (!widgetCookie) {
       const cal = await getCalApi({ namespace: '30min' })
       cal('ui', {
         theme: 'light',
         hideEventTypeDetails: false,
         layout: 'month_view',
       })
-      // Imposta un cookie per indicare che il widget è stato caricato
-      Cookies.set('cal_widget_loaded', 'true', { expires: 1 }) // Scade dopo 1 giorno
     }
   }
 
@@ -46,6 +41,7 @@ export default function Contact() {
         e.target as HTMLFormElement,
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY as string,
       )
+      console.log(result)
       if (result.status === 200) {
         toast.success('Messaggio inviato con successo')
       }
