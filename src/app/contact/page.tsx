@@ -1,7 +1,6 @@
 'use client'
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { getCalApi } from '@calcom/embed-react'
-// import { useEffect } from 'react'
 import emailjs from '@emailjs/browser'
 import toast from 'react-hot-toast'
 
@@ -22,7 +21,7 @@ export default function Contact() {
     }))
   }
 
-  const prenotation = async () => {
+  async function prenotation() {
     const cal = await getCalApi({ namespace: '30min' })
     cal('ui', {
       theme: 'light',

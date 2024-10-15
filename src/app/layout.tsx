@@ -20,6 +20,9 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   title: 'Riccardo Mannino | Frontend Developer',
   description: 'Riccardo Mannino Portfolio Website',
+  openGraph: {
+    description: 'Riccardo Mannino Portfolio Website',
+  },
 }
 
 export default function RootLayout({
@@ -34,6 +37,9 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} flex h-screen bg-slate-100 sm:h-dvh sm:overflow-scroll lg:overflow-hidden`}
       >
         <link rel="icon" href="favicon.ico" sizes="16x16" />
+
+        <Sidebar />
+        <MainLayout>{children}</MainLayout>
         <Toaster
           position="top-center"
           reverseOrder={false}
@@ -50,8 +56,6 @@ export default function RootLayout({
             },
           }}
         />
-        <Sidebar />
-        <MainLayout>{children}</MainLayout>
       </body>
     </html>
   )
