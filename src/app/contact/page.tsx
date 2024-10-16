@@ -45,9 +45,7 @@ export default function Contact() {
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY as string,
       )
       console.log(result)
-      if (result.status === 200) {
-        toast.success('Messaggio inviato con successo')
-      }
+      toast.success('Messaggio inviato con successo')
     } catch (error) {
       toast.error("Errore nell'invio del messaggio.")
     } finally {
