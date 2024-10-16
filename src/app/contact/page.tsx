@@ -22,15 +22,17 @@ export default function Contact() {
     }))
   }
 
-  async function prenotation() {
-    const cal = await getCalApi({ namespace: '30min' })
-    cal('ui', {
-      theme: 'light',
-      hideEventTypeDetails: false,
-      layout: 'month_view',
-    })
-    // Imposta un cookie per indicare che il widget è stato caricato
-  }
+  useEffect(() => {
+    async function prenotation() {
+      const cal = await getCalApi({ namespace: '30min' })
+      cal('ui', {
+        theme: 'light',
+        hideEventTypeDetails: false,
+        layout: 'month_view',
+      })
+    }
+    prenotation()
+  }, [])
 
   const sendEmail = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -116,7 +118,6 @@ export default function Contact() {
           data-cal-namespace="30min"
           data-cal-link={`${process.env.NEXT_PUBLIC_CAL_LINK}`}
           data-cal-config='{"layout":"month_view"}'
-          onClick={prenotation}
         >
           Prenota chiamata
         </button>
