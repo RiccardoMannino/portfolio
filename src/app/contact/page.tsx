@@ -116,7 +116,7 @@ export default function Contact() {
         <button
           className="bold rounded-full bg-gray-900 px-3 py-3 text-xs font-semibold text-white"
           data-cal-namespace="30min"
-          data-cal-link={`${process.env.NEXT_PUBLIC_CAL_LINK}`}
+          data-cal-link="riccardo-mannino-mogao4/30min"
           data-cal-config='{"layout":"month_view"}'
         >
           Prenota chiamata
