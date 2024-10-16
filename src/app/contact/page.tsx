@@ -7,6 +7,7 @@ import toast from 'react-hot-toast'
 
 export default function Contact() {
   const [IsSending, setIsSending] = useState(false)
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
