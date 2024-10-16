@@ -39,10 +39,10 @@ export default function Contact() {
 
     try {
       const result = await emailjs.sendForm(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID as string,
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID as string,
+        process.env.EMAILJS_SERVICE_ID as string,
+        process.env.EMAILJS_TEMPLATE_ID as string,
         e.target as HTMLFormElement,
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY as string,
+        process.env.EMAILJS_PUBLIC_KEY as string,
       )
       console.log(result)
       toast.success('Messaggio inviato con successo')
