@@ -111,7 +111,7 @@ export default function Contact() {
             className="focus: w-full rounded-full border-gray-700 bg-neutral-100 px-4 py-2 text-sm font-semibold text-neutral-500 focus:outline-none focus:ring focus:ring-gray-300 active:outline-none active:ring active:ring-gray-300 md:text-base lg:text-lg"
             type="submit"
           >
-            Invia!
+            Invia Form!
           </button>
         </div>
       </form>
