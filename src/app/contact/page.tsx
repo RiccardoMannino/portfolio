@@ -6,6 +6,7 @@ import emailjs from '@emailjs/browser'
 import toast from 'react-hot-toast'
 
 export default function Contact() {
+  const [IsSending, setIsSending] = useState(false)
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -38,6 +39,7 @@ export default function Contact() {
     e.preventDefault()
 
     try {
+      setIsSending(true)
       const result = await emailjs.sendForm(
         process.env.EMAILJS_SERVICE_ID as string,
         process.env.EMAILJS_TEMPLATE_ID as string,
@@ -49,13 +51,13 @@ export default function Contact() {
     } catch (error) {
       toast.error("Errore nell'invio del messaggio.")
     } finally {
+      setIsSending(false),
+        setFormData({
+          name: '',
+          email: '',
+          message: '',
+        })
     }
-
-    setFormData({
-      name: '',
-      email: '',
-      message: '',
-    })
   }
 
   return (
@@ -71,6 +73,7 @@ export default function Contact() {
       <form onSubmit={sendEmail}>
         <div className="mt-7 flex flex-col gap-5 sm:grid sm:grid-cols-2 sm:grid-rows-[40px]">
           <input
+            disabled={IsSending}
             type="text"
             placeholder="Nome"
             name="name"
@@ -80,6 +83,7 @@ export default function Contact() {
             className="rounded-xl border bg-neutral-100 px-2 py-2 indent-3 text-sm text-neutral-500 focus:border-gray-400 focus:outline-none focus:ring focus:ring-gray-300 md:text-base lg:text-lg"
           />
           <input
+            disabled={IsSending}
             type="email"
             placeholder="Email"
             name="email"
@@ -90,6 +94,7 @@ export default function Contact() {
           />
 
           <textarea
+            disabled={IsSending}
             className="col-span-2 rounded-xl border bg-neutral-100 pt-3 indent-3 text-sm text-neutral-500 focus:border-gray-400 focus:outline-none focus:ring focus:ring-gray-300 md:text-base lg:text-lg"
             rows={10}
             placeholder="Inserisci il tuo messaggio"
@@ -102,6 +107,7 @@ export default function Contact() {
         </div>
         <div className="mt-10 flex w-full justify-end">
           <button
+            disabled={IsSending}
             className="focus: w-full rounded-full border-gray-700 bg-neutral-100 px-4 py-2 text-sm font-semibold text-neutral-500 focus:outline-none focus:ring focus:ring-gray-300 active:outline-none active:ring active:ring-gray-300 md:text-base lg:text-lg"
             type="submit"
           >
