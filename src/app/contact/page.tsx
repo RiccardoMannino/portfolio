@@ -1,4 +1,5 @@
 'use client'
+
 import { useEffect, useState } from 'react'
 import { getCalApi } from '@calcom/embed-react'
 import emailjs from '@emailjs/browser'
@@ -50,6 +51,7 @@ export default function Contact() {
       console.log(result)
       toast.success('Messaggio inviato con successo')
     } catch (error) {
+      console.error(error)
       toast.error("Errore nell'invio del messaggio.")
     } finally {
       setIsSending(false),
