@@ -105,7 +105,6 @@ export default function Sidebar() {
         onMouseLeave={() => setHover(false)}
         animate={{ x: isVisible ? 0 : -220 }}
         transition={{ type: 'ease', duration: 0.2 }}
-        // className={`fixed left-0 z-50 flex h-full w-[80px] ${hover ? 'md:w-[220px]' : 'max-[500px]:w-[80px]'} flex-col justify-between bg-neutral-100 px-5 py-10 transition-all duration-200 ease-out`}
         className={`fixed left-0 z-50 flex h-full flex-col justify-between bg-neutral-100 px-5 py-10 ${
           hover ? 'w-[220px]' : 'w-[80px]'
         } w-[220px] transition-all duration-200 ease-out max-[500px]:w-[80px]`}
@@ -128,9 +127,6 @@ export default function Sidebar() {
                 >
                   {li.image}
                   <span
-                    // className={`${(!hover && 'hidden') || (hover && 'max-[500px]:hidden')}`}
-                    // className={`hidden gap-4 transition-all duration-200 md:flex ${hover && 'opacity-100 min-[500px]:w-auto'}`}
-
                     className={`hidden gap-4 transition-all duration-200 sm:flex ${
                       hover ? 'w-auto opacity-100' : ''
                     } min-[500px]:inline sm:inline`}
@@ -162,7 +158,7 @@ export default function Sidebar() {
                 <span
                   className={`hidden gap-4 transition-all duration-200 sm:flex ${
                     hover ? 'w-auto opacity-100' : ''
-                  } min-[500px]:inline`}
+                  } ml-3 min-[500px]:inline`}
                 >
                   {so.pagina}
                 </span>

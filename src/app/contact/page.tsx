@@ -49,10 +49,28 @@ export default function Contact() {
         process.env.EMAILJS_PUBLIC_KEY as string,
       )
       console.log(result)
-      toast.success('Messaggio inviato con successo')
+
+      toast.custom((t) => (
+        <div
+          className={`rounded-full bg-[#111827] px-6 py-4 text-white shadow-md ${
+            t.visible ? 'animate-enter' : 'animate-leave'
+          }`}
+        >
+          Messaggio inviato con successo ✅
+        </div>
+      ))
     } catch (error) {
       console.error(error)
-      toast.error("Errore nell'invio del messaggio.")
+      toast.custom((t) => (
+        <div
+          className={`font-white rounded-full bg-[#111827] px-6 py-4 text-white shadow-md max-[500px]:fixed max-[500px]:bottom-[-600px] max-[500px]:right-0 max-[500px]:px-4 max-[500px]:py-2 ${
+            t.visible ? 'animate-enter' : 'animate-leave'
+          }`}
+        >
+          Errore nell&apos; invio del messaggio ⛔
+        </div>
+      ))
+      // toast.error("Errore nell'invio del messaggio.")
     } finally {
       setIsSending(false),
         setFormData({
