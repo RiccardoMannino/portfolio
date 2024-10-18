@@ -107,7 +107,7 @@ export default function Sidebar() {
         transition={{ type: 'ease', duration: 0.2 }}
         className={`fixed left-0 z-50 flex h-full flex-col justify-between bg-neutral-100 px-5 py-10 ${
           hover ? 'w-[220px]' : 'w-[80px]'
-        } transition-all duration-200 ease-out max-[500px]:w-[80px] sm:w-[220px]`}
+        } min-[501]:w-[220px] transition-all duration-200 ease-out max-[500px]:w-[80px]`}
       >
         <div className="flex flex-col gap-7">
           <Avatar hover={hover} />
@@ -120,8 +120,8 @@ export default function Sidebar() {
                   }}
                   className={
                     (isActive(`${li.href}`) &&
-                      'flex w-full items-center gap-2 rounded-md bg-white p-[8px] text-sm shadow-lg max-[500px]:justify-center') ||
-                    'flex transform gap-2 stroke-neutral-500 p-[8px] text-sm text-neutral-400 duration-100 ease-in-out hover:stroke-neutral-700 hover:text-neutral-700 max-[500px]:justify-center'
+                      'max-[500px]:justify-center flex w-full items-center gap-2 rounded-md bg-white p-[8px] text-sm shadow-lg') ||
+                    'max-[500px]:justify-center flex transform gap-2 stroke-neutral-500 p-[8px] text-sm text-neutral-400 duration-100 ease-in-out hover:stroke-neutral-700 hover:text-neutral-700'
                   }
                   href={li.href}
                 >
@@ -151,14 +151,14 @@ export default function Sidebar() {
                 href={so.href}
                 target="_blank"
                 key={so.href}
-                className="flex transform flex-row items-center stroke-neutral-500 p-[6px] text-sm text-neutral-400 delay-75 duration-100 ease-in hover:stroke-neutral-700 hover:text-neutral-700 max-[500px]:justify-center"
+                className="max-[500px]:justify-center flex transform flex-row items-center stroke-neutral-500 p-[6px] text-sm text-neutral-400 delay-75 duration-100 ease-in hover:stroke-neutral-700 hover:text-neutral-700"
               >
                 {so.image}
 
                 <span
                   className={`hidden gap-4 transition-all duration-200 sm:flex ${
                     hover ? 'w-auto opacity-100' : ''
-                  } ml-3 min-[500px]:inline`}
+                  } min-[500px]:inline ml-3`}
                 >
                   {so.pagina}
                 </span>
@@ -172,7 +172,7 @@ export default function Sidebar() {
               e.preventDefault(), router.push('/resume')
             }}
             type="button"
-            className="bold flex w-fit items-center justify-between rounded-full bg-gray-900 px-4 py-3 text-xs font-semibold text-white max-[500px]:px-3 max-[500px]:py-3"
+            className="bold max-[500px]:px-3 max-[500px]:py-3 flex w-fit items-center justify-between rounded-full bg-gray-900 px-4 py-3 text-xs font-semibold text-white"
           >
             <div className="flex gap-2">
               <>
