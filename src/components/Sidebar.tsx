@@ -9,6 +9,7 @@ import {
   IconChevronRight,
   IconBriefcase,
   IconHome,
+  IconUser,
   IconMessage,
   IconBrandLinkedin,
   IconBrandGithub,
@@ -25,6 +26,7 @@ type Pagine = {
 
 export default function Sidebar() {
   const [isVisible, setIsVisible] = useState(true)
+  const [hover, setHover] = useState(false)
 
   const router = useRouter()
   const pathname = usePathname()
@@ -55,7 +57,7 @@ export default function Sidebar() {
       pagina: 'Chi sono',
       href: '/about',
       image: (
-        <IconMessage
+        <IconUser
           size={20}
           className={isActive(`/about`) ? 'stroke-blue-300' : ''}
         />
@@ -99,12 +101,14 @@ export default function Sidebar() {
   return (
     <>
       <motion.div
+        onMouseEnter={() => setHover(true)}
+        onMouseLeave={() => setHover(false)}
         animate={{ x: isVisible ? 0 : -220 }}
         transition={{ type: 'ease', duration: 0.2 }}
-        className="fixed left-0 z-50 flex h-full w-fit flex-col justify-between bg-neutral-100 px-5 py-10"
+        className={`fixed left-0 z-50 flex h-full w-[80px] ${hover ? 'md:w-[220px]' : 'w-[80px]'} flex-col justify-between bg-neutral-100 px-5 py-10 transition-all duration-200 ease-out`}
       >
         <div className="flex flex-col gap-7">
-          <Avatar />
+          <Avatar hover={hover} />
           <div className="mt-4 flex flex-col gap-2">
             {listaPagine.map((li) => (
               <motion.div key={li.href}>
@@ -120,25 +124,30 @@ export default function Sidebar() {
                   href={li.href}
                 >
                   {li.image}
-                  {li.pagina}
+                  <span
+                    className={`${(!hover && 'hidden') || (hover && 'max-[374px]:hidden')}`}
+                  >
+                    {li.pagina}
+                  </span>
                 </Link>
               </motion.div>
             ))}
-            <p className="mx-2 mt-8 text-sm font-bold">Socials</p>
+            {hover && <p className="mx-2 mt-8 text-sm font-bold">Socials</p>}
 
             {social.map((so) => (
               <Link
                 href={so.href}
                 target="_blank"
                 key={so.href}
-                className="delay-2 flex transform flex-row items-center stroke-neutral-500 p-[6px] text-sm text-neutral-400 duration-100 ease-in hover:stroke-neutral-700 hover:text-neutral-700"
+                className="flex transform flex-row items-center stroke-neutral-500 p-[6px] text-sm text-neutral-400 delay-75 duration-100 ease-in hover:stroke-neutral-700 hover:text-neutral-700"
               >
-                {so.image} <span className="ml-[0.8rem]">{so.pagina}</span>
+                {so.image}
+                {hover && <span className="ml-[0.8rem]">{so.pagina}</span>}
               </Link>
             ))}
           </div>
         </div>
-        <Link className="flex justify-center" href={'/resume'} passHref>
+        <Link className="flex hover:justify-center" href={'/resume'} passHref>
           <button
             onClick={(e) => {
               e.preventDefault(), router.push('/resume')
@@ -146,10 +155,18 @@ export default function Sidebar() {
             type="button"
             className="bold flex items-center justify-between rounded-full bg-gray-900 px-4 py-3 text-xs font-semibold text-white"
           >
-            Leggi Curriculum {<IconChevronRight size={15} color="white" />}
+            {hover ? (
+              <>
+                <span>Leggi Curriculum</span>
+                <IconChevronRight size={15} color="white" />
+              </>
+            ) : (
+              'CV'
+            )}
           </button>
         </Link>
       </motion.div>
+
       <motion.button
         animate={{ rotate: !isVisible ? 0 : 180 }}
         transition={{ duration: 0.3 }}

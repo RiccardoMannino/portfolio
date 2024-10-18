@@ -2,7 +2,7 @@ import Image from 'next/image'
 import React from 'react'
 import profilePic from '../assets/Me.jpg'
 
-export default function Avatar() {
+export default function Avatar({ hover }: { hover: boolean }) {
   return (
     <div className="mt-1 flex space-x-2">
       <div className="w-fit">
@@ -15,10 +15,12 @@ export default function Avatar() {
           priority={true}
         />
       </div>
-      <div className="flex flex-col text-sm">
-        <p className="font-bold">Riccardo Mannino</p>
-        <p className="font-thin">Jr Frontend Developer</p>
-      </div>
+      {hover && (
+        <div className="flex flex-col text-sm">
+          <p className="font-bold">Riccardo Mannino</p>
+          <p className="font-thin">Jr Frontend Developer</p>
+        </div>
+      )}
     </div>
   )
 }
