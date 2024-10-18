@@ -107,7 +107,7 @@ export default function Sidebar() {
         transition={{ type: 'ease', duration: 0.2 }}
         className={`fixed left-0 z-50 flex h-full flex-col justify-between bg-neutral-100 px-5 py-10 ${
           hover ? 'w-[220px]' : 'w-[80px]'
-        } w-[220px] transition-all duration-200 ease-out max-[500px]:w-[80px]`}
+        } transition-all duration-200 ease-out max-[500px]:w-[80px] sm:w-[220px]`}
       >
         <div className="flex flex-col gap-7">
           <Avatar hover={hover} />
