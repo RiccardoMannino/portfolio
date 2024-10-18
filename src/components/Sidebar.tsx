@@ -26,7 +26,6 @@ type Pagine = {
 
 export default function Sidebar() {
   const [isVisible, setIsVisible] = useState(true)
-  const [hover, setHover] = useState(false)
 
   const router = useRouter()
   const pathname = usePathname()
@@ -101,16 +100,12 @@ export default function Sidebar() {
   return (
     <>
       <motion.div
-        onMouseEnter={() => setHover(true)}
-        onMouseLeave={() => setHover(false)}
         animate={{ x: isVisible ? 0 : -220 }}
         transition={{ type: 'ease', duration: 0.2 }}
-        className={`fixed left-0 z-50 flex h-full flex-col justify-between bg-neutral-100 px-5 py-10 ${
-          hover ? 'w-[220px]' : 'w-[80px]'
-        } min-[501]:w-[220px] transition-all duration-200 ease-out max-[500px]:w-[80px]`}
+        className={`min-[501]:w-[220px] fixed left-0 z-50 flex h-full flex-col justify-between bg-neutral-100 px-5 py-10 transition-all duration-200 ease-out max-[500px]:w-[80px]`}
       >
         <div className="flex flex-col gap-7">
-          <Avatar hover={hover} />
+          <Avatar />
           <div className="mt-4 flex flex-col gap-2">
             {listaPagine.map((li) => (
               <motion.div key={li.href}>
@@ -126,22 +121,14 @@ export default function Sidebar() {
                   href={li.href}
                 >
                   {li.image}
-                  <span
-                    className={`hidden gap-4 transition-all duration-200 sm:flex ${
-                      hover ? 'w-auto opacity-100' : ''
-                    } min-[500px]:inline sm:inline`}
-                  >
+                  <span className="min-[500px]:inline hidden gap-4 sm:flex">
                     {li.pagina}
                   </span>
                 </Link>
               </motion.div>
             ))}
             {
-              <p
-                className={`mx-2 mt-8 hidden gap-4 text-sm font-bold transition-all duration-200 sm:flex ${
-                  hover ? 'w-auto opacity-100' : ''
-                } min-[500px]:inline sm:inline`}
-              >
+              <p className="min-[500px]:inline mx-2 mt-8 hidden gap-4 text-sm font-bold sm:flex">
                 Socials
               </p>
             }
@@ -156,9 +143,7 @@ export default function Sidebar() {
                 {so.image}
 
                 <span
-                  className={`hidden gap-4 transition-all duration-200 sm:flex ${
-                    hover ? 'w-auto opacity-100' : ''
-                  } min-[500px]:inline ml-3`}
+                  className={`min-[500px]:inline ml-3 hidden gap-4 transition-all duration-200 sm:flex`}
                 >
                   {so.pagina}
                 </span>

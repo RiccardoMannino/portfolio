@@ -2,7 +2,7 @@ import Image from 'next/image'
 import React from 'react'
 import profilePic from '../assets/Me.jpg'
 
-export default function Avatar({ hover }: { hover: boolean }) {
+export default function Avatar() {
   return (
     <div className="mt-1 flex space-x-2">
       <div className="w-fit">
@@ -16,11 +16,7 @@ export default function Avatar({ hover }: { hover: boolean }) {
         />
       </div>
 
-      <div
-        className={`transition-all duration-200 max-[500px]:hidden sm:flex ${
-          hover ? 'w-auto opacity-100' : ''
-        } flex flex-col text-sm max-[500px]:inline sm:inline`}
-      >
+      <div className="flex flex-col text-sm transition-all duration-200 max-[500px]:inline max-[500px]:hidden sm:flex">
         <p className="font-bold">Riccardo Mannino</p>
         <p className="font-thin">Jr Frontend Developer</p>
       </div>
