@@ -15,12 +15,15 @@ export default function Avatar({ hover }: { hover: boolean }) {
           priority={true}
         />
       </div>
-      {hover && (
-        <div className="flex flex-col text-sm">
-          <p className="font-bold">Riccardo Mannino</p>
-          <p className="font-thin">Jr Frontend Developer</p>
-        </div>
-      )}
+
+      <div
+        className={`transition-all duration-200 max-[500px]:hidden sm:flex ${
+          hover ? 'w-auto opacity-100' : ''
+        } flex flex-col text-sm max-[500px]:inline sm:inline`}
+      >
+        <p className="font-bold">Riccardo Mannino</p>
+        <p className="font-thin">Jr Frontend Developer</p>
+      </div>
     </div>
   )
 }
