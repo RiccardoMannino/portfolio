@@ -55,7 +55,7 @@ export default function Contact() {
       console.error(error)
       toast.custom((t) => (
         <div
-          className={`font-white rounded-full bg-[#111827] px-6 py-4 text-white shadow-md max-[500px]:fixed max-[500px]:bottom-[-600px] max-[500px]:right-0 max-[500px]:px-4 max-[500px]:py-2 ${
+          className={`font-white rounded-full bg-[#111827] px-6 py-4 text-white shadow-md ${
             t.visible ? 'animate-enter' : 'animate-leave'
           }`}
         >
