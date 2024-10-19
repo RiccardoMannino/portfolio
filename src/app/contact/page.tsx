@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import { getCalApi } from '@calcom/embed-react'
 import emailjs from '@emailjs/browser'
-import { useForm } from 'react-hook-form'
+import { Field, FieldValues, useForm } from 'react-hook-form'
 import toast from 'react-hot-toast'
 
 export default function Contact() {
@@ -31,7 +31,7 @@ export default function Contact() {
     prenotation()
   }, [])
 
-  const sendEmail = async (data) => {
+  const sendEmail = async (data: FieldValues) => {
     try {
       setIsSending(true)
       const result = await emailjs.send(
