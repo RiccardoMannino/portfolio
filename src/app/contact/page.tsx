@@ -33,7 +33,7 @@ export default function Contact() {
     prenotation()
   }, [])
 
-  function onCaptchaChange(value) {
+  function onCaptchaChange(value: string | null) {
     console.log('Captcha value:', value)
     setIsCaptcha(false)
   }
