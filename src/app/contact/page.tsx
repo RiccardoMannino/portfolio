@@ -110,7 +110,7 @@ export default function Contact() {
                 required: true,
                 pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
               })}
-              className={`w-full rounded-xl border bg-neutral-100 px-2 py-2 indent-3 text-sm text-neutral-500 focus:border-gray-400 focus:outline-none focus:ring focus:ring-gray-300 valid:focus:ring md:text-base lg:text-lg ${(errors.email && 'border-red-500 bg-red-100') || 'bg-neutral-100'}`}
+              className={` ${(errors.email && 'border-red-500 bg-red-100 focus:outline-none focus:ring focus:ring-red-300') || 'bg-neutral-100'} w-full rounded-xl border bg-neutral-100 px-2 py-2 indent-3 text-sm text-neutral-500 focus:border-gray-400 focus:outline-none focus:ring focus:ring-gray-300 md:text-base lg:text-lg`}
             />
             {errors.email && (
               <p className="mb-5 pt-1 text-sm text-red-500 md:text-base lg:text-lg">
@@ -156,7 +156,7 @@ export default function Contact() {
         <button
           className="bold rounded-full bg-gray-900 px-3 py-3 text-xs font-semibold text-white"
           data-cal-namespace="30min"
-          data-cal-link="riccardo-mannino-mogao4/30min"
+          data-cal-link={`${process.env.NEXT_PUBLIC_CAL_LINK}`}
           data-cal-config='{"layout":"month_view"}'
         >
           Prenota chiamata
