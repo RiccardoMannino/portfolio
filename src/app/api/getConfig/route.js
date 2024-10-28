@@ -1,4 +1,4 @@
-// app/api/getConfig/route.js
+import { NextResponse } from 'next/server'
 
 export async function GET() {
   const responseData = {
@@ -10,5 +10,5 @@ export async function GET() {
   }
 
   // Restituisci la risposta JSON
-  return await responseData.json()
+  return NextResponse.json(responseData)
 }
