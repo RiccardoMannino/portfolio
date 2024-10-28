@@ -10,6 +10,7 @@ import toast from 'react-hot-toast'
 export default function Contact() {
   const [IsSending, setIsSending] = useState(false)
   const [IsCaptcha, setIsCaptcha] = useState(true)
+  const [captchaToken, setCaptchaToken] = useState<string | null>(null)
 
   const {
     register,
@@ -35,18 +36,8 @@ export default function Contact() {
 
   function onChange(value: string | null) {
     console.log('g-recaptcha-response token:', value)
-    // Invia il token al backend per la validazione
     if (value) {
-      fetch('/api/verify-recaptcha', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ token: value }),
-      })
-        .then((response) => response.json())
-        .then((data) => console.log(data))
-        .catch((error) => console.error('Errore:', error))
+      setCaptchaToken(value) // Salva il token CAPTCHA
       setIsCaptcha(false)
     }
   }
@@ -54,10 +45,14 @@ export default function Contact() {
   const sendEmail = async (data: FieldValues) => {
     try {
       setIsSending(true)
+      const formDataWithCaptcha = {
+        ...data,
+        'g-recaptcha-response': captchaToken,
+      }
       const result = await emailjs.send(
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID as string,
         process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID as string,
-        data,
+        formDataWithCaptcha,
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY as string,
       )
       console.log(result)
@@ -85,6 +80,7 @@ export default function Contact() {
     } finally {
       setIsSending(false)
       setIsCaptcha(true)
+      setCaptchaToken(null)
       reset()
     }
   }
@@ -94,7 +90,7 @@ export default function Contact() {
       <h1 className="mb-4 font-bold md:text-3xl">
         Contattami <span>✉️</span>
       </h1>
-      {IsCaptcha ? (
+      {captchaToken ? (
         <>
           <p className="mb-2 text-sm text-neutral-500 md:text-base lg:text-lg">
             Per poter inviare un messaggio devi completare il Captcha
