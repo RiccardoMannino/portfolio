@@ -50,10 +50,10 @@ export default function Contact() {
         'g-recaptcha-response': captchaToken,
       }
       const result = await emailjs.send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID as string,
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID as string,
+        process.env.EMAILJS_SERVICE_ID as string,
+        process.env.EMAILJS_TEMPLATE_ID as string,
         formDataWithCaptcha,
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY as string,
+        process.env.EMAILJS_PUBLIC_KEY as string,
       )
       console.log(result)
 
@@ -97,7 +97,7 @@ export default function Contact() {
             Per poter inviare un messaggio devi completare il Captcha
           </p>
           <ReCAPTCHA
-            sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY as string}
+            sitekey={process.env.RECAPTCHA_SITE_KEY as string}
             onChange={onChange}
           />
         </>
@@ -187,7 +187,7 @@ export default function Contact() {
             <button
               className="bold rounded-full bg-gray-900 px-3 py-3 text-xs font-semibold text-white"
               data-cal-namespace="30min"
-              data-cal-link={`${process.env.NEXT_PUBLIC_CALL_LINK}`}
+              data-cal-link={`${process.env.CALL_LINK}`}
               data-cal-config='{"layout":"month_view"}'
             >
               Prenota chiamata
