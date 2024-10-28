@@ -121,14 +121,14 @@ export default function Sidebar() {
                   href={li.href}
                 >
                   {li.image}
-                  <span className="min-[500px]:inline hidden gap-4 sm:flex">
+                  <span className="max-[500px]:hidden ml-3 gap-4 transition-all duration-200 sm:flex">
                     {li.pagina}
                   </span>
                 </Link>
               </motion.div>
             ))}
             {
-              <p className="min-[500px]:inline mx-2 mt-8 hidden gap-4 text-sm font-bold sm:flex">
+              <p className="max-[500px]:hidden mx-2 mt-8 gap-4 text-sm font-bold sm:flex">
                 Socials
               </p>
             }
@@ -143,7 +143,7 @@ export default function Sidebar() {
                 {so.image}
 
                 <span
-                  className={`min-[500px]:inline ml-3 hidden gap-4 transition-all duration-200 sm:flex`}
+                  className={`max-[500px]:hidden ml-3 gap-4 transition-all duration-200 sm:flex`}
                 >
                   {so.pagina}
                 </span>
@@ -161,8 +161,8 @@ export default function Sidebar() {
           >
             <div className="flex gap-2">
               <>
-                <span className="max-[500px]:hidden">Leggi Curriculum</span>
-                <span className="min-[500px]:hidden">Cv</span>
+                <span className="max-[500px]:inline hidden">Cv</span>
+                <span className="max-[500px]:hidden">Leggi curriculum</span>
                 <IconChevronRight
                   className="max-[500px]:hidden"
                   size={15}
