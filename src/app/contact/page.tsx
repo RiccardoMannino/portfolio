@@ -33,9 +33,22 @@ export default function Contact() {
     prenotation()
   }, [])
 
-  function onCaptchaChange(value: string | null) {
-    console.log('Captcha value:', value)
-    setIsCaptcha(false)
+  function onChange(value: string | null) {
+    console.log('g-recaptcha-response token:', value)
+    // Invia il token al backend per la validazione
+    if (value) {
+      fetch('/api/verify-recaptcha', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ token: value }),
+      })
+        .then((response) => response.json())
+        .then((data) => console.log(data))
+        .catch((error) => console.error('Errore:', error))
+      setIsCaptcha(false)
+    }
   }
 
   const sendEmail = async (data: FieldValues) => {
@@ -71,6 +84,7 @@ export default function Contact() {
       ))
     } finally {
       setIsSending(false)
+      setIsCaptcha(true)
       reset()
     }
   }
@@ -87,7 +101,7 @@ export default function Contact() {
           </p>
           <ReCAPTCHA
             sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY as string}
-            onChange={onCaptchaChange}
+            onChange={onChange}
           />
         </>
       ) : (
