@@ -81,6 +81,7 @@ export default function Contact() {
       setIsSending(false)
       setIsCaptcha(true)
       setCaptchaToken(null)
+      sessionStorage.clear()
       reset()
     }
   }
