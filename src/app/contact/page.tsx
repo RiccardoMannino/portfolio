@@ -11,6 +11,13 @@ export default function Contact() {
   const [IsSending, setIsSending] = useState(false)
   const [IsCaptcha, setIsCaptcha] = useState(true)
   const [captchaToken, setCaptchaToken] = useState<string | null>(null)
+  const [config, setConfig] = useState({
+    recaptchaSiteKey: '',
+    emailJsPublicKey: '',
+    callLink: '',
+    emailJsServiceId: '',
+    emailJsTemplateId: '',
+  })
 
   const {
     register,
@@ -21,6 +28,15 @@ export default function Contact() {
   } = useForm()
 
   const formValue = watch()
+
+  useEffect(() => {
+    async function fetchConfig() {
+      const response = await fetch('/api/getConfig')
+      const data = await response.json()
+      setConfig(data)
+    }
+    fetchConfig()
+  }, [])
 
   useEffect(() => {
     async function prenotation() {
@@ -50,10 +66,10 @@ export default function Contact() {
         'g-recaptcha-response': captchaToken,
       }
       const result = await emailjs.send(
-        process.env.EMAILJS_SERVICE_ID as string,
-        process.env.EMAILJS_TEMPLATE_ID as string,
+        config.emailJsServiceId,
+        config.emailJsTemplateId,
         formDataWithCaptcha,
-        process.env.EMAILJS_PUBLIC_KEY as string,
+        config.emailJsPublicKey,
       )
       console.log(result)
 
@@ -96,10 +112,7 @@ export default function Contact() {
           <p className="mb-2 text-sm text-neutral-500 md:text-base lg:text-lg">
             Per poter inviare un messaggio devi completare il Captcha
           </p>
-          <ReCAPTCHA
-            sitekey={process.env.RECAPTCHA_SITE_KEY as string}
-            onChange={onChange}
-          />
+          <ReCAPTCHA sitekey={config.recaptchaSiteKey} onChange={onChange} />
         </>
       ) : (
         <>
@@ -187,7 +200,7 @@ export default function Contact() {
             <button
               className="bold rounded-full bg-gray-900 px-3 py-3 text-xs font-semibold text-white"
               data-cal-namespace="30min"
-              data-cal-link={`${process.env.CALL_LINK}`}
+              data-cal-link={config.callLink}
               data-cal-config='{"layout":"month_view"}'
             >
               Prenota chiamata
