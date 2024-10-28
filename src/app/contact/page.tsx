@@ -90,7 +90,7 @@ export default function Contact() {
       <h1 className="mb-4 font-bold md:text-3xl">
         Contattami <span>✉️</span>
       </h1>
-      {captchaToken ? (
+      {IsCaptcha ? (
         <>
           <p className="mb-2 text-sm text-neutral-500 md:text-base lg:text-lg">
             Per poter inviare un messaggio devi completare il Captcha
