@@ -6,7 +6,6 @@ import { getCalApi } from '@calcom/embed-react'
 import emailjs from '@emailjs/browser'
 import { FieldValues, useForm } from 'react-hook-form'
 import toast from 'react-hot-toast'
-import { GET } from '../api/getConfig/route'
 interface ConfigData {
   recaptchaSiteKey: string
   emailJsPublicKey: string
@@ -16,16 +15,16 @@ interface ConfigData {
 }
 export default function Contact() {
   const [IsSending, setIsSending] = useState(false)
-  const [IsCaptcha, setIsCaptcha] = useState(false)
+  const [IsCaptcha, setIsCaptcha] = useState(true)
   const [captchaToken, setCaptchaToken] = useState<string | null>(null)
-  const [config, setConfig] = useState<ConfigData | null>(null)
+  const [config, setConfig] = useState<ConfigData>({} as ConfigData)
 
-  // Funzione per recuperare la configurazione dal server
   useEffect(() => {
     const fetchConfig = async () => {
       try {
         const response = await fetch('/api/getConfig')
         const data: ConfigData = await response.json()
+        console.log(data)
         setConfig(data)
       } catch (error) {
         console.error('Errore durante il fetch della configurazione:', error)
@@ -128,7 +127,7 @@ export default function Contact() {
           <p className="mb-2 text-sm text-neutral-500 md:text-base lg:text-lg">
             Per poter inviare un messaggio devi completare il Captcha
           </p>
-          <ReCAPTCHA sitekey={config.recaptchaSiteKey} onChange={onChange} />
+          <ReCAPTCHA sitekey={config?.recaptchaSiteKey} onChange={onChange} />
         </>
       ) : (
         <>
