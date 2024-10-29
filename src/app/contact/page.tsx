@@ -6,7 +6,7 @@ import { getCalApi } from '@calcom/embed-react'
 import emailjs from '@emailjs/browser'
 import { FieldValues, useForm } from 'react-hook-form'
 import toast from 'react-hot-toast'
-interface ConfigData {
+type ConfigData = {
   recaptchaSiteKey: string
   emailJsPublicKey: string
   callLink: string
@@ -24,7 +24,6 @@ export default function Contact() {
       try {
         const response = await fetch('/api/getConfig')
         const data: ConfigData = await response.json()
-        console.log(data)
         setConfig(data)
       } catch (error) {
         console.error('Errore durante il fetch della configurazione:', error)
@@ -55,8 +54,6 @@ export default function Contact() {
         formDataWithCaptcha,
         config.emailJsPublicKey,
       )
-
-      console.log(result)
 
       toast.custom((t) => (
         <div
@@ -110,7 +107,6 @@ export default function Contact() {
   }, [])
 
   function onChange(value: string | null) {
-    console.log('g-recaptcha-response token:', value)
     if (value) {
       setCaptchaToken(value) // Salva il token CAPTCHA
       setIsCaptcha(false)
@@ -127,10 +123,13 @@ export default function Contact() {
           <p className="mb-2 text-sm text-neutral-500 md:text-base lg:text-lg">
             Per poter inviare un messaggio devi completare il Captcha
           </p>
+          {/* Conditional rendering visto che il la sitekey non è subito disponibile dallo stato */}
           {config?.recaptchaSiteKey ? (
             <ReCAPTCHA sitekey={config.recaptchaSiteKey} onChange={onChange} />
           ) : (
-            <p>Caricamento CAPTCHA...</p>
+            <p className="mb-2 text-sm text-neutral-500 md:text-base lg:text-lg">
+              Caricamento CAPTCHA...
+            </p>
           )}
         </>
       ) : (
