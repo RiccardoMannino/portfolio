@@ -6,71 +6,57 @@ import { getCalApi } from '@calcom/embed-react'
 import emailjs from '@emailjs/browser'
 import { FieldValues, useForm } from 'react-hook-form'
 import toast from 'react-hot-toast'
-
+import { GET } from '../api/getConfig/route'
+interface ConfigData {
+  recaptchaSiteKey: string
+  emailJsPublicKey: string
+  callLink: string
+  emailJsServiceId: string
+  emailJsTemplateId: string
+}
 export default function Contact() {
   const [IsSending, setIsSending] = useState(false)
-  const [IsCaptcha, setIsCaptcha] = useState(true)
+  const [IsCaptcha, setIsCaptcha] = useState(false)
   const [captchaToken, setCaptchaToken] = useState<string | null>(null)
-  const [config, setConfig] = useState({
-    recaptchaSiteKey: '',
-    emailJsPublicKey: '',
-    callLink: '',
-    emailJsServiceId: '',
-    emailJsTemplateId: '',
-  })
+  const [config, setConfig] = useState<ConfigData | null>(null)
 
-  const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
-    reset,
-  } = useForm()
-
-  const formValue = watch()
-
+  // Funzione per recuperare la configurazione dal server
   useEffect(() => {
-    async function fetchConfig() {
-      const response = await fetch('/api/getConfig')
-      const data = await response.json()
-      setConfig(data)
+    const fetchConfig = async () => {
+      try {
+        const response = await fetch('/api/getConfig')
+        const data: ConfigData = await response.json()
+        setConfig(data)
+      } catch (error) {
+        console.error('Errore durante il fetch della configurazione:', error)
+      }
     }
+
     fetchConfig()
   }, [])
 
-  useEffect(() => {
-    async function prenotation() {
-      const cal = await getCalApi({ namespace: '30min' })
-      cal('ui', {
-        theme: 'light',
-        hideEventTypeDetails: false,
-        layout: 'month_view',
-      })
-    }
-    prenotation()
-  }, [])
-
-  function onChange(value: string | null) {
-    console.log('g-recaptcha-response token:', value)
-    if (value) {
-      setCaptchaToken(value) // Salva il token CAPTCHA
-      setIsCaptcha(false)
-    }
-  }
-
+  // Funzione per inviare l'email
   const sendEmail = async (data: FieldValues) => {
+    if (!config) {
+      console.error('Configurazione non disponibile')
+      return
+    }
+
     try {
       setIsSending(true)
+
       const formDataWithCaptcha = {
         ...data,
         'g-recaptcha-response': captchaToken,
       }
+
       const result = await emailjs.send(
         config.emailJsServiceId,
         config.emailJsTemplateId,
         formDataWithCaptcha,
         config.emailJsPublicKey,
       )
+
       console.log(result)
 
       toast.custom((t) => (
@@ -102,6 +88,36 @@ export default function Contact() {
     }
   }
 
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+    reset,
+  } = useForm()
+
+  const formValue = watch()
+
+  useEffect(() => {
+    async function prenotation() {
+      const cal = await getCalApi({ namespace: '30min' })
+      cal('ui', {
+        theme: 'light',
+        hideEventTypeDetails: false,
+        layout: 'month_view',
+      })
+    }
+    prenotation()
+  }, [])
+
+  function onChange(value: string | null) {
+    console.log('g-recaptcha-response token:', value)
+    if (value) {
+      setCaptchaToken(value) // Salva il token CAPTCHA
+      setIsCaptcha(false)
+    }
+  }
+
   return (
     <>
       <h1 className="mb-4 font-bold md:text-3xl">
@@ -112,7 +128,7 @@ export default function Contact() {
           <p className="mb-2 text-sm text-neutral-500 md:text-base lg:text-lg">
             Per poter inviare un messaggio devi completare il Captcha
           </p>
-          <ReCAPTCHA sitekey={config?.recaptchaSiteKey} onChange={onChange} />
+          <ReCAPTCHA sitekey={config.recaptchaSiteKey} onChange={onChange} />
         </>
       ) : (
         <>
@@ -200,7 +216,7 @@ export default function Contact() {
             <button
               className="bold rounded-full bg-gray-900 px-3 py-3 text-xs font-semibold text-white"
               data-cal-namespace="30min"
-              data-cal-link={config.callLink}
+              data-cal-link={config?.callLink}
               data-cal-config='{"layout":"month_view"}'
             >
               Prenota chiamata
