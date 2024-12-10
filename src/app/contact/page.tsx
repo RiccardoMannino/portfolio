@@ -123,7 +123,7 @@ export default function Contact() {
           <p className="mb-2 text-sm text-neutral-500 md:text-base lg:text-lg">
             Per poter inviare un messaggio devi completare il Captcha
           </p>
-          {/* Conditional rendering visto che il la sitekey non è subito disponibile dallo stato */}
+          {/* Conditional rendering visto che la sitekey non è subito disponibile dallo stato */}
           {config?.recaptchaSiteKey ? (
             <ReCAPTCHA sitekey={config.recaptchaSiteKey} onChange={onChange} />
           ) : (

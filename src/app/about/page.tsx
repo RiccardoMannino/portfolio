@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 
 export default function About() {
   return (
@@ -35,6 +36,10 @@ export default function About() {
         aggiornato sulle ultime tecnologie e metodologie di sviluppo. Se vuoi
         saperne di più o discutere di possibili collaborazioni, sentiti libero
         di contattarmi!
+      </p>
+      <p className="mt-5 text-sm text-neutral-500 md:text-base lg:text-lg">Connettiamoci!
+        Sono sempre aperto a nuove collaborazioni, idee interessanti o semplicemente a una chiacchierata sul mondo dello sviluppo web.
+        Puoi trovarmi su <Link className="font-bold accent-blue-500" href="https://www.linkedin.com/in/riccardo-mannino/"> LinkedIn </Link> per discutere di progetti o opportunità. Preferisci scrivermi direttamente? Non esitare a contattarmi qui.
       </p>
     </>
   )

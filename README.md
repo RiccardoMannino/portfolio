@@ -8,6 +8,6 @@ Portfolio Personale Stile minimale
 
 Next.js TailwindCss FramerMotion
 
-## Libreria per invio mail e form
+## Libreria per invio Mail e Form
 
 Email.js , React Hook Form
