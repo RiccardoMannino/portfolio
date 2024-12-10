@@ -39,7 +39,7 @@ export default function About() {
       </p>
       <p className="mt-5 text-sm text-neutral-500 md:text-base lg:text-lg">Connettiamoci!
         Sono sempre aperto a nuove collaborazioni, idee interessanti o semplicemente a una chiacchierata sul mondo dello sviluppo web.
-        Puoi trovarmi su <Link className="font-bold accent-blue-500" href="https://www.linkedin.com/in/riccardo-mannino/"> LinkedIn </Link> per discutere di progetti o opportunità. Preferisci scrivermi direttamente? Non esitare a contattarmi qui.
+        Puoi trovarmi su <Link className="font-bold text-blue-600" href="https://www.linkedin.com/in/riccardo-mannino/"> LinkedIn </Link> per discutere di progetti o opportunità. Preferisci scrivermi direttamente? Non esitare a contattarmi qui.
       </p>
     </>
   )
