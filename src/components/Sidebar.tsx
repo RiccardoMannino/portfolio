@@ -1,10 +1,10 @@
 'use client'
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
+import { useRouter, usePathname } from 'next/navigation'
+import { ReactNode, useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 
 import Avatar from './Avatar'
-
 import {
   IconChevronRight,
   IconBriefcase,
@@ -16,12 +16,11 @@ import {
   IconLayoutSidebarRightCollapse,
   IconLayoutSidebarRightExpand,
 } from '@tabler/icons-react'
-import { useRouter, usePathname } from 'next/navigation'
 
 type Pagine = {
   pagina: string
   href: string
-  image?: JSX.Element
+  image?: ReactNode
 }
 
 export default function Sidebar() {
@@ -101,8 +100,8 @@ export default function Sidebar() {
     <>
       <motion.div
         animate={{ x: isVisible ? 0 : -220 }}
-        transition={{ type: 'ease', duration: 0.2 }}
-        className={`min-[501]:w-[220px] fixed left-0 z-50 flex h-full flex-col justify-between bg-neutral-100 px-5 py-10 transition-all duration-200 ease-out max-[500px]:w-[80px]`}
+        transition={{ type: 'linear', duration: 0.2 }}
+        className={`phone::w-[220px] fixed left-0 z-50 flex h-full flex-col justify-between bg-neutral-100 px-5 py-10 transition-all duration-200 ease-out phone:w-[80px]`}
       >
         <div className="flex flex-col gap-7">
           <Avatar />
@@ -115,35 +114,33 @@ export default function Sidebar() {
                   }}
                   className={
                     (isActive(`${li.href}`) &&
-                      'max-[500px]:justify-center flex w-full items-center gap-2 rounded-md bg-white p-[8px] text-sm shadow-lg') ||
-                    'max-[500px]:justify-center flex transform gap-2 stroke-neutral-500 p-[8px] text-sm text-neutral-400 duration-100 ease-in-out hover:stroke-neutral-700 hover:text-neutral-700'
+                      'phone:justify-center flex w-full items-center gap-2 rounded-md bg-white p-[8px] text-sm shadow-lg') ||
+                    'phone:justify-center flex transform gap-2 stroke-neutral-500 p-[8px] text-sm text-neutral-400 duration-100 ease-in-out hover:stroke-neutral-700 hover:text-neutral-700'
                   }
                   href={li.href}
                 >
                   {li.image}
-                  <span className="max-[500px]:hidden ml-3 gap-4 transition-all duration-200 sm:flex">
+                  <span className="phone:hidden ml-3 gap-4 transition-all duration-200 sm:flex">
                     {li.pagina}
                   </span>
                 </Link>
               </motion.div>
             ))}
             {
-              <p className="max-[500px]:hidden mx-2 mt-8 gap-4 text-sm font-bold sm:flex">
+              <p className="phone:hidden mx-2 mt-8 gap-4 text-sm font-bold sm:flex">
                 Socials
               </p>
             }
-
             {social.map((so) => (
               <Link
                 href={so.href}
                 target="_blank"
                 key={so.href}
-                className="max-[500px]:justify-center flex transform flex-row items-center stroke-neutral-500 p-[6px] text-sm text-neutral-400 delay-75 duration-100 ease-in hover:stroke-neutral-700 hover:text-neutral-700"
+                className="phone:justify-center flex transform flex-row items-center stroke-neutral-500 p-[6px] text-sm text-neutral-400 delay-75 duration-100 ease-in hover:stroke-neutral-700 hover:text-neutral-700"
               >
                 {so.image}
-
                 <span
-                  className={`max-[500px]:hidden ml-3 gap-4 transition-all duration-200 sm:flex`}
+                  className={`phone:hidden ml-3 gap-4 transition-all duration-200 sm:flex`}
                 >
                   {so.pagina}
                 </span>
@@ -151,20 +148,20 @@ export default function Sidebar() {
             ))}
           </div>
         </div>
-        <Link className="flex" href={'/resume'} passHref>
+        <Link className="flex justify-center" href={'/resume'} passHref>
           <button
             onClick={(e) => {
               e.preventDefault(), router.push('/resume')
             }}
             type="button"
-            className="bold max-[500px]:px-3 max-[500px]:py-3 flex w-fit items-center justify-between rounded-full bg-gray-900 px-4 py-3 text-xs font-semibold text-white"
+            className="bold phone:px-3 phone:py-3 flex w-fit items-center justify-between rounded-full bg-gray-900 px-4 py-3 text-xs font-semibold text-white"
           >
             <div className="flex gap-2">
               <>
-                <span className="max-[500px]:inline hidden">Cv</span>
-                <span className="max-[500px]:hidden">Leggi curriculum</span>
+                <span className="phone:inline hidden">Cv</span>
+                <span className="phone:hidden">Leggi curriculum</span>
                 <IconChevronRight
-                  className="max-[500px]:hidden"
+                  className="phone:hidden"
                   size={15}
                   color="white"
                 />

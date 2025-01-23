@@ -16,7 +16,7 @@ export default function Avatar() {
         />
       </div>
 
-      <div className="flex flex-col text-sm transition-all duration-200 max-[500px]:inline max-[500px]:hidden sm:flex">
+      <div className="flex flex-col text-sm transition-all duration-200 phone:inline phone:hidden sm:flex">
         <p className="font-bold">Riccardo Mannino</p>
         <p className="font-thin">Jr Frontend Developer</p>
       </div>
