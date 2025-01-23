@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cea1c71a-3108-406b-8a98-863aaefa4d11" name="Changes" comment="fix">
-      <change afterPath="$PROJECT_DIR$/src/hooks/useMediaQuery.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Avatar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Avatar.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Sidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Sidebar.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -102,7 +100,7 @@
       <workItem from="1733837949440" duration="1464000" />
       <workItem from="1733839450091" duration="24000" />
       <workItem from="1737582116188" duration="5391000" />
-      <workItem from="1737624246647" duration="24070000" />
+      <workItem from="1737624246647" duration="26087000" />
     </task>
     <task id="LOCAL-00001" summary="modifiche about">
       <option name="closed" value="true" />

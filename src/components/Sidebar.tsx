@@ -125,11 +125,11 @@ export default function Sidebar() {
           : { x: isVisible ? 0 : -220 }
         }
         transition={{ type: 'linear', duration: 0.2 }}
-        className={`fixed left-0 phone:bottom-0 phone:h-[80px] phone:flex-row phone:w-full z-50 flex h-full flex-col justify-between bg-neutral-100 px-5 phone:py-0 py-10 transition-all duration-200 ease-out`}
+        className={`fixed left-0 phone:bottom-0 phone:h-14 phone:flex-row phone:w-full z-50 flex h-full flex-col justify-between bg-neutral-100 px-5 phone:py-0 py-10 transition-all duration-200 ease-out`}
       >
-        <div className="flex phone:flex-row phone:items-center flex-col gap-7">
+        <div className="flex phone:flex-row phone:w-full phone:items-center flex-col phone:gap-1 gap-7">
           <Avatar />
-          <div className="mt-4 phone:mt-0 phone:w-full flex phone:flex-row flex-col gap-2">
+          <div className="mt-4 phone:mt-0 phone:w-full flex phone:justify-center phone:flex-row flex-col gap-2">
             {listaPagine.map((li) => (
               <motion.div key={li.href}>
                 <Link
