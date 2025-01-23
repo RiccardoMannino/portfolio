@@ -1,5 +1,6 @@
 'use client'
 import Link from 'next/link'
+import {useMediaQuery} from '@/hooks/useMediaQuery'
 import { useRouter, usePathname } from 'next/navigation'
 import { ReactNode, useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
@@ -17,6 +18,7 @@ import {
   IconLayoutSidebarRightExpand,
 } from '@tabler/icons-react'
 
+
 type Pagine = {
   pagina: string
   href: string
@@ -25,6 +27,8 @@ type Pagine = {
 
 export default function Sidebar() {
   const [isVisible, setIsVisible] = useState(true)
+  const [isResponsive, setIsResponsive] = useState(true)
+
 
   const router = useRouter()
   const pathname = usePathname()
@@ -96,16 +100,36 @@ export default function Sidebar() {
     },
   ]
 
+
+  const medium = useMediaQuery('(max-width: 639px)')
+  // const variants =  medium
+  //   ? {
+  //     animate: {
+  //       y: isVisible ? 0 : 220,
+  //     },
+  //   }
+  //   :  {
+  //     animate: {
+  //       x: isVisible ? 0 : -220,
+  //     },
+  //   };
+
+
+
   return (
     <>
       <motion.div
-        animate={{ x: isVisible ? 0 : -220 }}
+        animate={
+          medium
+          ? { y: isVisible ? 0 : 220 }
+          : { x: isVisible ? 0 : -220 }
+        }
         transition={{ type: 'linear', duration: 0.2 }}
-        className={`phone::w-[220px] fixed left-0 z-50 flex h-full flex-col justify-between bg-neutral-100 px-5 py-10 transition-all duration-200 ease-out phone:w-[80px]`}
+        className={`fixed left-0 phone:bottom-0 phone:h-[80px] phone:flex-row phone:w-full z-50 flex h-full flex-col justify-between bg-neutral-100 px-5 phone:py-0 py-10 transition-all duration-200 ease-out`}
       >
-        <div className="flex flex-col gap-7">
+        <div className="flex phone:flex-row phone:items-center flex-col gap-7">
           <Avatar />
-          <div className="mt-4 flex flex-col gap-2">
+          <div className="mt-4 phone:mt-0 phone:w-full flex phone:flex-row flex-col gap-2">
             {listaPagine.map((li) => (
               <motion.div key={li.href}>
                 <Link
@@ -154,7 +178,7 @@ export default function Sidebar() {
               e.preventDefault(), router.push('/resume')
             }}
             type="button"
-            className="bold phone:px-3 phone:py-3 flex w-fit items-center justify-between rounded-full bg-gray-900 px-4 py-3 text-xs font-semibold text-white"
+            className="bold phone:px-2 phone:py-2 phone:self-center flex w-fit items-center justify-between rounded-full bg-gray-900 px-4 py-3 text-xs font-semibold text-white"
           >
             <div className="flex gap-2">
               <>
@@ -174,7 +198,7 @@ export default function Sidebar() {
       <motion.button
         animate={{ rotate: !isVisible ? 0 : 180 }}
         transition={{ duration: 0.3 }}
-        className="fixed bottom-4 right-4 z-[100] rounded-[50%] border p-3"
+        className="fixed phone:top-4 sm:bottom-0 right-4 z-[100] rounded-[50%] border p-3"
         onClick={() => setIsVisible(!isVisible)}
       >
         {isVisible ? (
