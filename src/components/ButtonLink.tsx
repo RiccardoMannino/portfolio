@@ -5,7 +5,7 @@ type Button = {
   onClick: (event: React.FormEvent) => void
   children: ReactNode
   type: 'submit' | 'reset' | 'button' | undefined
-  className: string
+  className?: string
 }
 
 export default function Button({ onClick, children, type, className }: Button) {
