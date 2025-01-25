@@ -13,6 +13,35 @@ export default function page() {
       </p>
       <div>
         <div className="relative my-20 flex flex-col space-x-10 space-y-10 md:flex-row md:space-y-0">
+          <p className="w-30 text-sm text-neutral-500">07/2023 ad oggi</p>
+          <div>
+            <h5 className="text-lg font-bold text-emerald-500">
+             Freelance
+            </h5>
+            <p className="text-base font-semibold">
+              Sviluppatore Web Junior (Front-End).
+            </p>
+            <div className="my-2 flex items-start space-x-1">
+              <IconCircleCheckFilled className="h-4 w-8 text-emerald-200 sm:w-4" />
+              <p className="text-sm text-neutral-500">
+
+              </p>
+            </div>
+            <div className="my-2 flex items-start space-x-1">
+              <IconCircleCheckFilled className="h-4 w-8 text-emerald-200 sm:w-4" />
+              <p className="text-sm text-neutral-500">
+
+              </p>
+            </div>
+            <div className="my-2 flex items-start space-x-1">
+              <IconCircleCheckFilled className="h-4 w-8 text-emerald-200 sm:w-4" />
+              <p className="text-sm text-neutral-500">
+
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="relative my-20 flex flex-col space-x-10 space-y-10 md:flex-row md:space-y-0">
           <p className="w-30 text-sm text-neutral-500">11/2022 - 07/2023</p>
           <div>
             <h5 className="text-lg font-bold text-emerald-500">

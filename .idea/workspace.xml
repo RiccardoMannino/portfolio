@@ -6,6 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="cea1c71a-3108-406b-8a98-863aaefa4d11" name="Changes" comment="fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/resume/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/resume/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Sidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Sidebar.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -83,7 +88,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-WS-243.23654.120" />
+        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-WS-243.23654.157" />
       </set>
     </attachedChunks>
   </component>
@@ -100,7 +105,11 @@
       <workItem from="1733837949440" duration="1464000" />
       <workItem from="1733839450091" duration="24000" />
       <workItem from="1737582116188" duration="5391000" />
-      <workItem from="1737624246647" duration="26087000" />
+      <workItem from="1737624246647" duration="31895000" />
+      <workItem from="1737677571453" duration="569000" />
+      <workItem from="1737705656573" duration="1187000" />
+      <workItem from="1737806329016" duration="3235000" />
+      <workItem from="1737823201545" duration="409000" />
     </task>
     <task id="LOCAL-00001" summary="modifiche about">
       <option name="closed" value="true" />

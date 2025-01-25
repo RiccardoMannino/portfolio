@@ -12,7 +12,7 @@
     "@calcom/embed-react": "^1.5.0",
     "@emailjs/browser": "^4.4.1",
     "@tabler/icons-react": "^3.16.0",
-    "axios": "^1.7.7",
+    "clsx": "^2.1.1",
     "framer-motion": "^11.5.4",
     "next": "14.2.9",
     "react": "^18",
@@ -20,7 +20,8 @@
     "react-google-recaptcha": "^3.1.0",
     "react-hook-form": "^7.53.0",
     "react-hot-toast": "^2.4.1",
-    "sharp": "^0.33.5"
+    "sharp": "^0.33.5",
+    "tailwind-merge": "^2.6.0"
   },
   "devDependencies": {
     "@types/node": "^20",
