@@ -135,6 +135,15 @@ export default function Home() {
           Scopri di più su di me
         </Button>
       </section>
+      <section className="mt-40">
+        <h1 className="mb-4 text-wrap font-bold md:text-2xl lg:text-3xl">
+          Come posso aiutarti
+        </h1>
+        <p className="mt-5 text-sm text-neutral-500 md:text-base lg:text-lg">
+          Lavoro con aziende e privati per trasformare le loro idee in siti web
+          moderni e funzionali. Ecco cosa posso fare per te
+        </p>
+      </section>
     </>
   )
 }

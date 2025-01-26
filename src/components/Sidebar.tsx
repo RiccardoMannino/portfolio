@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { useMediaQuery } from '@/hooks/useMediaQuery'
 import { useRouter, usePathname } from 'next/navigation'
 import { ReactNode, useEffect, useState } from 'react'
-import { motion } from 'framer-motion'
+import { motion } from 'motion/react'
 
 import Avatar from './Avatar'
 import {

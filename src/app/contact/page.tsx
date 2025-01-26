@@ -6,6 +6,7 @@ import { getCalApi } from '@calcom/embed-react'
 import emailjs from '@emailjs/browser'
 import { FieldValues, useForm } from 'react-hook-form'
 import toast from 'react-hot-toast'
+
 type ConfigData = {
   recaptchaSiteKey: string
   emailJsPublicKey: string
