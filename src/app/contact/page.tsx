@@ -1,11 +1,10 @@
 'use client'
-
 import ReCAPTCHA from 'react-google-recaptcha'
 import { useEffect, useState } from 'react'
 import { getCalApi } from '@calcom/embed-react'
 import emailjs from '@emailjs/browser'
 import { FieldValues, useForm } from 'react-hook-form'
-import toast from 'react-hot-toast'
+import toast, { Toast } from 'react-hot-toast'
 
 type ConfigData = {
   recaptchaSiteKey: string
@@ -56,7 +55,7 @@ export default function Contact() {
         config.emailJsPublicKey,
       )
 
-      toast.custom((t) => (
+      toast.custom((t: Toast) => (
         <div
           className={`rounded-full bg-[#111827] px-6 py-4 text-white shadow-md ${
             t.visible ? 'animate-enter' : 'animate-leave'
@@ -67,7 +66,7 @@ export default function Contact() {
       ))
     } catch (error) {
       console.error(error)
-      toast.custom((t) => (
+      toast.custom((t: Toast) => (
         <div
           className={`font-white rounded-full bg-[#111827] px-6 py-4 text-white shadow-md ${
             t.visible ? 'animate-enter' : 'animate-leave'
