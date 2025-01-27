@@ -33,7 +33,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="overscroll-none">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} flex h-screen bg-slate-100 sm:h-dvh sm:overflow-scroll`}
+        className={`${geistSans.variable} ${geistMono.variable} flex h-screen bg-slate-100 sm:h-dvh sm:overflow-scroll lg:overflow-hidden`}
       >
         <link rel="icon" href="favicon.ico" sizes="16x16" />
 

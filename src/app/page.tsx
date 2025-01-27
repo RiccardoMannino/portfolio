@@ -14,6 +14,8 @@ import SupabaseIcon from '../icons/supabase.svg'
 import GitIcon from '../icons/git.svg'
 import GithubIcon from '../icons/github.svg'
 import Button from '@/components/ButtonLink'
+import { motion } from 'motion/react'
+import { IconCircleCheckFilled } from '@tabler/icons-react'
 import { useRouter } from 'next/navigation'
 
 const icons = [
@@ -73,7 +75,7 @@ export default function Home() {
   return (
     <>
       <section className="mb-40">
-        <h1 className="mb-4 text-wrap font-bold md:text-2xl lg:text-3xl">
+        <h1 className="mb-4 text-wrap font-bold text-emerald-500 md:text-2xl lg:text-3xl">
           Realizzo siti web moderni e personalizzati per aziende e privati.
         </h1>
         <p className="mt-5 text-sm text-neutral-500 md:text-base lg:text-lg">
@@ -95,27 +97,15 @@ export default function Home() {
               e.preventDefault(), router.push('/contact')
             }}
             type="button"
+            className="bg-emerald-500"
           >
             Contattami Ora
           </Button>
         </div>
-        {/* <h2 className="mb-5 mt-10 text-center text-lg font-medium md:text-left md:text-2xl">
-        Tech Stack
-        </h2>
-        <div className="flex flex-wrap justify-center gap-4 md:justify-start">
-        {icons.map((i) => (
-          <Image
-          key={i.alt}
-          src={i.icon}
-          alt={i.alt}
-          className="m-1 h-[45px] w-[45px] transition duration-300 hover:-translate-y-2 hover:cursor-pointer md:h-[60px] md:w-[60px]"
-          />
-          ))}
-          </div> */}
       </section>
       <section>
-        <h1 className="mb-4 text-wrap font-bold md:text-2xl lg:text-3xl">
-          Chi Sono
+        <h1 className="mb-4 text-wrap font-bold text-emerald-500 md:text-2xl lg:text-3xl">
+          Chi Sono :
         </h1>
         <p className="mt-5 text-sm text-neutral-500 md:text-base lg:text-lg">
           Mi chiamo Riccardo Mannino, sono uno sviluppatore frontend junior con
@@ -135,14 +125,65 @@ export default function Home() {
           Scopri di più su di me
         </Button>
       </section>
-      <section className="mt-40">
-        <h1 className="mb-4 text-wrap font-bold md:text-2xl lg:text-3xl">
-          Come posso aiutarti
+      <section className="mt-40 flex flex-col gap-7">
+        <h1 className="text-wrap font-bold text-emerald-500 md:text-2xl lg:text-3xl">
+          Come posso aiutarti?
         </h1>
-        <p className="mt-5 text-sm text-neutral-500 md:text-base lg:text-lg">
+        <p className="text-sm text-neutral-500 md:text-base lg:text-lg">
           Lavoro con aziende e privati per trasformare le loro idee in siti web
           moderni e funzionali. Ecco cosa posso fare per te
         </p>
+        <div className="mt-7 flex h-full w-full flex-col items-center justify-center">
+          <h1 className="mb-5 text-wrap font-bold text-emerald-500 md:text-2xl lg:text-3xl">
+            Servizi
+          </h1>
+          <div className="flex h-full w-full items-center justify-between gap-7 phone:mt-7 phone:flex-col">
+            <motion.div className="rounded-md border-2 p-10">
+              <h3 className="text-center font-semibold">Aziende</h3>
+              <div className="my-2 flex items-center space-x-1">
+                <IconCircleCheckFilled className="h-4 w-8 text-emerald-200 sm:w-4" />
+                <p className="text-sm text-neutral-500 md:text-base lg:text-lg">
+                  Restyling e ottimizzazione di siti esistenti.
+                </p>
+              </div>
+              <div className="my-2 flex items-center space-x-1">
+                <IconCircleCheckFilled className="h-4 w-8 text-emerald-200 sm:w-4" />
+                <p className="text-sm text-neutral-500 md:text-base lg:text-lg">
+                  Siti web aziendali e applicazioni personalizzate.
+                </p>
+              </div>
+            </motion.div>
+            <motion.div className="rounded-md border-2 p-10">
+              <h3 className="text-center font-semibold">Privati</h3>
+              <div className="my-2 flex items-center space-x-1">
+                <IconCircleCheckFilled className="h-4 w-8 text-emerald-200 sm:w-4" />
+                <p className="text-sm text-neutral-500 md:text-base lg:text-lg">
+                  Portfolio online e siti personali.
+                </p>
+              </div>
+              <div className="my-2 flex items-center space-x-1">
+                <IconCircleCheckFilled className="h-4 w-8 text-emerald-200 sm:w-4" />
+                <p className="text-sm text-neutral-500 md:text-base lg:text-lg">
+                  Blog e siti per piccole attività.
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+        <Button
+          type="button"
+          onClick={(e) => {
+            e.preventDefault(), router.push('/service')
+          }}
+          className="mb-5 self-center"
+        >
+          Scopri i miei servizi
+        </Button>
+      </section>
+      <section className="mt-40 flex flex-col gap-7">
+        <h1 className="mb-4 text-wrap font-bold text-emerald-500 md:text-2xl lg:text-3xl">
+          I Miei Lavori
+        </h1>
       </section>
     </>
   )

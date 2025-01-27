@@ -4,7 +4,7 @@ import { IconCircleCheckFilled } from '@tabler/icons-react'
 export default function page() {
   return (
     <>
-      <h1 className="mb-4 font-bold md:text-3xl">
+      <h1 className="mb-4 font-bold text-emerald-500 md:text-3xl">
         Esperienza lavorativa <span>💼</span>
       </h1>
       <p className="mb-2 text-sm text-neutral-500 md:text-base lg:text-lg">
@@ -15,29 +15,21 @@ export default function page() {
         <div className="relative my-20 flex flex-col space-x-10 space-y-10 md:flex-row md:space-y-0">
           <p className="w-30 text-sm text-neutral-500">07/2023 ad oggi</p>
           <div>
-            <h5 className="text-lg font-bold text-emerald-500">
-             Freelance
-            </h5>
+            <h5 className="text-lg font-bold text-emerald-500">Freelance</h5>
             <p className="text-base font-semibold">
               Sviluppatore Web Junior (Front-End).
             </p>
             <div className="my-2 flex items-start space-x-1">
               <IconCircleCheckFilled className="h-4 w-8 text-emerald-200 sm:w-4" />
-              <p className="text-sm text-neutral-500">
-
-              </p>
+              <p className="text-sm text-neutral-500"></p>
             </div>
             <div className="my-2 flex items-start space-x-1">
               <IconCircleCheckFilled className="h-4 w-8 text-emerald-200 sm:w-4" />
-              <p className="text-sm text-neutral-500">
-
-              </p>
+              <p className="text-sm text-neutral-500"></p>
             </div>
             <div className="my-2 flex items-start space-x-1">
               <IconCircleCheckFilled className="h-4 w-8 text-emerald-200 sm:w-4" />
-              <p className="text-sm text-neutral-500">
-
-              </p>
+              <p className="text-sm text-neutral-500"></p>
             </div>
           </div>
         </div>

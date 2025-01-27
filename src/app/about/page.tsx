@@ -4,7 +4,7 @@ import Link from 'next/link'
 export default function About() {
   return (
     <>
-      <h1 className="mb-4 font-bold md:text-3xl">
+      <h1 className="mb-4 font-bold text-emerald-500 md:text-3xl">
         Chi sono <span>📖</span>
       </h1>
       <p className="mt-5 text-sm text-neutral-500 md:text-base lg:text-lg">
@@ -37,9 +37,19 @@ export default function About() {
         saperne di più o discutere di possibili collaborazioni, sentiti libero
         di contattarmi!
       </p>
-      <p className="mt-5 text-sm text-neutral-500 md:text-base lg:text-lg">Connettiamoci!
-        Sono sempre aperto a nuove collaborazioni, idee interessanti o semplicemente a una chiacchierata sul mondo dello sviluppo web.
-        Puoi trovarmi su <Link className="font-bold text-blue-600" target="_blank" href="https://www.linkedin.com/in/riccardo-mannino/"> LinkedIn </Link> per discutere di progetti o opportunità.
+      <p className="mt-5 text-sm text-neutral-500 md:text-base lg:text-lg">
+        Connettiamoci! Sono sempre aperto a nuove collaborazioni, idee
+        interessanti o semplicemente a una chiacchierata sul mondo dello
+        sviluppo web. Puoi trovarmi su{' '}
+        <Link
+          className="font-bold text-blue-600"
+          target="_blank"
+          href="https://www.linkedin.com/in/riccardo-mannino/"
+        >
+          {' '}
+          LinkedIn{' '}
+        </Link>{' '}
+        per discutere di progetti o opportunità.
       </p>
     </>
   )
