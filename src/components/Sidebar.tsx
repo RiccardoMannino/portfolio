@@ -33,15 +33,6 @@ export default function Sidebar() {
 
   const isActive = (path: string) => pathname === path
 
-  useEffect(() => {
-    pathname === '/'
-      ? (document.title = 'Riccardo Mannino - Home')
-      : (document.title = `Riccardo Mannino - ${pathname
-          .slice(1)
-          .charAt(0)
-          .toUpperCase()}${pathname.slice(2)}`)
-  }, [pathname])
-
   const listaPagine: Pagine[] = [
     {
       pagina: 'Home',
@@ -85,18 +76,18 @@ export default function Sidebar() {
     },
   ]
 
-  const social: Pagine[] = [
-    {
-      pagina: 'Linkedin',
-      href: 'https://www.linkedin.com/in/riccardo-mannino/',
-      image: <IconBrandLinkedin size={20} />,
-    },
-    {
-      pagina: 'Github',
-      href: 'https://github.com/RiccardoMannino/',
-      image: <IconBrandGithub size={20} />,
-    },
-  ]
+  useEffect(() => {
+    listaPagine.filter((pag, index) => {
+      if (pathname === '/') {
+        document.title = 'Riccardo Mannino - Home'
+      }
+
+      isActive(pag.href) &&
+        (document.title = `Riccardo Mannino - ${pag.pagina
+          .charAt(0)
+          .toUpperCase()}${pag.pagina.slice(1)}`)
+    })
+  }, [pathname])
 
   const medium = useMediaQuery('(max-width: 639px)')
 
@@ -122,35 +113,21 @@ export default function Sidebar() {
                   className={
                     (isActive(`${li.href}`) &&
                       'flex w-full items-center justify-start bg-gray-900 p-[8px] text-sm text-emerald-500 shadow-lg phone:justify-center') ||
-                    'flex w-full transform justify-start bg-emerald-500 stroke-neutral-50 p-[8px] text-sm text-neutral-50 shadow-lg transition-all duration-100 hover:stroke-neutral-700 hover:text-neutral-700 phone:justify-center'
+                    'flex w-full justify-start bg-emerald-500 stroke-neutral-50 p-[8px] text-sm text-neutral-50 shadow-lg transition-all duration-200 hover:text-gray-900 phone:justify-center'
                   }
                 >
                   {li.image}
-                  <span className="ml-3 gap-4 transition-all duration-200 phone:hidden sm:flex">
+                  <span
+                    className={
+                      (isActive(`${li.href}`) &&
+                        'ml-3 gap-4 transition-all duration-200 phone:hidden sm:flex') ||
+                      'ml-3 gap-4 transition-all duration-200 hover:text-gray-900 phone:hidden sm:flex'
+                    }
+                  >
                     {li.pagina}
                   </span>
                 </Button>
               </motion.div>
-            ))}
-
-            <p className="mx-2 mt-8 gap-4 text-sm font-bold phone:hidden sm:flex">
-              Socials
-            </p>
-
-            {social.map((so) => (
-              <Link
-                href={so.href}
-                target="_blank"
-                key={so.href}
-                className="flex transform flex-row items-center stroke-neutral-500 p-[6px] text-sm text-neutral-400 delay-75 duration-100 ease-in hover:stroke-neutral-700 hover:text-neutral-700 phone:justify-center"
-              >
-                {so.image}
-                <span
-                  className={`ml-3 gap-4 transition-all duration-200 phone:hidden sm:flex`}
-                >
-                  {so.pagina}
-                </span>
-              </Link>
             ))}
           </div>
         </div>

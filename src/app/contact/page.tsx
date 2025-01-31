@@ -1,10 +1,12 @@
 'use client'
 import ReCAPTCHA from 'react-google-recaptcha'
-import { useEffect, useState } from 'react'
+import { ReactNode, useEffect, useState } from 'react'
 import { getCalApi } from '@calcom/embed-react'
 import emailjs from '@emailjs/browser'
 import { FieldValues, useForm } from 'react-hook-form'
 import toast, { Toast } from 'react-hot-toast'
+import { IconBrandGithub, IconBrandLinkedin } from '@tabler/icons-react'
+import Link from 'next/link'
 
 type ConfigData = {
   recaptchaSiteKey: string
@@ -18,6 +20,25 @@ export default function Contact() {
   const [IsCaptcha, setIsCaptcha] = useState(true)
   const [captchaToken, setCaptchaToken] = useState<string | null>(null)
   const [config, setConfig] = useState<ConfigData>({} as ConfigData)
+
+  type Pagine = {
+    pagina: string
+    href: string
+    image?: ReactNode
+  }
+
+  const social: Pagine[] = [
+    {
+      pagina: 'Linkedin',
+      href: 'https://www.linkedin.com/in/riccardo-mannino/',
+      image: <IconBrandLinkedin size={20} />,
+    },
+    {
+      pagina: 'Github',
+      href: 'https://github.com/RiccardoMannino/',
+      image: <IconBrandGithub size={20} />,
+    },
+  ]
 
   useEffect(() => {
     const fetchConfig = async () => {
@@ -224,6 +245,25 @@ export default function Contact() {
               Prenota chiamata
             </button>
           </div>
+          <p className="mx-2 mt-8 gap-4 text-sm font-bold phone:hidden sm:flex">
+            Socials
+          </p>
+
+          {social.map((so) => (
+            <Link
+              href={so.href}
+              target="_blank"
+              key={so.href}
+              className="flex transform flex-row items-center stroke-neutral-500 p-[6px] text-sm text-neutral-400 delay-75 duration-100 ease-in hover:stroke-neutral-700 hover:text-neutral-700 phone:justify-center"
+            >
+              {so.image}
+              <span
+                className={`ml-3 gap-4 transition-all duration-200 phone:hidden sm:flex`}
+              >
+                {so.pagina}
+              </span>
+            </Link>
+          ))}
         </>
       )}
     </>
