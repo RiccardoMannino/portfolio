@@ -105,7 +105,7 @@ export default function Home() {
       </section>
       <section>
         <h1 className="mb-4 text-wrap font-bold text-emerald-500 md:text-2xl lg:text-3xl">
-          Chi Sono :
+          Chi Sono
         </h1>
         <p className="mt-5 text-sm text-neutral-500 md:text-base lg:text-lg">
           Mi chiamo Riccardo Mannino, sono uno sviluppatore frontend junior con
@@ -138,7 +138,7 @@ export default function Home() {
             Servizi
           </h1>
           <div className="flex h-full w-full items-center justify-between gap-7 phone:mt-7 phone:flex-col">
-            <motion.div className="rounded-md border-2 p-10">
+            <motion.div className="rounded-md border-2 border-emerald-500 p-10">
               <h3 className="text-center font-semibold">Aziende</h3>
               <div className="my-2 flex items-center space-x-1">
                 <IconCircleCheckFilled className="h-4 w-8 text-emerald-200 sm:w-4" />
@@ -153,7 +153,7 @@ export default function Home() {
                 </p>
               </div>
             </motion.div>
-            <motion.div className="rounded-md border-2 p-10">
+            <motion.div className="rounded-md border-2 border-emerald-500 p-10">
               <h3 className="text-center font-semibold">Privati</h3>
               <div className="my-2 flex items-center space-x-1">
                 <IconCircleCheckFilled className="h-4 w-8 text-emerald-200 sm:w-4" />

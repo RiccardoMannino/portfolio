@@ -5,8 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cea1c71a-3108-406b-8a98-863aaefa4d11" name="Changes" comment="fix">
-      <change afterPath="$PROJECT_DIR$/src/app/not-found.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Sidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Sidebar.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -110,6 +108,7 @@
       <workItem from="1737854761417" duration="37000" />
       <workItem from="1737948972773" duration="17000" />
       <workItem from="1738249257234" duration="2000" />
+      <workItem from="1738445256605" duration="36000" />
     </task>
     <task id="LOCAL-00001" summary="modifiche about">
       <option name="closed" value="true" />

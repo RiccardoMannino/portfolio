@@ -1,5 +1,5 @@
 'use client'
-import Link from 'next/link'
+
 import { useMediaQuery } from '@/hooks/useMediaQuery'
 import { useRouter, usePathname } from 'next/navigation'
 import { ReactNode, useEffect, useState } from 'react'
@@ -12,8 +12,6 @@ import {
   IconHome,
   IconUser,
   IconMessage,
-  IconBrandLinkedin,
-  IconBrandGithub,
   IconLayoutSidebarRightCollapse,
   IconLayoutSidebarRightExpand,
 } from '@tabler/icons-react'

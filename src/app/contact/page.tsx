@@ -1,11 +1,15 @@
 'use client'
-import ReCAPTCHA from 'react-google-recaptcha'
 import { ReactNode, useEffect, useState } from 'react'
-import { getCalApi } from '@calcom/embed-react'
-import emailjs from '@emailjs/browser'
 import { FieldValues, useForm } from 'react-hook-form'
+import { getCalApi } from '@calcom/embed-react'
+import {
+  IconBrandGithub,
+  IconBrandLinkedin,
+  IconMail,
+  IconMapPin,
+} from '@tabler/icons-react'
 import toast, { Toast } from 'react-hot-toast'
-import { IconBrandGithub, IconBrandLinkedin } from '@tabler/icons-react'
+import emailjs from '@emailjs/browser'
 import Link from 'next/link'
 
 type ConfigData = {
@@ -64,15 +68,10 @@ export default function Contact() {
     try {
       setIsSending(true)
 
-      const formDataWithCaptcha = {
-        ...data,
-        'g-recaptcha-response': captchaToken,
-      }
-
       const result = await emailjs.send(
         config.emailJsServiceId,
         config.emailJsTemplateId,
-        formDataWithCaptcha,
+        data,
         config.emailJsPublicKey,
       )
 
@@ -136,33 +135,65 @@ export default function Contact() {
 
   return (
     <>
-      <h1 className="mb-4 font-bold md:text-3xl">
+      <h1 className="mb-4 text-center font-bold phone:text-xl md:text-3xl">
         Contattami <span>✉️</span>
       </h1>
-      {IsCaptcha ? (
-        <>
-          <p className="mb-2 text-sm text-neutral-500 md:text-base lg:text-lg">
-            Per poter inviare un messaggio devi completare il Captcha
-          </p>
-          {/* Conditional rendering visto che la sitekey non è subito disponibile dallo stato */}
-          {config?.recaptchaSiteKey ? (
-            <ReCAPTCHA sitekey={config.recaptchaSiteKey} onChange={onChange} />
-          ) : (
-            <p className="mb-2 text-sm text-neutral-500 md:text-base lg:text-lg">
-              Caricamento CAPTCHA...
-            </p>
-          )}
-        </>
-      ) : (
-        <>
-          <p className="mb-2 text-sm text-neutral-500 md:text-base lg:text-lg">
-            Compila il Form sottostante e ti risponderò il prima possibile
-            oppure prenota una chiamata.
-          </p>
+      <p className="mb-2 text-center text-sm text-neutral-500 md:text-base lg:text-lg">
+        Compila il Form sottostante e ti risponderò il prima possibile oppure
+        prenota una chiamata.
+      </p>
 
+      <div className="flex gap-10 phone:flex-col">
+        <div>
+          <div className="mt-8 flex items-center gap-2">
+            <div className="rounded-lg bg-emerald-500 p-4 text-neutral-50">
+              {<IconMail />}
+            </div>
+            <div className="flex flex-col">
+              <p className="text-sm font-semibold text-neutral-500 md:text-base lg:text-lg">
+                Email
+              </p>
+              <a
+                className="font-semibold text-emerald-400"
+                href="mailto:manninoriccardo3@gmail.com"
+              >
+                manninoriccardo3@gmail.com
+              </a>
+            </div>
+          </div>
+
+          <div className="mt-8 flex items-center gap-2">
+            <div className="rounded-lg bg-emerald-500 p-4 text-neutral-50">
+              {<IconMapPin />}
+            </div>
+            <div className="flex flex-col">
+              <p className="text-sm font-semibold text-neutral-500 md:text-base lg:text-lg">
+                Location
+              </p>
+              <p className="font-semibold text-emerald-400">Palermo, IT</p>
+            </div>
+          </div>
+
+          <div className="mt-8 flex">
+            {social.map((so) => (
+              <Link
+                href={so.href}
+                target="_blank"
+                key={so.href}
+                className="flex transform p-[6px] text-sm text-neutral-50 delay-75 duration-100 ease-in hover:stroke-neutral-700 hover:text-neutral-700 phone:justify-center phone:stroke-neutral-50"
+              >
+                <div className="rounded-lg bg-emerald-500 p-3 hover:cursor-pointer">
+                  {so.image}
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        <div>
           <form onSubmit={handleSubmit(sendEmail)}>
             <div
-              className={`sm:grid-auto-rows-min mt-7 flex flex-col gap-2 sm:grid sm:grid-cols-2`}
+              className={`sm:grid-auto-rows-min mt-7 flex flex-col gap-4 sm:grid sm:grid-cols-2`}
             >
               <div className="w-full">
                 <input
@@ -175,7 +206,7 @@ export default function Contact() {
                     pattern:
                       /^[A-ZÀ-ÖØ-Ý][a-zà-öø-ÿ']+\s[A-ZÀ-ÖØ-Ý][a-zà-öø-ÿ']+$/,
                   })}
-                  className={` ${(errors.name && 'border-red-500 bg-red-100 focus:outline-none focus:ring focus:ring-red-300') || 'bg-neutral-100'} w-full rounded-xl border bg-neutral-100 px-2 py-2 indent-3 text-sm text-neutral-500 focus:border-gray-400 focus:outline-none focus:ring focus:ring-gray-300 md:text-base lg:text-lg`}
+                  className={` ${(errors.name && 'border-red-500 bg-red-100 focus:outline-none focus:ring focus:ring-red-300') || 'bg-neutral-100'} w-full rounded-xl border bg-neutral-100 p-3 indent-3 text-sm text-neutral-500 focus:border-gray-400 focus:outline-none focus:ring focus:ring-emerald-200 md:text-base lg:text-lg`}
                 />
                 {errors.name && (
                   <p className="mb-2 grid pt-1 text-sm text-red-500 md:text-base lg:text-lg">
@@ -193,7 +224,7 @@ export default function Contact() {
                     required: true,
                     pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
                   })}
-                  className={` ${(errors.email && 'border-red-500 bg-red-100 focus:outline-none focus:ring focus:ring-red-300') || 'bg-neutral-100'} w-full rounded-xl border bg-neutral-100 px-2 py-2 indent-3 text-sm text-neutral-500 focus:border-gray-400 focus:outline-none focus:ring focus:ring-gray-300 md:text-base lg:text-lg`}
+                  className={` ${(errors.email && 'border-red-500 bg-red-100 focus:outline-none focus:ring focus:ring-red-300') || 'bg-neutral-100'} w-full rounded-xl border bg-neutral-100 p-3 indent-3 text-sm text-neutral-500 focus:border-gray-400 focus:outline-none focus:ring focus:ring-emerald-200 md:text-base lg:text-lg`}
                 />
                 {errors.email && (
                   <p className="mb-5 pt-1 text-sm text-red-500 md:text-base lg:text-lg">
@@ -205,7 +236,7 @@ export default function Contact() {
               <div className="col-span-2 w-full">
                 <textarea
                   disabled={IsSending}
-                  className={`w-full rounded-xl border bg-neutral-100 pt-3 indent-3 text-sm text-neutral-500 focus:border-gray-400 focus:outline-none focus:ring focus:ring-gray-300 md:text-base lg:text-lg ${(errors.message && 'border-red-500 bg-red-100') || 'bg-neutral-100'}`}
+                  className={`w-full rounded-xl border bg-neutral-100 p-3 indent-3 text-sm text-neutral-500 focus:border-gray-400 focus:outline-none focus:ring focus:ring-emerald-200 md:text-base lg:text-lg ${(errors.message && 'border-red-500 bg-red-100') || 'bg-neutral-100'}`}
                   rows={10}
                   placeholder="Inserisci il tuo messaggio"
                   {...register('message', {
@@ -214,8 +245,8 @@ export default function Contact() {
                     maxLength: 250,
                   })}
                 />
-                <p className="mt-2">
-                  Caratteri inviati: {formValue.message?.length || 0}
+                <p className="mt-2 text-sm text-neutral-500 md:text-base lg:text-lg">
+                  Caratteri Digitati: {formValue.message?.length || 0}
                 </p>
                 {errors.message && (
                   <p className="mb-2 text-sm text-red-500 md:text-base lg:text-lg">
@@ -230,7 +261,7 @@ export default function Contact() {
                 className="focus: w-full rounded-full border-gray-700 bg-neutral-100 px-4 py-2 text-sm font-semibold text-neutral-500 focus:outline-none focus:ring focus:ring-gray-300 active:outline-none active:ring active:ring-gray-300 md:text-base lg:text-lg"
                 type="submit"
               >
-                Invia Form!
+                Invia Messaggio
               </button>
             </div>
           </form>
@@ -245,27 +276,8 @@ export default function Contact() {
               Prenota chiamata
             </button>
           </div>
-          <p className="mx-2 mt-8 gap-4 text-sm font-bold phone:hidden sm:flex">
-            Socials
-          </p>
-
-          {social.map((so) => (
-            <Link
-              href={so.href}
-              target="_blank"
-              key={so.href}
-              className="flex transform flex-row items-center stroke-neutral-500 p-[6px] text-sm text-neutral-400 delay-75 duration-100 ease-in hover:stroke-neutral-700 hover:text-neutral-700 phone:justify-center"
-            >
-              {so.image}
-              <span
-                className={`ml-3 gap-4 transition-all duration-200 phone:hidden sm:flex`}
-              >
-                {so.pagina}
-              </span>
-            </Link>
-          ))}
-        </>
-      )}
+        </div>
+      </div>
     </>
   )
 }
