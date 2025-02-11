@@ -1,5 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
+import Me from '@/assets/aboutme.jpg'
 
 export default function About() {
   return (
@@ -7,6 +9,13 @@ export default function About() {
       <h1 className="mb-4 font-bold text-emerald-500 md:text-3xl">
         Chi sono <span>📖</span>
       </h1>
+      <Image
+        src={Me}
+        height={300}
+        width={300}
+        alt="Riccardo Mannino"
+        className="rounded-lg phone:h-auto phone:w-auto"
+      />
       <p className="mt-5 text-sm text-neutral-500 md:text-base lg:text-lg">
         Mi chiamo Riccardo Mannino e sono un appassionato frontend developer con
         un forte interesse per la creazione di interfacce web eleganti e
@@ -46,9 +55,8 @@ export default function About() {
           target="_blank"
           href="https://www.linkedin.com/in/riccardo-mannino/"
         >
-          {' '}
-          LinkedIn{' '}
-        </Link>{' '}
+          LinkedIn
+        </Link>
         per discutere di progetti o opportunità.
       </p>
     </>

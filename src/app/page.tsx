@@ -138,32 +138,36 @@ export default function Home() {
             Servizi
           </h1>
           <div className="flex h-full w-full items-center justify-between gap-7 phone:mt-7 phone:flex-col">
-            <motion.div className="rounded-md border-2 border-emerald-500 p-10">
-              <h3 className="text-center font-semibold">Aziende</h3>
+            <motion.div className="rounded-md bg-emerald-500 p-10">
+              <h3 className="text-center font-semibold text-neutral-50">
+                Aziende
+              </h3>
               <div className="my-2 flex items-center space-x-1">
-                <IconCircleCheckFilled className="h-4 w-8 text-emerald-200 sm:w-4" />
-                <p className="text-sm text-neutral-500 md:text-base lg:text-lg">
+                <IconCircleCheckFilled className="h-4 w-8 text-neutral-50 sm:w-4" />
+                <p className="text-sm text-neutral-50 md:text-base lg:text-lg">
                   Restyling e ottimizzazione di siti esistenti.
                 </p>
               </div>
               <div className="my-2 flex items-center space-x-1">
-                <IconCircleCheckFilled className="h-4 w-8 text-emerald-200 sm:w-4" />
-                <p className="text-sm text-neutral-500 md:text-base lg:text-lg">
+                <IconCircleCheckFilled className="h-4 w-8 text-neutral-50 sm:w-4" />
+                <p className="text-sm text-neutral-50 md:text-base lg:text-lg">
                   Siti web aziendali e applicazioni personalizzate.
                 </p>
               </div>
             </motion.div>
-            <motion.div className="rounded-md border-2 border-emerald-500 p-10">
-              <h3 className="text-center font-semibold">Privati</h3>
+            <motion.div className="rounded-md bg-emerald-500 p-10">
+              <h3 className="text-center font-semibold text-neutral-50">
+                Privati
+              </h3>
               <div className="my-2 flex items-center space-x-1">
-                <IconCircleCheckFilled className="h-4 w-8 text-emerald-200 sm:w-4" />
-                <p className="text-sm text-neutral-500 md:text-base lg:text-lg">
+                <IconCircleCheckFilled className="bg h-4 w-8 text-neutral-50 sm:w-4" />
+                <p className="text-sm text-neutral-50 md:text-base lg:text-lg">
                   Portfolio online e siti personali.
                 </p>
               </div>
               <div className="my-2 flex items-center space-x-1">
-                <IconCircleCheckFilled className="h-4 w-8 text-emerald-200 sm:w-4" />
-                <p className="text-sm text-neutral-500 md:text-base lg:text-lg">
+                <IconCircleCheckFilled className="h-4 w-8 text-neutral-50 sm:w-4" />
+                <p className="text-sm text-neutral-50 md:text-base lg:text-lg">
                   Blog e siti per piccole attività.
                 </p>
               </div>

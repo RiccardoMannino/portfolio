@@ -1,5 +1,5 @@
 'use client'
-import { ReactNode, useEffect, useState } from 'react'
+import { ReactNode, useEffect, useRef, useState } from 'react'
 import { FieldValues, useForm } from 'react-hook-form'
 import { getCalApi } from '@calcom/embed-react'
 import {
@@ -13,9 +13,8 @@ import emailjs from '@emailjs/browser'
 import Link from 'next/link'
 
 type ConfigData = {
-  recaptchaSiteKey: string
-  emailJsPublicKey: string
   callLink: string
+  emailJsPublicKey: string
   emailJsServiceId: string
   emailJsTemplateId: string
 }
@@ -24,6 +23,8 @@ export default function Contact() {
   const [IsCaptcha, setIsCaptcha] = useState(true)
   const [captchaToken, setCaptchaToken] = useState<string | null>(null)
   const [config, setConfig] = useState<ConfigData>({} as ConfigData)
+
+  const form = useRef(null)
 
   type Pagine = {
     pagina: string
@@ -64,15 +65,14 @@ export default function Contact() {
       console.error('Configurazione non disponibile')
       return
     }
-
     try {
       setIsSending(true)
 
-      const result = await emailjs.send(
-        config.emailJsServiceId,
-        config.emailJsTemplateId,
-        data,
-        config.emailJsPublicKey,
+      const result = await emailjs.sendForm(
+        config.emailJsServiceId, // Service ID
+        config.emailJsTemplateId, // Template ID
+        form.current!, // Form HTML (ottenuto con useRef)
+        config.emailJsPublicKey, // Public Key
       )
 
       toast.custom((t: Toast) => (
@@ -92,14 +92,11 @@ export default function Contact() {
             t.visible ? 'animate-enter' : 'animate-leave'
           }`}
         >
-          Errore nell&apos; invio del messaggio ⛔
+          Errore nell&apos;invio del messaggio ⛔
         </div>
       ))
     } finally {
       setIsSending(false)
-      setIsCaptcha(true)
-      setCaptchaToken(null)
-      sessionStorage.clear()
       reset()
     }
   }
@@ -126,16 +123,9 @@ export default function Contact() {
     prenotation()
   }, [])
 
-  function onChange(value: string | null) {
-    if (value) {
-      setCaptchaToken(value) // Salva il token CAPTCHA
-      setIsCaptcha(false)
-    }
-  }
-
   return (
     <>
-      <h1 className="mb-4 text-center font-bold phone:text-xl md:text-3xl">
+      <h1 className="mb-4 text-center font-bold text-emerald-500 phone:text-xl md:text-3xl">
         Contattami <span>✉️</span>
       </h1>
       <p className="mb-2 text-center text-sm text-neutral-500 md:text-base lg:text-lg">
@@ -191,7 +181,7 @@ export default function Contact() {
         </div>
 
         <div>
-          <form onSubmit={handleSubmit(sendEmail)}>
+          <form ref={form} onSubmit={handleSubmit(sendEmail)}>
             <div
               className={`sm:grid-auto-rows-min mt-7 flex flex-col gap-4 sm:grid sm:grid-cols-2`}
             >
@@ -206,7 +196,7 @@ export default function Contact() {
                     pattern:
                       /^[A-ZÀ-ÖØ-Ý][a-zà-öø-ÿ']+\s[A-ZÀ-ÖØ-Ý][a-zà-öø-ÿ']+$/,
                   })}
-                  className={` ${(errors.name && 'border-red-500 bg-red-100 focus:outline-none focus:ring focus:ring-red-300') || 'bg-neutral-100'} w-full rounded-xl border bg-neutral-100 p-3 indent-3 text-sm text-neutral-500 focus:border-gray-400 focus:outline-none focus:ring focus:ring-emerald-200 md:text-base lg:text-lg`}
+                  className={` ${(errors.name && 'border-red-500 bg-red-100 focus:outline-none focus:ring focus:ring-red-300') || 'bg-neutral-100 focus:ring-emerald-200'} w-full rounded-xl border bg-neutral-100 p-3 indent-3 text-sm text-neutral-500 focus:outline-none focus:ring md:text-base lg:text-lg`}
                 />
                 {errors.name && (
                   <p className="mb-2 grid pt-1 text-sm text-red-500 md:text-base lg:text-lg">
@@ -224,7 +214,7 @@ export default function Contact() {
                     required: true,
                     pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
                   })}
-                  className={` ${(errors.email && 'border-red-500 bg-red-100 focus:outline-none focus:ring focus:ring-red-300') || 'bg-neutral-100'} w-full rounded-xl border bg-neutral-100 p-3 indent-3 text-sm text-neutral-500 focus:border-gray-400 focus:outline-none focus:ring focus:ring-emerald-200 md:text-base lg:text-lg`}
+                  className={` ${(errors.email && 'border-red-500 bg-red-100 focus:outline-none focus:ring focus:ring-red-300') || 'bg-neutral-100 focus:ring-emerald-200'} w-full rounded-xl border bg-neutral-100 p-3 indent-3 text-sm text-neutral-500 focus:outline-none focus:ring md:text-base lg:text-lg`}
                 />
                 {errors.email && (
                   <p className="mb-5 pt-1 text-sm text-red-500 md:text-base lg:text-lg">
@@ -236,7 +226,7 @@ export default function Contact() {
               <div className="col-span-2 w-full">
                 <textarea
                   disabled={IsSending}
-                  className={`w-full rounded-xl border bg-neutral-100 p-3 indent-3 text-sm text-neutral-500 focus:border-gray-400 focus:outline-none focus:ring focus:ring-emerald-200 md:text-base lg:text-lg ${(errors.message && 'border-red-500 bg-red-100') || 'bg-neutral-100'}`}
+                  className={` ${(errors.message && 'border-red-500 bg-red-100 focus:outline-none focus:ring focus:ring-red-300') || 'bg-neutral-100 focus:ring-emerald-200'} w-full rounded-xl border bg-neutral-100 p-3 indent-3 text-sm text-neutral-500 focus:outline-none focus:ring md:text-base lg:text-lg`}
                   rows={10}
                   placeholder="Inserisci il tuo messaggio"
                   {...register('message', {
@@ -261,7 +251,7 @@ export default function Contact() {
                 className="focus: w-full rounded-full border-gray-700 bg-neutral-100 px-4 py-2 text-sm font-semibold text-neutral-500 focus:outline-none focus:ring focus:ring-gray-300 active:outline-none active:ring active:ring-gray-300 md:text-base lg:text-lg"
                 type="submit"
               >
-                Invia Messaggio
+                {IsSending ? 'Invio in corso...' : 'Invia Messaggio'}
               </button>
             </div>
           </form>
