@@ -20,8 +20,6 @@ type ConfigData = {
 }
 export default function Contact() {
   const [IsSending, setIsSending] = useState(false)
-  const [IsCaptcha, setIsCaptcha] = useState(true)
-  const [captchaToken, setCaptchaToken] = useState<string | null>(null)
   const [config, setConfig] = useState<ConfigData>({} as ConfigData)
 
   const form = useRef(null)

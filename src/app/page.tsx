@@ -75,7 +75,7 @@ export default function Home() {
   return (
     <>
       <section className="mb-40">
-        <h1 className="mb-4 text-wrap font-bold text-emerald-500 md:text-2xl lg:text-3xl">
+        <h1 className="mb-4 text-wrap font-bold text-emerald-500 phone:text-xl md:text-2xl lg:text-3xl">
           Realizzo siti web moderni e personalizzati per aziende e privati.
         </h1>
         <p className="mt-5 text-sm text-neutral-500 md:text-base lg:text-lg">
@@ -104,7 +104,7 @@ export default function Home() {
         </div>
       </section>
       <section>
-        <h1 className="mb-4 text-wrap font-bold text-emerald-500 md:text-2xl lg:text-3xl">
+        <h1 className="mb-4 text-wrap font-bold text-emerald-500 phone:text-xl md:text-2xl lg:text-3xl">
           Chi Sono
         </h1>
         <p className="mt-5 text-sm text-neutral-500 md:text-base lg:text-lg">
@@ -126,7 +126,7 @@ export default function Home() {
         </Button>
       </section>
       <section className="mt-40 flex flex-col gap-7">
-        <h1 className="text-wrap font-bold text-emerald-500 md:text-2xl lg:text-3xl">
+        <h1 className="text-wrap font-bold text-emerald-500 phone:text-xl md:text-2xl lg:text-3xl">
           Come posso aiutarti?
         </h1>
         <p className="text-sm text-neutral-500 md:text-base lg:text-lg">
@@ -134,7 +134,7 @@ export default function Home() {
           moderni e funzionali. Ecco cosa posso fare per te
         </p>
         <div className="mt-7 flex h-full w-full flex-col items-center justify-center">
-          <h1 className="mb-5 text-wrap font-bold text-emerald-500 md:text-2xl lg:text-3xl">
+          <h1 className="mb-5 text-wrap font-bold text-emerald-500 phone:text-xl md:text-2xl lg:text-3xl">
             Servizi
           </h1>
           <div className="flex h-full w-full items-center justify-between gap-7 phone:mt-7 phone:flex-col">
@@ -185,7 +185,7 @@ export default function Home() {
         </Button>
       </section>
       <section className="mt-40 flex flex-col gap-7">
-        <h1 className="mb-4 text-wrap font-bold text-emerald-500 md:text-2xl lg:text-3xl">
+        <h1 className="mb-4 text-wrap font-bold text-emerald-500 phone:text-xl md:text-2xl lg:text-3xl">
           I Miei Lavori
         </h1>
       </section>
