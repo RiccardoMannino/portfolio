@@ -31,9 +31,9 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="overscroll-none">
+    <html lang="en" className="antialiased">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} flex h-screen bg-slate-100 sm:h-dvh sm:overflow-scroll lg:overflow-hidden`}
+        className={`${geistSans.variable} ${geistMono.variable} flex bg-slate-100`}
       >
         <link rel="icon" href="favicon.ico" sizes="16x16" />
 

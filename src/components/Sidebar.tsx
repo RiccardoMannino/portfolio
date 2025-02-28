@@ -28,6 +28,7 @@ export default function Sidebar() {
 
   const router = useRouter()
   const pathname = usePathname()
+  const medium = useMediaQuery('(max-width: 639px)')
 
   const isActive = (path: string) => pathname === path
 
@@ -87,15 +88,13 @@ export default function Sidebar() {
     })
   }, [pathname])
 
-  const medium = useMediaQuery('(max-width: 639px)')
-
   return (
     <>
       <motion.div
         animate={
           medium ? { y: isVisible ? 0 : 220 } : { x: isVisible ? 0 : -220 }
         }
-        transition={{ type: 'linear', duration: 0.2 }}
+        transition={{ type: 'linear', duration: 0.3, damping: 10 }}
         className={`fixed left-0 z-50 flex h-full flex-col justify-between bg-gradient-to-r from-emerald-100 to-emerald-50 px-5 py-10 transition-all duration-200 ease-out phone:bottom-0 phone:h-14 phone:w-full phone:flex-row phone:bg-gradient-to-t phone:from-emerald-50 phone:to-emerald-100 phone:py-0`}
       >
         <div className="flex flex-col gap-7 phone:w-full phone:flex-row phone:items-center phone:gap-1">
@@ -110,8 +109,8 @@ export default function Sidebar() {
                   }}
                   className={
                     (isActive(`${li.href}`) &&
-                      'flex w-full items-center justify-start bg-gray-900 p-[8px] text-sm text-emerald-500 shadow-lg phone:justify-center') ||
-                    'flex w-full justify-start bg-emerald-500 stroke-neutral-50 p-[8px] text-sm text-neutral-50 shadow-lg transition-all duration-200 hover:text-gray-900 phone:justify-center'
+                      'flex w-full items-center justify-start bg-gray-900 p-[8px] text-sm text-emerald-500 shadow-lg phone:justify-center phone:p-2') ||
+                    'flex w-full justify-start bg-emerald-500 stroke-neutral-50 p-[8px] text-sm text-neutral-50 shadow-lg transition-all duration-200 hover:text-gray-900 phone:justify-center phone:p-2'
                   }
                 >
                   {li.image}
@@ -135,6 +134,7 @@ export default function Sidebar() {
             e.preventDefault(), router.push('/resume')
           }}
           type="button"
+          className="phone:p-2"
         >
           <div className="flex gap-2">
             <span className="hidden phone:inline">Cv</span>
@@ -150,8 +150,8 @@ export default function Sidebar() {
 
       <motion.button
         animate={{ rotate: !isVisible ? 0 : 180 }}
-        transition={{ duration: 0.3 }}
-        className="fixed right-4 z-[100] rounded-[50%] border p-3 phone:top-4 sm:bottom-4"
+        transition={{ duration: 0.3, type: 'spring' }}
+        className="fixed right-4 top-4 z-[100] rounded-[50%] border p-3"
         onClick={() => setIsVisible(!isVisible)}
       >
         {isVisible ? (
