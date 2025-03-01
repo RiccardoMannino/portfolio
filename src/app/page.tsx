@@ -249,7 +249,7 @@ export default function Home() {
             transform="translateX(0)"
             translate="translateX(100px)"
             whileHover={{
-              scale: 1.02,
+              scale: 1.05,
               transition: { duration: 0.2 },
             }}
             className="grid h-auto w-fit cursor-pointer grid-cols-1 grid-rows-1 gap-7 rounded-2xl bg-emerald-500 px-8 py-5 phone:h-fit phone:w-full"
