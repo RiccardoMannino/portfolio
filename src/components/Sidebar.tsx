@@ -109,7 +109,7 @@ export default function Sidebar() {
     hidden: !medium ? { opacity: 0, x: -100 } : { opacity: 0, y: -100 },
     show: {
       opacity: 1,
-      transform: !medium ? 'translateX(0)' : 'translateY(0px)',
+      transform: !medium ? 'translateX(0)' : 'translateY(0)',
     },
   }
 

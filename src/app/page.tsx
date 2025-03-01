@@ -118,10 +118,10 @@ export default function Home() {
             Servizi
           </h1>
           <div className="flex h-full w-full items-center justify-between gap-7 phone:mt-7 phone:flex-col">
-            <motion.div
-              animate={{ y: 0, opacity: 1 }}
-              initial={{ opacity: 0, y: 500 }}
-              transition={{ duration: 0.7, type: 'tween', stiffness: 100 }}
+            <Container
+              type="div"
+              transform="translateX(0)"
+              translate="translateX(-100px)"
               className="h-60 rounded-2xl bg-emerald-500 p-8"
             >
               <h3 className="text-center text-xl font-semibold text-neutral-50">
@@ -139,9 +139,14 @@ export default function Home() {
                   Siti web aziendali e applicazioni personalizzate.
                 </p>
               </div>
-            </motion.div>
+            </Container>
 
-            <motion.div className="h-60 rounded-2xl bg-emerald-500 p-8">
+            <Container
+              type="div"
+              transform="translateX(0)"
+              translate="translateX(100px)"
+              className="h-60 rounded-2xl bg-emerald-500 p-8"
+            >
               <h3 className="text-center text-xl font-semibold text-neutral-50">
                 Privati
               </h3>
@@ -157,7 +162,7 @@ export default function Home() {
                   Blog e siti per piccole attività.
                 </p>
               </div>
-            </motion.div>
+            </Container>
           </div>
         </div>
         <Button
@@ -181,7 +186,12 @@ export default function Home() {
           Le tecnologie e gli strumenti che utilizzo
         </p>
         <div className="flex w-full justify-center gap-7 phone:flex-col">
-          <div className="flex cursor-pointer flex-col rounded-2xl bg-emerald-500 px-8 py-5 transition-all duration-700 hover:scale-105">
+          <Container
+            type="div"
+            transform="translateX(0)"
+            translate="translateX(-100px)"
+            className="flex cursor-pointer flex-col rounded-2xl bg-emerald-500 px-8 py-5 transition-all duration-700 hover:scale-105"
+          >
             <h1 className="p-3 text-xl font-semibold text-neutral-50">
               Frontend
             </h1>
@@ -229,8 +239,13 @@ export default function Home() {
                 </p>
               </div>
             </div>
-          </div>
-          <div className="grid h-auto w-fit cursor-pointer grid-cols-1 grid-rows-1 gap-7 rounded-2xl bg-emerald-500 px-8 py-5 transition-all duration-700 hover:scale-105 phone:h-fit phone:w-full">
+          </Container>
+          <Container
+            type="div"
+            transform="translateX(0)"
+            translate="translateX(100px)"
+            className="grid h-auto w-fit cursor-pointer grid-cols-1 grid-rows-1 gap-7 rounded-2xl bg-emerald-500 px-8 py-5 transition-all duration-700 hover:scale-105 phone:h-fit phone:w-full"
+          >
             <div className="flex cursor-pointer flex-col">
               <h2 className="p-3 text-xl font-semibold text-neutral-50">
                 Tool & Database
@@ -258,11 +273,10 @@ export default function Home() {
                 <p className="font-semibold text-neutral-50">Supabase</p>
               </div>
             </div>
-          </div>
+          </Container>
         </div>
       </Container>
-      <Container
-        type="section"
+      <section
         className="mt-40 flex flex-col gap-7 py-24 text-center"
         id="progetti"
       >
@@ -270,7 +284,12 @@ export default function Home() {
           I Miei Progetti
         </h1>
         <div className="relative grid grid-flow-col gap-7 phone:grid-rows-2">
-          <div className="flex flex-col gap-5 rounded-2xl bg-emerald-500 px-8 py-5 text-left text-neutral-50">
+          <Container
+            type="div"
+            transform="translateX(0)"
+            translate="translateX(-100px)"
+            className="flex flex-col gap-5 rounded-2xl bg-emerald-500 px-8 py-5 text-left text-neutral-50"
+          >
             <h2 className="text-xl font-semibold">Sito Portfolio</h2>
             <p>
               Portfolio personale realizzato con Next.js Tailwind Css e Framer
@@ -282,8 +301,13 @@ export default function Home() {
               <Tag title="Tailwind Css" />
               <Tag title="Framer Motion" />
             </div>
-          </div>
-          <div className="flex flex-col gap-5 rounded-2xl bg-emerald-500 px-8 py-5 text-left text-neutral-50">
+          </Container>
+          <Container
+            type="div"
+            transform="translateX(0)"
+            translate="translateX(100px)"
+            className="flex flex-col gap-5 rounded-2xl bg-emerald-500 px-8 py-5 text-left text-neutral-50"
+          >
             <h2 className="text-xl font-semibold">Forneria Messina</h2>
             <p className="truncate text-ellipsis text-wrap break-words text-base">
               Rivisitazione del sito web da me creato per Forneria Messina
@@ -296,9 +320,9 @@ export default function Home() {
               <Tag title="Supabase" />
               <Tag title="React Query" />
             </div>
-          </div>
+          </Container>
         </div>
-      </Container>
+      </section>
       <Container type="section" className="py-24" id="contact">
         <ContactForm call={false} />
       </Container>
