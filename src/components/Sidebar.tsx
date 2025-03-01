@@ -2,8 +2,8 @@
 
 import { useMediaQuery } from '@/hooks/useMediaQuery'
 import { useRouter, usePathname } from 'next/navigation'
-import { ReactNode, useEffect, useState } from 'react'
-import { delay, motion } from 'motion/react'
+import { ReactNode, useCallback, useEffect, useMemo, useState } from 'react'
+import { motion } from 'motion/react'
 
 import Avatar from './Avatar'
 import {
@@ -30,50 +30,58 @@ export default function Sidebar() {
   const pathname = usePathname()
   const medium = useMediaQuery('(max-width: 639px)')
 
-  const isActive = (path: string) => pathname === path
+  const isActive = useCallback(
+    (path: string) => {
+      return pathname === path
+    },
+    [pathname],
+  )
 
-  const listaPagine: Pagine[] = [
-    {
-      pagina: 'Home',
-      href: '/',
-      image: (
-        <IconHome
-          size={20}
-          className={isActive(`/`) ? 'stroke-emerald-500' : ''}
-        />
-      ),
-    },
-    {
-      pagina: 'Chi sono',
-      href: '/about',
-      image: (
-        <IconUser
-          size={20}
-          className={isActive(`/about`) ? 'stroke-emerald-500' : ''}
-        />
-      ),
-    },
-    {
-      pagina: 'Progetti',
-      href: '/projects',
-      image: (
-        <IconBriefcase
-          size={20}
-          className={isActive(`/projects`) ? 'stroke-emerald-500' : ''}
-        />
-      ),
-    },
-    {
-      pagina: 'Contatti',
-      href: '/contact',
-      image: (
-        <IconMessage
-          size={20}
-          className={isActive(`/contact`) ? 'stroke-emerald-500' : ''}
-        />
-      ),
-    },
-  ]
+  const listaPagine: Pagine[] = useMemo(
+    () => [
+      {
+        pagina: 'Home',
+        href: '/',
+        image: (
+          <IconHome
+            size={20}
+            className={isActive(`/`) ? 'stroke-emerald-500' : ''}
+          />
+        ),
+      },
+      {
+        pagina: 'Chi sono',
+        href: '/about',
+        image: (
+          <IconUser
+            size={20}
+            className={isActive(`/about`) ? 'stroke-emerald-500' : ''}
+          />
+        ),
+      },
+      {
+        pagina: 'Progetti',
+        href: '/projects',
+        image: (
+          <IconBriefcase
+            size={20}
+            className={isActive(`/projects`) ? 'stroke-emerald-500' : ''}
+          />
+        ),
+      },
+      {
+        pagina: 'Contatti',
+        href: '/contact',
+        image: (
+          <IconMessage
+            size={20}
+            className={isActive(`/contact`) ? 'stroke-emerald-500' : ''}
+          />
+        ),
+      },
+    ],
+    [isActive],
+  )
 
   useEffect(() => {
     listaPagine.filter((pag, index) => {
@@ -81,12 +89,13 @@ export default function Sidebar() {
         document.title = 'Riccardo Mannino - Home'
       }
 
-      isActive(pag.href) &&
-        (document.title = `Riccardo Mannino - ${pag.pagina
+      if (isActive(pag.href)) {
+        document.title = `Riccardo Mannino - ${pag.pagina
           .charAt(0)
-          .toUpperCase()}${pag.pagina.slice(1)}`)
+          .toUpperCase()}${pag.pagina.slice(1)}`
+      }
     })
-  }, [pathname])
+  }, [pathname, listaPagine, isActive])
 
   const container = {
     hidden: { opacity: 0 },
