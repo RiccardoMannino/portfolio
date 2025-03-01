@@ -3,7 +3,7 @@
 import { useMediaQuery } from '@/hooks/useMediaQuery'
 import { useRouter, usePathname } from 'next/navigation'
 import { ReactNode, useEffect, useState } from 'react'
-import { motion } from 'motion/react'
+import { delay, motion } from 'motion/react'
 
 import Avatar from './Avatar'
 import {
@@ -88,6 +88,22 @@ export default function Sidebar() {
     })
   }, [pathname])
 
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: { staggerChildren: 0.2 },
+    },
+  }
+
+  const item = {
+    hidden: !medium ? { opacity: 0, x: -100 } : { opacity: 0, y: -100 },
+    show: {
+      opacity: 1,
+      transform: !medium ? 'translateX(0)' : 'translateY(0px)',
+    },
+  }
+
   return (
     <>
       <motion.div
@@ -99,9 +115,14 @@ export default function Sidebar() {
       >
         <div className="flex flex-col gap-7 phone:w-full phone:flex-row phone:items-center phone:gap-1">
           <Avatar />
-          <div className="mt-4 flex flex-col gap-2 phone:mt-0 phone:w-full phone:flex-row phone:justify-center">
+          <motion.ul
+            variants={container}
+            initial="hidden"
+            animate="show"
+            className="mt-4 flex flex-col gap-2 phone:mt-0 phone:w-full phone:flex-row phone:justify-center"
+          >
             {listaPagine.map((li) => (
-              <motion.div key={li.href}>
+              <motion.li variants={item} key={li.href}>
                 <Button
                   type="button"
                   onClick={() => {
@@ -124,9 +145,9 @@ export default function Sidebar() {
                     {li.pagina}
                   </span>
                 </Button>
-              </motion.div>
+              </motion.li>
             ))}
-          </div>
+          </motion.ul>
         </div>
 
         <Button
@@ -135,6 +156,14 @@ export default function Sidebar() {
           }}
           type="button"
           className="phone:p-2"
+          initial={{ opacity: 0, x: -100 }}
+          animate={{
+            x: 0,
+            opacity: 1,
+            transition: {
+              opacity: { ease: 'easeIn' },
+            },
+          }}
         >
           <div className="flex gap-2">
             <span className="hidden phone:inline">Cv</span>

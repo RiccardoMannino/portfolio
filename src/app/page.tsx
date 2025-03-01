@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
-import { motion, useInView } from 'motion/react'
+import { motion } from 'motion/react'
 import TypewriterEffect from '@/components/TypeWriterEffect'
 import Button from '@/components/ButtonLink'
 import {

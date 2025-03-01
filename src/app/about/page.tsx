@@ -61,7 +61,7 @@ export default function About() {
         interessanti o semplicemente a una chiacchierata sul mondo dello
         sviluppo web. Puoi trovarmi su{' '}
         <Link
-          className="font-bold text-blue-600"
+          className="font-bold text-emerald-500"
           target="_blank"
           href="https://www.linkedin.com/in/riccardo-mannino/"
         >

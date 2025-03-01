@@ -1,16 +1,38 @@
 import { cn } from '@/lib/utils'
 import React, { ReactNode } from 'react'
+import { motion } from 'motion/react'
+import {
+  VariantLabels,
+  AnimationControls,
+  TargetAndTransition,
+  Target,
+  Transition,
+} from 'motion/react'
 
 type Button = {
   onClick?: (event: React.FormEvent) => void
   children: ReactNode
   type: 'submit' | 'reset' | 'button' | undefined
   className?: string
+  transition?: Transition
+  initial?: boolean | Target | VariantLabels
+  animate?: boolean | AnimationControls | TargetAndTransition | undefined
 }
 
-export default function Button({ onClick, children, type, className }: Button) {
+export default function Button({
+  onClick,
+  children,
+  type,
+  className,
+  transition,
+  initial,
+  animate,
+}: Button) {
   return (
-    <button
+    <motion.button
+      transition={transition}
+      initial={initial}
+      animate={animate}
       onClick={onClick}
       type={type}
       className={cn(
@@ -19,7 +41,7 @@ export default function Button({ onClick, children, type, className }: Button) {
       )}
     >
       {children}
-    </button>
+    </motion.button>
   )
 }
 
