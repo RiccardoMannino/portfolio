@@ -3,7 +3,6 @@ import localFont from 'next/font/local'
 import './globals.css'
 import Sidebar from '@/components/Sidebar'
 import MainLayout from '@/components/MainLayout'
-import Script from 'next/script'
 import { Toaster } from 'react-hot-toast'
 
 const geistSans = localFont({
@@ -19,9 +18,11 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   title: 'Riccardo Mannino | Frontend Developer',
-  description: 'Riccardo Mannino Portfolio Website',
+  description:
+    'Sono Riccardo Mannino Realizzo siti web moderni e personalizzati per aziende e privati.',
   openGraph: {
-    description: 'Riccardo Mannino Portfolio Website',
+    description:
+      'Sono Riccardo Mannino Realizzo siti web moderni e personalizzati per aziende e privati.',
   },
 }
 

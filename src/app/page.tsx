@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
-import { motion } from 'motion/react'
+import { motion, useInView } from 'motion/react'
 import TypewriterEffect from '@/components/TypeWriterEffect'
 import Button from '@/components/ButtonLink'
 import {
@@ -22,12 +22,20 @@ import GitIcon from '../icons/git.svg'
 import Tag from '@/components/Tag'
 import ContactForm from '@/components/ContactForm'
 import Link from 'next/link'
+import Container from '@/components/Container'
+import { useRef } from 'react'
 
 export default function Home() {
   const router = useRouter()
+
   return (
     <>
-      <section className="mb-40">
+      <Container
+        transform="translateX(0)"
+        translate="translateX(100px)"
+        className="mb-40"
+        type="section"
+      >
         <TypewriterEffect />
         <h1 className="mb-4 text-wrap text-3xl font-bold text-emerald-500 md:text-4xl">
           Realizzo siti web moderni e personalizzati per aziende e privati.
@@ -51,10 +59,15 @@ export default function Home() {
             <Link href="#contact">Contattami Ora</Link>
           </Button>
         </div>
-      </section>
+      </Container>
       <section className="mt-40 flex flex-col gap-7 p-10">
         <div className="flex w-full items-center justify-center gap-10 phone:flex-col">
-          <div className="w-[50%]">
+          <Container
+            transform="translateX(0)"
+            translate="translateX(-100px)"
+            type="div"
+            className="w-[50%]"
+          >
             <Image
               src={Me}
               alt="riccardo mannino"
@@ -62,8 +75,13 @@ export default function Home() {
               width={400}
               height={300}
             />
-          </div>
-          <div className="flex w-[50%] flex-col phone:w-full">
+          </Container>
+          <Container
+            type="div"
+            transform="translateX(0)"
+            translate="translateX(100px)"
+            className="flex w-[50%] flex-col phone:w-full"
+          >
             <h1 className="mb-4 text-wrap text-3xl font-bold text-emerald-500 md:text-4xl">
               Chi Sono
             </h1>
@@ -84,10 +102,10 @@ export default function Home() {
             >
               Scopri di più su di me
             </Button>
-          </div>
+          </Container>
         </div>
       </section>
-      <section className="mt-40 flex flex-col gap-7">
+      <Container type="section" className="mt-40 flex flex-col gap-7">
         <h1 className="text-wrap text-3xl font-bold text-emerald-500 phone:text-center md:text-4xl">
           Come posso aiutarti?
         </h1>
@@ -151,8 +169,11 @@ export default function Home() {
         >
           Scopri i miei servizi
         </Button>
-      </section>
-      <section className="mt-40 flex flex-col gap-7 text-center">
+      </Container>
+      <Container
+        type="section"
+        className="mt-40 flex flex-col gap-7 text-center"
+      >
         <h1 className="text-wrap text-3xl font-bold text-emerald-500 md:text-4xl">
           Competenze Tecniche
         </h1>
@@ -239,8 +260,9 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
-      <section
+      </Container>
+      <Container
+        type="section"
         className="mt-40 flex flex-col gap-7 py-24 text-center"
         id="progetti"
       >
@@ -254,6 +276,12 @@ export default function Home() {
               Portfolio personale realizzato con Next.js Tailwind Css e Framer
               Motion
             </p>
+            <div className="flex flex-wrap gap-4">
+              <Tag title="React" />
+              <Tag title="Nextjs" />
+              <Tag title="Tailwind Css" />
+              <Tag title="Framer Motion" />
+            </div>
           </div>
           <div className="flex flex-col gap-5 rounded-2xl bg-emerald-500 px-8 py-5 text-left text-neutral-50">
             <h2 className="text-xl font-semibold">Forneria Messina</h2>
@@ -270,11 +298,10 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
-      <section className="py-24" id="contact">
+      </Container>
+      <Container type="section" className="py-24" id="contact">
         <ContactForm call={false} />
-      </section>
-      
+      </Container>
     </>
   )
 }
