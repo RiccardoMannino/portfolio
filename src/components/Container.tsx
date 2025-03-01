@@ -1,7 +1,12 @@
 'use client'
 
 import { ReactNode, useRef } from 'react'
-import { useInView, motion } from 'motion/react'
+import {
+  useInView,
+  motion,
+  VariantLabels,
+  TargetAndTransition,
+} from 'motion/react'
 
 interface SectionProps {
   children: ReactNode
@@ -12,6 +17,7 @@ interface SectionProps {
   opacity?: number
   className?: string
   id?: string
+  whileHover?: VariantLabels | TargetAndTransition
 }
 
 export default function Container({
@@ -23,6 +29,7 @@ export default function Container({
   className,
   id,
   type,
+  whileHover,
 }: SectionProps) {
   const sectionRef = useRef<HTMLElement>(null)
   const divRef = useRef<HTMLDivElement>(null)
@@ -46,7 +53,13 @@ export default function Container({
     </motion.section>
   ) : (
     type === 'div' && (
-      <motion.div id={id} ref={divRef} style={style} className={className}>
+      <motion.div
+        id={id}
+        ref={divRef}
+        style={style}
+        className={className}
+        whileHover={whileHover}
+      >
         {children}
       </motion.div>
     )

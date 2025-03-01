@@ -190,7 +190,11 @@ export default function Home() {
             type="div"
             transform="translateX(0)"
             translate="translateX(-100px)"
-            className="flex cursor-pointer flex-col rounded-2xl bg-emerald-500 px-8 py-5 transition-all duration-700 hover:scale-105"
+            whileHover={{
+              scale: 1.05,
+              transition: { duration: 0.2 },
+            }}
+            className="flex cursor-pointer flex-col rounded-2xl bg-emerald-500 px-8 py-5"
           >
             <h1 className="p-3 text-xl font-semibold text-neutral-50">
               Frontend
@@ -244,7 +248,11 @@ export default function Home() {
             type="div"
             transform="translateX(0)"
             translate="translateX(100px)"
-            className="grid h-auto w-fit cursor-pointer grid-cols-1 grid-rows-1 gap-7 rounded-2xl bg-emerald-500 px-8 py-5 transition-all duration-700 hover:scale-105 phone:h-fit phone:w-full"
+            whileHover={{
+              scale: 1.02,
+              transition: { duration: 0.2 },
+            }}
+            className="grid h-auto w-fit cursor-pointer grid-cols-1 grid-rows-1 gap-7 rounded-2xl bg-emerald-500 px-8 py-5 phone:h-fit phone:w-full"
           >
             <div className="flex cursor-pointer flex-col">
               <h2 className="p-3 text-xl font-semibold text-neutral-50">
@@ -276,7 +284,8 @@ export default function Home() {
           </Container>
         </div>
       </Container>
-      <section
+      <Container
+        type="section"
         className="mt-40 flex flex-col gap-7 py-24 text-center"
         id="progetti"
       >
@@ -322,7 +331,7 @@ export default function Home() {
             </div>
           </Container>
         </div>
-      </section>
+      </Container>
       <Container type="section" className="py-24" id="contact">
         <ContactForm call={false} />
       </Container>
