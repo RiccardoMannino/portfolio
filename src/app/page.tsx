@@ -60,7 +60,7 @@ export default function Home() {
           </Button>
         </div>
       </Container>
-      <section className="mt-40 flex flex-col gap-7 p-10">
+      <section className="mt-40 flex flex-col gap-7">
         <div className="flex w-full items-center justify-center gap-10 phone:flex-col">
           <Container
             transform="translateX(0)"
