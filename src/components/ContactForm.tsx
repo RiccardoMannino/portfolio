@@ -245,7 +245,7 @@ export default function ContactForm({ call }: call) {
             <div className="mt-10 flex w-full justify-end">
               <button
                 disabled={IsSending}
-                className="focus: w-full rounded-full border-gray-700 bg-neutral-100 px-4 py-2 text-lg font-semibold text-neutral-500 focus:outline-none focus:ring focus:ring-gray-300 active:outline-none active:ring active:ring-gray-300"
+                className="w-full rounded-full border-gray-700 bg-emerald-500 px-4 py-2 text-lg text-neutral-50 focus:outline-none focus:ring focus:ring-gray-300 active:outline-none active:ring active:ring-gray-300"
                 type="submit"
               >
                 {IsSending ? 'Invio in corso...' : 'Invia Messaggio'}

@@ -122,7 +122,7 @@ export default function Sidebar() {
         transition={{ type: 'linear', duration: 0.3, damping: 10 }}
         className={`fixed left-0 z-50 flex h-full flex-col justify-between bg-gradient-to-r from-emerald-100 to-emerald-50 px-5 py-10 transition-all duration-200 ease-out phone:bottom-0 phone:h-14 phone:w-full phone:flex-row phone:bg-gradient-to-t phone:from-emerald-50 phone:to-emerald-100 phone:py-0`}
       >
-        <div className="flex flex-col gap-7 phone:w-full phone:flex-row phone:items-center phone:gap-1">
+        <div className="iphone:gap-0 flex flex-col gap-7 phone:w-full phone:flex-row phone:items-center phone:gap-1">
           <Avatar />
           <motion.ul
             variants={container}
