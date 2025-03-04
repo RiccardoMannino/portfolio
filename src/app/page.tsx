@@ -5,25 +5,18 @@ import { useRouter } from 'next/navigation'
 import { motion } from 'motion/react'
 import TypewriterEffect from '@/components/TypeWriterEffect'
 import Button from '@/components/ButtonLink'
-import {
-  IconBrandGithub,
-  IconBrandLinkedin,
-  IconMail,
-  IconCircleCheckFilled,
-  IconMapPin,
-} from '@tabler/icons-react'
+import { IconCircleCheckFilled } from '@tabler/icons-react'
 import Me from '@/assets/ric.jpg'
 import ReactIcon from '../icons/react.svg'
 import NextIcon from '../icons/nextjs.svg'
 import TailwindIcon from '../icons/tailwind-css.svg'
-import StyledIcon from '../icons/styled-components.png'
+import TypescriptIcon from '../icons/typescript.svg'
 import SupabaseIcon from '../icons/supabase.svg'
 import GitIcon from '../icons/git.svg'
 import Tag from '@/components/Tag'
 import ContactForm from '@/components/ContactForm'
 import Link from 'next/link'
 import Container from '@/components/Container'
-import { useRef } from 'react'
 
 export default function Home() {
   const router = useRouter()
@@ -89,9 +82,9 @@ export default function Home() {
               Mi chiamo Riccardo Mannino, sono uno sviluppatore frontend junior
               con una passione per la tecnologia e il design. Lavoro per creare
               siti web che siano non solo belli da vedere, ma anche semplici da
-              usare e adatti a ogni esigenza. Amo collaborare con aziende e
-              privati, ascoltando le loro necessità per dare vita a soluzioni
-              digitali su misura.
+              usare e adatti a ogni esigenza. Collaborare con aziende e privati
+              è per me un’occasione per ascoltare le loro esigenze e
+              trasformarle in soluzioni digitali su misura.
             </p>
             <Button
               onClick={(e) => {
@@ -232,15 +225,13 @@ export default function Home() {
               </div>
               <div className="flex flex-col">
                 <Image
-                  src={StyledIcon}
+                  src={TypescriptIcon}
                   width={70}
                   height={70}
-                  alt="Styled"
+                  alt="Typescript"
                   className="self-center rounded-2xl border border-white bg-white"
                 />
-                <p className="font-semibold text-neutral-50">
-                  Styled Component
-                </p>
+                <p className="font-semibold text-neutral-50">Typescript</p>
               </div>
             </div>
           </Container>

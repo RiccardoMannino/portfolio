@@ -1,7 +1,53 @@
+'use client'
+
+import Container from '@/components/Container'
+import { progetti } from '@/progetti'
+import Image from 'next/image'
+import { useParams, useRouter } from 'next/navigation'
 import React from 'react'
 
 export default function Projects() {
+  const router = useRouter()
+
+  const handleClick = (slug: string) => {
+    router.push(`/projects/${slug.toLowerCase().split(' ').join('-')}`)
+  }
+
   return (
-    <h1 className="mb-4 text-3xl font-bold text-emerald-500">Progetti 💼</h1>
+    <>
+      <h1 className="mb-4 text-3xl font-bold text-emerald-500">Progetti 💼</h1>
+      <Container type="section">
+        {progetti.map((el) => (
+          <div key={el.nome} className="mb-10">
+            <Container
+              type="div"
+              transform="translateX(0)"
+              translate="translateX(-100px)"
+              className="flex gap-10"
+            >
+              <Image
+                src={el.immagine}
+                width={300}
+                height={300}
+                alt="immagine"
+                className="cursor-pointer rounded-2xl"
+                onClick={() => handleClick(el.nome)}
+              />
+              <div>
+                <h1 className="text-lg font-semibold text-emerald-500">
+                  {el.nome}
+                </h1>
+                <p className="text-base font-semibold text-neutral-500">
+                  {el.descrizione}
+                </p>
+                <p className="text-base font-semibold text-neutral-500">
+                  {el.approfondimento}
+                </p>
+              </div>
+            </Container>
+          </div>
+        ))}
+      </Container>
+    </>
   )
 }
