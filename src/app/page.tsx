@@ -1,25 +1,31 @@
 'use client'
 
 import Image from 'next/image'
+import Link from 'next/link'
+
 import { useRouter } from 'next/navigation'
 import { motion } from 'motion/react'
+import { progetti } from '@/progetti'
+import Tag from '@/components/Tag'
+import Container from '@/components/Container'
+import ContactForm from '@/components/ContactForm'
 import TypewriterEffect from '@/components/TypeWriterEffect'
 import Button from '@/components/ButtonLink'
-import { IconCircleCheckFilled } from '@tabler/icons-react'
 import Me from '@/assets/ric.jpg'
+import { IconCircleCheckFilled } from '@tabler/icons-react'
 import ReactIcon from '../icons/react.svg'
 import NextIcon from '../icons/nextjs.svg'
 import TailwindIcon from '../icons/tailwind-css.svg'
 import TypescriptIcon from '../icons/typescript.svg'
 import SupabaseIcon from '../icons/supabase.svg'
 import GitIcon from '../icons/git.svg'
-import Tag from '@/components/Tag'
-import ContactForm from '@/components/ContactForm'
-import Link from 'next/link'
-import Container from '@/components/Container'
 
 export default function Home() {
   const router = useRouter()
+
+  const handleClick = (slug: string) => {
+    router.push(`/projects/${slug.toLowerCase().split(' ').join('-')}`)
+  }
 
   return (
     <>
@@ -284,43 +290,28 @@ export default function Home() {
           I Miei Progetti
         </h1>
         <div className="relative grid grid-flow-col gap-7 phone:grid-rows-2">
-          <Container
-            type="div"
-            transform="translateX(0)"
-            translate="translateX(-100px)"
-            className="flex flex-col gap-5 rounded-2xl bg-emerald-500 px-8 py-5 text-left text-neutral-50"
-          >
-            <h2 className="text-xl font-semibold">Sito Portfolio</h2>
-            <p>
-              Portfolio personale realizzato con Next.js Tailwind Css e Framer
-              Motion
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Tag title="React" />
-              <Tag title="Nextjs" />
-              <Tag title="Tailwind Css" />
-              <Tag title="Framer Motion" />
-            </div>
-          </Container>
-          <Container
-            type="div"
-            transform="translateX(0)"
-            translate="translateX(100px)"
-            className="flex flex-col gap-5 rounded-2xl bg-emerald-500 px-8 py-5 text-left text-neutral-50"
-          >
-            <h2 className="text-xl font-semibold">Forneria Messina</h2>
-            <p className="truncate text-ellipsis text-wrap break-words text-base">
-              Rivisitazione del sito web da me creato per Forneria Messina
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Tag title="React" />
-              <Tag title="Nextjs" />
-              <Tag title="Tailwind Css" />
-              <Tag title="Framer Motion" />
-              <Tag title="Supabase" />
-              <Tag title="React Query" />
-            </div>
-          </Container>
+          {progetti.map((el) => (
+            <Container
+              key={el.nome}
+              type="div"
+              transform="translateX(0)"
+              translate="translateX(-100px)"
+              className="flex flex-col gap-5 rounded-2xl bg-emerald-500 px-8 py-5 text-left text-neutral-50"
+            >
+              <h2
+                className="cursor-pointer text-xl font-semibold"
+                onClick={() => handleClick(el.nome)}
+              >
+                {el.nome}
+              </h2>
+              <p>{el.descrizione}</p>
+              <div className="flex flex-wrap gap-4">
+                {el.tecnologie.map((ele) => (
+                  <Tag key={ele} title={ele} />
+                ))}
+              </div>
+            </Container>
+          ))}
         </div>
       </Container>
       <Container type="section" className="py-24" id="contact">

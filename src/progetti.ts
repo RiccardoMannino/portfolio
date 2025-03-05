@@ -1,13 +1,13 @@
-import Pc from '@/assets/pc.jpg'
+import Portfolio from '@/assets/Portfolio.png'
 import Forneria from '@/assets/Forneria Messina - Home.png'
 import { StaticImageData } from 'next/image'
-import { ReactNode } from 'react'
 
 type progetti = {
   nome: string
   descrizione: string
   approfondimento: string
   immagine: StaticImageData
+  tecnologie: string[]
 }
 
 export const progetti: progetti[] = [
@@ -15,14 +15,23 @@ export const progetti: progetti[] = [
     nome: 'Forneria Messina',
     descrizione:
       'Rivisitazione del sito web da me creato (precedentemente in Wordpress) per Forneria Messina',
-    approfondimento: 'afdsl;msfdgv',
+    approfondimento: '',
     immagine: Forneria,
+    tecnologie: [
+      'React',
+      'Nextjs',
+      'Tailwind Css',
+      'Framer Motion',
+      'Supabase',
+      'React Query',
+    ],
   },
   {
     nome: 'Sito Portfolio',
     descrizione:
       'Portfolio personale realizzato con Next.js Tailwind Css e Framer Motion',
-    approfondimento: 'ancora noi',
-    immagine: Pc,
+    approfondimento: '',
+    immagine: Portfolio,
+    tecnologie: ['React', 'Nextjs', 'Tailwind Css', 'Framer Motion'],
   },
 ]

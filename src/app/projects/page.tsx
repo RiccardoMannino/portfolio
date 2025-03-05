@@ -15,39 +15,39 @@ export default function Projects() {
 
   return (
     <>
-      <h1 className="mb-4 text-3xl font-bold text-emerald-500">Progetti 💼</h1>
-      <Container type="section">
+      <h1 className="mb-10 text-3xl font-bold text-emerald-500">Progetti 💼</h1>
+      <section>
         {progetti.map((el) => (
-          <div key={el.nome} className="mb-10">
+          <div key={el.nome} className="mb-10 flex w-full gap-10">
             <Container
               type="div"
               transform="translateX(0)"
               translate="translateX(-100px)"
-              className="flex gap-10"
             >
               <Image
                 src={el.immagine}
-                width={300}
-                height={300}
                 alt="immagine"
+                width="200"
+                height="200"
                 className="cursor-pointer rounded-2xl"
                 onClick={() => handleClick(el.nome)}
               />
-              <div>
-                <h1 className="text-lg font-semibold text-emerald-500">
-                  {el.nome}
-                </h1>
-                <p className="text-base font-semibold text-neutral-500">
-                  {el.descrizione}
-                </p>
-                <p className="text-base font-semibold text-neutral-500">
-                  {el.approfondimento}
-                </p>
-              </div>
+            </Container>
+            <Container
+              type="div"
+              transform="translateX(0)"
+              translate="translateX(100px)"
+            >
+              <h1 className="text-lg font-semibold text-emerald-500">
+                {el.nome}
+              </h1>
+              <p className="text-base font-semibold text-neutral-500">
+                {el.descrizione}
+              </p>
             </Container>
           </div>
         ))}
-      </Container>
+      </section>
     </>
   )
 }
