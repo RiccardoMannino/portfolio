@@ -6,7 +6,7 @@ type title = {
 
 export default function Tag({ title }: title) {
   return (
-    <div className="w-fit rounded bg-emerald-400 p-1 text-sm font-semibold text-neutral-50">
+    <div className="w-fit rounded-sm bg-emerald-400 p-1 text-sm font-semibold text-neutral-50">
       {title}
     </div>
   )

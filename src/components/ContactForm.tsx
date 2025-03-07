@@ -193,7 +193,7 @@ export default function ContactForm({ call }: call) {
                     pattern:
                       /^[A-ZÀ-ÖØ-Ý][a-zà-öø-ÿ']+\s[A-ZÀ-ÖØ-Ý][a-zà-öø-ÿ']+$/,
                   })}
-                  className={` ${(errors.name && 'border-red-500 bg-red-100 focus:outline-none focus:ring focus:ring-red-300') || 'bg-neutral-100 focus:ring-emerald-200'} w-full rounded-xl border bg-neutral-100 p-3 indent-2 text-lg text-neutral-500 focus:outline-none focus:ring`}
+                  className={` ${(errors.name && 'border-red-500 bg-red-100 focus:outline-hidden focus:ring-3 focus:ring-red-300') || 'bg-neutral-100 focus:ring-emerald-200'} w-full rounded-xl border bg-neutral-100 p-3 indent-2 text-lg text-neutral-500 focus:outline-hidden focus:ring-3`}
                 />
                 {errors.name && (
                   <p className="mb-2 grid pt-1 text-sm text-red-500 md:text-base lg:text-lg">
@@ -211,7 +211,7 @@ export default function ContactForm({ call }: call) {
                     required: true,
                     pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
                   })}
-                  className={` ${(errors.email && 'border-red-500 bg-red-100 focus:outline-none focus:ring focus:ring-red-300') || 'bg-neutral-100 focus:ring-emerald-200'} w-full rounded-xl border bg-neutral-100 p-3 indent-2 text-lg text-neutral-500 focus:outline-none focus:ring`}
+                  className={` ${(errors.email && 'border-red-500 bg-red-100 focus:outline-hidden focus:ring-3 focus:ring-red-300') || 'bg-neutral-100 focus:ring-emerald-200'} w-full rounded-xl border bg-neutral-100 p-3 indent-2 text-lg text-neutral-500 focus:outline-hidden focus:ring-3`}
                 />
                 {errors.email && (
                   <p className="mb-5 pt-1 text-sm text-red-500 md:text-base lg:text-lg">
@@ -223,7 +223,7 @@ export default function ContactForm({ call }: call) {
               <div className="col-span-2 w-full">
                 <textarea
                   disabled={IsSending}
-                  className={` ${(errors.message && 'border-red-500 bg-red-100 focus:outline-none focus:ring focus:ring-red-300') || 'bg-neutral-100 focus:ring-emerald-200'} w-full rounded-xl border bg-neutral-100 p-3 indent-2 text-lg text-neutral-500 focus:outline-none focus:ring`}
+                  className={` ${(errors.message && 'border-red-500 bg-red-100 focus:outline-hidden focus:ring-3 focus:ring-red-300') || 'bg-neutral-100 focus:ring-emerald-200'} w-full rounded-xl border bg-neutral-100 p-3 indent-2 text-lg text-neutral-500 focus:outline-hidden focus:ring-3`}
                   rows={10}
                   placeholder="Inserisci il tuo messaggio"
                   {...register('message', {
@@ -245,7 +245,7 @@ export default function ContactForm({ call }: call) {
             <div className="mt-10 flex w-full justify-end">
               <button
                 disabled={IsSending}
-                className="w-full rounded-full border-gray-700 bg-emerald-500 px-4 py-2 text-lg text-neutral-50 focus:outline-none focus:ring focus:ring-gray-300 active:outline-none active:ring active:ring-gray-300"
+                className="w-full rounded-full border-gray-700 bg-emerald-500 px-4 py-2 text-lg text-neutral-50 focus:outline-hidden focus:ring-3 focus:ring-gray-300 active:outline-hidden active:ring-3 active:ring-gray-300"
                 type="submit"
               >
                 {IsSending ? 'Invio in corso...' : 'Invia Messaggio'}
