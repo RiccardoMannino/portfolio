@@ -8,6 +8,7 @@ type progetti = {
   approfondimento: string
   immagine: StaticImageData
   tecnologie: string[]
+  href: string
 }
 
 export const progetti: progetti[] = [
@@ -15,7 +16,7 @@ export const progetti: progetti[] = [
     nome: 'Forneria Messina',
     descrizione:
       'Rivisitazione del sito web da me creato (precedentemente in Wordpress) per Forneria Messina',
-    approfondimento: '',
+    approfondimento: 'Questa è una demo che non viene usata dal web',
     immagine: Forneria,
     tecnologie: [
       'React',
@@ -25,6 +26,7 @@ export const progetti: progetti[] = [
       'Supabase',
       'React Query',
     ],
+    href: 'https://forneria-messina.vercel.app',
   },
   {
     nome: 'Sito Portfolio',
@@ -33,5 +35,6 @@ export const progetti: progetti[] = [
     approfondimento: '',
     immagine: Portfolio,
     tecnologie: ['React', 'Nextjs', 'Tailwind Css', 'Framer Motion'],
+    href: '/',
   },
 ]

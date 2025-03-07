@@ -4,7 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import { useRouter } from 'next/navigation'
-import { motion } from 'motion/react'
+
 import { progetti } from '@/progetti'
 import Tag from '@/components/Tag'
 import Container from '@/components/Container'
@@ -164,15 +164,6 @@ export default function Home() {
             </Container>
           </div>
         </div>
-        <Button
-          type="button"
-          onClick={(e) => {
-            e.preventDefault(), router.push('/service')
-          }}
-          className="mb-5 self-center text-base"
-        >
-          Scopri i miei servizi
-        </Button>
       </Container>
       <Container
         type="section"

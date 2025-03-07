@@ -34,7 +34,7 @@ export default function About() {
       <p className="mt-5 text-lg text-neutral-500">
         Durante la mia carriera ho sviluppato competenze in HTML, CSS,
         JavaScript e specialmente nell&apos;utilizzo di React.js. Ho esperienza
-        nella creazione di componenti personalizzati con Material UI e Styled
+        nella creazione di componenti personalizzati con Tailwind CSS e Styled
         Components e nel gestire stati con Redux.
       </p>
       <p className="mt-5 text-lg text-neutral-500">

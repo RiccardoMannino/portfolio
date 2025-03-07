@@ -17,6 +17,7 @@ type Button = {
   transition?: Transition
   initial?: boolean | Target | VariantLabels
   animate?: boolean | AnimationControls | TargetAndTransition | undefined
+  whileHover?: VariantLabels | TargetAndTransition
 }
 
 export default function Button({
@@ -27,6 +28,7 @@ export default function Button({
   transition,
   initial,
   animate,
+  ...props
 }: Button) {
   return (
     <motion.button
@@ -36,9 +38,10 @@ export default function Button({
       onClick={onClick}
       type={type}
       className={cn(
-        'bold flex w-fit items-center justify-between rounded-full bg-gray-900 px-4 py-3 text-xs font-semibold text-white phone:self-center phone:px-4 phone:py-2',
+        'flex w-fit items-center justify-between rounded-full bg-gray-900 px-4 py-3 text-xs font-semibold text-white phone:self-center phone:px-4 phone:py-2',
         className,
       )}
+      {...props}
     >
       {children}
     </motion.button>

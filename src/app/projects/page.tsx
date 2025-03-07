@@ -2,8 +2,9 @@
 
 import Container from '@/components/Container'
 import { progetti } from '@/progetti'
+
 import Image from 'next/image'
-import { useParams, useRouter } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 import React from 'react'
 
 export default function Projects() {
@@ -18,7 +19,10 @@ export default function Projects() {
       <h1 className="mb-10 text-3xl font-bold text-emerald-500">Progetti 💼</h1>
       <section>
         {progetti.map((el) => (
-          <div key={el.nome} className="mb-10 flex w-full gap-10">
+          <div
+            key={el.nome}
+            className="mb-10 flex w-full gap-10 phone:flex-col"
+          >
             <Container
               type="div"
               transform="translateX(0)"
@@ -27,8 +31,8 @@ export default function Projects() {
               <Image
                 src={el.immagine}
                 alt="immagine"
-                width="200"
-                height="200"
+                width={300}
+                height={200}
                 className="cursor-pointer rounded-2xl"
                 onClick={() => handleClick(el.nome)}
               />
