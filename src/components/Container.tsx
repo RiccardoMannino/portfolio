@@ -11,7 +11,7 @@ import {
 interface SectionProps {
   children: ReactNode
   type: string
-  transition?: string
+  transition?: string | undefined
   transform?: string
   translate?: string
   opacity?: number

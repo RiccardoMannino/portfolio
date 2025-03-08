@@ -9,7 +9,7 @@ const config: Config = {
   theme: {
     screens: {
       iphone: {
-        '382': '382px',
+        maxHeight: '382px',
       },
       phonesm: { max: '390px' },
       phone: { max: '639px' },

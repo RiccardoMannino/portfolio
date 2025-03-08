@@ -36,7 +36,7 @@ export default function Progetto() {
       >
         <Button
           type="button"
-          className="bg-emerald-500 p-0 phone:p-0"
+          className="phone:p-0 bg-emerald-500 p-0"
           animate={{ x: hover ? -5 : 0 }}
           whileHover={{ x: -5 }}
         >
@@ -50,12 +50,20 @@ export default function Progetto() {
           Torna indietro
         </span>
       </div>
-      <div className="flex gap-7">
+      <div className="phone:flex-col flex gap-7">
         <div className="flex flex-col gap-3">
-          <h1 className="text-3xl font-bold text-emerald-500">
-            {progetto?.nome}
-          </h1>
-          <p className="mt-4 text-neutral-500 phone:text-center">
+          <div className="flex items-center gap-5">
+            <h1 className="text-3xl font-bold text-emerald-500">
+              {progetto?.nome}
+            </h1>
+            <Button type="button" whileHover={{ scale: 1.1 }}>
+              <Link href={progetto?.href} target="_blank">
+                Link
+              </Link>
+            </Button>
+          </div>
+
+          <p className="phone:text-center mt-4 text-neutral-500">
             {progetto?.descrizione}
           </p>
           <p className="mt-2 text-neutral-500">{progetto?.approfondimento}</p>
@@ -64,17 +72,14 @@ export default function Progetto() {
             alt="immagine"
             className="rounded-2xl"
           />
-          <Button type="button">
-            <Link href={progetto?.href} target="_blank">
-              Link
-            </Link>
-          </Button>
         </div>
-        <div className="flex h-fit w-full flex-col flex-wrap gap-2 rounded-2xl bg-emerald-500 p-2">
-          <h1 className="w-full text-center font-semibold text-neutral-50">
-            Tecnologie utilizzate
-          </h1>
-          <div className="flex flex-wrap gap-4">{tecnologie}</div>
+        <div className="flex w-full flex-col flex-wrap gap-2">
+          <div className="flex h-fit flex-col gap-5 rounded-2xl bg-emerald-500 p-4">
+            <h1 className="text-center font-semibold text-neutral-50">
+              Tecnologie utilizzate
+            </h1>
+            <div className="flex flex-wrap gap-5">{tecnologie}</div>
+          </div>
         </div>
       </div>
     </Container>

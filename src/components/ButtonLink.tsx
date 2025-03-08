@@ -38,7 +38,7 @@ export default function Button({
       onClick={onClick}
       type={type}
       className={cn(
-        'flex w-fit items-center justify-between rounded-full bg-gray-900 px-4 py-3 text-xs font-semibold text-white phone:self-center phone:px-4 phone:py-2',
+        'phone:self-center phone:px-4 phone:py-2 flex w-fit items-center justify-between rounded-full bg-gray-900 px-4 py-3 text-xs font-semibold text-white',
         className,
       )}
       {...props}
@@ -46,20 +46,4 @@ export default function Button({
       {children}
     </motion.button>
   )
-}
-
-{
-  /* <h2 className="mb-5 mt-10 text-center text-lg font-medium md:text-left md:text-2xl">
-        Tech Stack
-        </h2>
-        <div className="flex flex-wrap justify-center gap-4 md:justify-start">
-        {icons.map((i) => (
-          <Image
-          key={i.alt}
-          src={i.icon}
-          alt={i.alt}
-          className="m-1 h-[45px] w-[45px] transition duration-300 hover:-translate-y-2 hover:cursor-pointer md:h-[60px] md:w-[60px]"
-          />
-          ))}
-          </div> */
 }

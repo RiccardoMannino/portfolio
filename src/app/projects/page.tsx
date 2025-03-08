@@ -21,7 +21,7 @@ export default function Projects() {
         {progetti.map((el) => (
           <div
             key={el.nome}
-            className="mb-10 flex w-full gap-10 phone:flex-col"
+            className="phone:flex-col mb-10 flex w-full gap-10"
           >
             <Container
               type="div"

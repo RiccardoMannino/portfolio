@@ -12,20 +12,20 @@ import {
 import toast, { Toast } from 'react-hot-toast'
 import emailjs from '@emailjs/browser'
 
-type call = {
-  call: boolean
+type contact = {
+  call?: boolean
+  config: ConfigData
 }
 
-type ConfigData = {
+export type ConfigData = {
   callLink: string
   emailJsPublicKey: string
   emailJsServiceId: string
   emailJsTemplateId: string
 }
-export default function ContactForm({ call }: call) {
-  const [IsSending, setIsSending] = useState(false)
-  const [config, setConfig] = useState<ConfigData>({} as ConfigData)
 
+export default function ContactForm({ call, config }: contact) {
+  const [IsSending, setIsSending] = useState(false)
   const form = useRef(null)
 
   type Pagine = {
@@ -47,30 +47,17 @@ export default function ContactForm({ call }: call) {
     },
   ]
 
-  useEffect(() => {
-    const fetchConfig = async () => {
-      try {
-        const response = await fetch('/api/getConfig')
-        const data: ConfigData = await response.json()
-        setConfig(data)
-      } catch (error) {
-        console.error('Errore durante il fetch della configurazione:', error)
-      }
-    }
-
-    fetchConfig()
-  }, [])
-
   // Funzione per inviare l'email
   const sendEmail = async (data: FieldValues) => {
     if (!config) {
       console.error('Configurazione non disponibile')
       return
     }
+
     try {
       setIsSending(true)
 
-      const result = await emailjs.sendForm(
+      await emailjs.sendForm(
         config.emailJsServiceId, // Service ID
         config.emailJsTemplateId, // Template ID
         form.current!, // Form HTML (ottenuto con useRef)
@@ -130,11 +117,11 @@ export default function ContactForm({ call }: call) {
       <h1 className="mb-4 text-center text-3xl font-bold text-emerald-500 md:text-4xl">
         Contattami <span>✉️</span>
       </h1>
-      <p className="mb-2 text-center text-lg text-neutral-500 phone:text-center">
+      <p className="phone:text-center mb-2 text-center text-lg text-neutral-500">
         Compila il Form sottostante e ti risponderò il prima possibile.
       </p>
 
-      <div className="flex gap-10 phone:flex-col">
+      <div className="phone:flex-col flex gap-10">
         <div>
           <div className="mt-8 flex items-center gap-2">
             <div className="rounded-lg bg-emerald-500 p-4 text-neutral-50">
@@ -167,7 +154,7 @@ export default function ContactForm({ call }: call) {
                 href={so.href}
                 target="_blank"
                 key={so.href}
-                className="flex transform p-[6px] text-sm text-neutral-50 delay-75 duration-100 ease-in hover:stroke-neutral-700 hover:text-neutral-700 phone:justify-center phone:stroke-neutral-50"
+                className="phone:justify-center phone:stroke-neutral-50 flex transform p-[6px] text-sm text-neutral-50 delay-75 duration-100 ease-in hover:stroke-neutral-700 hover:text-neutral-700"
               >
                 <div className="rounded-lg bg-emerald-500 p-3 hover:cursor-pointer">
                   {so.image}
@@ -193,7 +180,7 @@ export default function ContactForm({ call }: call) {
                     pattern:
                       /^[A-ZÀ-ÖØ-Ý][a-zà-öø-ÿ']+\s[A-ZÀ-ÖØ-Ý][a-zà-öø-ÿ']+$/,
                   })}
-                  className={` ${(errors.name && 'border-red-500 bg-red-100 focus:outline-hidden focus:ring-3 focus:ring-red-300') || 'bg-neutral-100 focus:ring-emerald-200'} w-full rounded-xl border bg-neutral-100 p-3 indent-2 text-lg text-neutral-500 focus:outline-hidden focus:ring-3`}
+                  className={` ${(errors.name && 'border-red-500 bg-red-100 focus:ring-3 focus:ring-red-300 focus:outline-hidden') || 'bg-neutral-100 focus:ring-emerald-200'} w-full rounded-xl border bg-neutral-100 p-3 indent-2 text-lg text-neutral-500 focus:ring-3 focus:outline-hidden`}
                 />
                 {errors.name && (
                   <p className="mb-2 grid pt-1 text-sm text-red-500 md:text-base lg:text-lg">
@@ -211,7 +198,7 @@ export default function ContactForm({ call }: call) {
                     required: true,
                     pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
                   })}
-                  className={` ${(errors.email && 'border-red-500 bg-red-100 focus:outline-hidden focus:ring-3 focus:ring-red-300') || 'bg-neutral-100 focus:ring-emerald-200'} w-full rounded-xl border bg-neutral-100 p-3 indent-2 text-lg text-neutral-500 focus:outline-hidden focus:ring-3`}
+                  className={` ${(errors.email && 'border-red-500 bg-red-100 focus:ring-3 focus:ring-red-300 focus:outline-hidden') || 'bg-neutral-100 focus:ring-emerald-200'} w-full rounded-xl border bg-neutral-100 p-3 indent-2 text-lg text-neutral-500 focus:ring-3 focus:outline-hidden`}
                 />
                 {errors.email && (
                   <p className="mb-5 pt-1 text-sm text-red-500 md:text-base lg:text-lg">
@@ -223,7 +210,7 @@ export default function ContactForm({ call }: call) {
               <div className="col-span-2 w-full">
                 <textarea
                   disabled={IsSending}
-                  className={` ${(errors.message && 'border-red-500 bg-red-100 focus:outline-hidden focus:ring-3 focus:ring-red-300') || 'bg-neutral-100 focus:ring-emerald-200'} w-full rounded-xl border bg-neutral-100 p-3 indent-2 text-lg text-neutral-500 focus:outline-hidden focus:ring-3`}
+                  className={` ${(errors.message && 'border-red-500 bg-red-100 focus:ring-3 focus:ring-red-300 focus:outline-hidden') || 'bg-neutral-100 focus:ring-emerald-200'} w-full rounded-xl border bg-neutral-100 p-3 indent-2 text-lg text-neutral-500 focus:ring-3 focus:outline-hidden`}
                   rows={10}
                   placeholder="Inserisci il tuo messaggio"
                   {...register('message', {
@@ -245,7 +232,7 @@ export default function ContactForm({ call }: call) {
             <div className="mt-10 flex w-full justify-end">
               <button
                 disabled={IsSending}
-                className="w-full rounded-full border-gray-700 bg-emerald-500 px-4 py-2 text-lg text-neutral-50 focus:outline-hidden focus:ring-3 focus:ring-gray-300 active:outline-hidden active:ring-3 active:ring-gray-300"
+                className="w-full rounded-full border-gray-700 bg-emerald-500 px-4 py-2 text-lg text-neutral-50 focus:ring-3 focus:ring-gray-300 focus:outline-hidden active:ring-3 active:ring-gray-300 active:outline-hidden"
                 type="submit"
               >
                 {IsSending ? 'Invio in corso...' : 'Invia Messaggio'}
