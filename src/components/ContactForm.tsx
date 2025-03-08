@@ -14,7 +14,7 @@ import emailjs from '@emailjs/browser'
 
 type contact = {
   call?: boolean
-  config: ConfigData
+  config?: ConfigData
 }
 
 export type ConfigData = {

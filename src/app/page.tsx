@@ -36,7 +36,7 @@ export default function Home() {
         type="section"
       >
         <TypewriterEffect />
-        <h1 className="mb-4 text-wrap text-3xl font-bold text-emerald-500 md:text-4xl">
+        <h1 className="mb-4 text-3xl font-bold text-wrap text-emerald-500 md:text-4xl">
           Realizzo siti web moderni e personalizzati per aziende e privati.
         </h1>
         <p className="mt-5 text-lg text-neutral-500">
@@ -60,7 +60,7 @@ export default function Home() {
         </div>
       </Container>
       <section className="mt-40 flex flex-col gap-7">
-        <div className="flex w-full items-center justify-center gap-10 phone:flex-col">
+        <div className="phone:flex-col flex w-full items-center justify-center gap-10">
           <Container
             transform="translateX(0)"
             translate="translateX(-100px)"
@@ -70,7 +70,7 @@ export default function Home() {
             <Image
               src={Me}
               alt="riccardo mannino"
-              className="mr-10 w-full rounded-full phone:self-center"
+              className="phone:self-center mr-10 w-full rounded-full"
               width={400}
               height={300}
             />
@@ -79,9 +79,9 @@ export default function Home() {
             type="div"
             transform="translateX(0)"
             translate="translateX(100px)"
-            className="flex w-[50%] flex-col phone:w-full"
+            className="phone:w-full flex w-[50%] flex-col"
           >
-            <h1 className="mb-4 text-wrap text-3xl font-bold text-emerald-500 md:text-4xl">
+            <h1 className="mb-4 text-3xl font-bold text-wrap text-emerald-500 md:text-4xl">
               Chi Sono
             </h1>
             <p className="text-lg text-neutral-500">
@@ -105,18 +105,18 @@ export default function Home() {
         </div>
       </section>
       <Container type="section" className="mt-40 flex flex-col gap-7">
-        <h1 className="text-wrap text-3xl font-bold text-emerald-500 phone:text-center md:text-4xl">
+        <h1 className="phone:text-center text-3xl font-bold text-wrap text-emerald-500 md:text-4xl">
           Come posso aiutarti?
         </h1>
-        <p className="text-lg text-neutral-500 phone:text-center">
+        <p className="phone:text-center text-lg text-neutral-500">
           Lavoro con aziende e privati per trasformare le loro idee in siti web
           moderni e funzionali. Ecco cosa posso fare per te
         </p>
         <div className="mt-7 flex h-full w-full flex-col items-center justify-center">
-          <h1 className="mb-5 text-wrap text-3xl font-bold text-emerald-500 md:text-4xl">
+          <h1 className="mb-5 text-3xl font-bold text-wrap text-emerald-500 md:text-4xl">
             Servizi
           </h1>
-          <div className="flex h-full w-full items-center justify-between gap-7 phone:mt-7 phone:flex-col">
+          <div className="phone:mt-7 phone:flex-col flex h-full w-full items-center justify-between gap-7">
             <Container
               type="div"
               transform="translateX(0)"
@@ -134,7 +134,7 @@ export default function Home() {
               </div>
               <div className="my-2 flex space-x-1">
                 <IconCircleCheckFilled className="mt-2 h-4 w-8 text-neutral-50 sm:w-4" />
-                <p className="text-balance text-base text-neutral-50 md:text-lg">
+                <p className="text-base text-balance text-neutral-50 md:text-lg">
                   Siti web aziendali e applicazioni personalizzate.
                 </p>
               </div>
@@ -169,13 +169,13 @@ export default function Home() {
         type="section"
         className="mt-40 flex flex-col gap-7 text-center"
       >
-        <h1 className="text-wrap text-3xl font-bold text-emerald-500 md:text-4xl">
+        <h1 className="text-3xl font-bold text-wrap text-emerald-500 md:text-4xl">
           Competenze Tecniche
         </h1>
-        <p className="text-lg text-neutral-500 phone:text-center">
+        <p className="phone:text-center text-lg text-neutral-500">
           Le tecnologie e gli strumenti che utilizzo
         </p>
-        <div className="flex w-full justify-center gap-7 phone:flex-col">
+        <div className="phone:flex-col flex w-full justify-center gap-7">
           <Container
             type="div"
             transform="translateX(0)"
@@ -240,7 +240,7 @@ export default function Home() {
               scale: 1.05,
               transition: { duration: 0.2 },
             }}
-            className="grid h-auto w-fit cursor-pointer grid-cols-1 grid-rows-1 gap-7 rounded-2xl bg-emerald-500 px-8 py-5 phone:h-fit phone:w-full"
+            className="phone:h-fit phone:w-full grid h-auto w-fit cursor-pointer grid-cols-1 grid-rows-1 gap-7 rounded-2xl bg-emerald-500 px-8 py-5"
           >
             <div className="flex cursor-pointer flex-col">
               <h2 className="p-3 text-xl font-semibold text-neutral-50">
@@ -277,10 +277,10 @@ export default function Home() {
         className="mt-40 flex flex-col gap-7 py-24 text-center"
         id="progetti"
       >
-        <h1 className="mb-6 text-wrap text-3xl font-bold text-emerald-500 md:text-4xl">
+        <h1 className="mb-6 text-3xl font-bold text-wrap text-emerald-500 md:text-4xl">
           I Miei Progetti
         </h1>
-        <div className="relative grid grid-flow-col gap-7 phone:grid-rows-2">
+        <div className="phone:grid-rows-2 relative grid grid-flow-col gap-7">
           {progetti.map((el) => (
             <Container
               key={el.nome}
