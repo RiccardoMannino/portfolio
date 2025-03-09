@@ -4,7 +4,7 @@ import Container from '@/components/Container'
 export default function Contact() {
   return (
     <Container type="section" className="py-24">
-      <ContactForm call={true} />
+      <ContactForm />
     </Container>
   )
 }

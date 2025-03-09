@@ -1,5 +1,6 @@
 'use client'
 import Link from 'next/link'
+
 import { ReactNode, useEffect, useRef, useState } from 'react'
 import { FieldValues, useForm } from 'react-hook-form'
 import { getCalApi } from '@calcom/embed-react'
@@ -12,20 +13,9 @@ import {
 import toast, { Toast } from 'react-hot-toast'
 import emailjs from '@emailjs/browser'
 
-type contact = {
-  call?: boolean
-  config?: ConfigData
-}
-
-export type ConfigData = {
-  callLink: string
-  emailJsPublicKey: string
-  emailJsServiceId: string
-  emailJsTemplateId: string
-}
-
-export default function ContactForm({ call, config }: contact) {
+export default function ContactForm() {
   const [IsSending, setIsSending] = useState(false)
+
   const form = useRef(null)
 
   type Pagine = {
@@ -47,21 +37,31 @@ export default function ContactForm({ call, config }: contact) {
     },
   ]
 
+  type ConfigData = {
+    callLink: string
+    emailJsPublicKey: string
+    emailJsServiceId: string
+    emailJsTemplateId: string
+  }
+
   // Funzione per inviare l'email
   const sendEmail = async (data: FieldValues) => {
-    if (!config) {
-      console.error('Configurazione non disponibile')
-      return
-    }
-
     try {
       setIsSending(true)
 
+      // Prima recupera la configurazione
+      const response = await fetch('/api/config')
+      if (!response.ok) {
+        throw new Error('Impossibile recuperare la configurazione')
+      }
+      const config: ConfigData = await response.json()
+
+      // Poi usa i dati di configurazione
       await emailjs.sendForm(
-        config.emailJsServiceId, // Service ID
-        config.emailJsTemplateId, // Template ID
-        form.current!, // Form HTML (ottenuto con useRef)
-        config.emailJsPublicKey, // Public Key
+        config.emailJsServiceId,
+        config.emailJsTemplateId,
+        form.current!,
+        config.emailJsPublicKey,
       )
 
       toast.custom((t: Toast) => (
@@ -177,8 +177,7 @@ export default function ContactForm({ call, config }: contact) {
                   {...register('name', {
                     required: true,
                     maxLength: 50,
-                    pattern:
-                      /^[A-ZÀ-ÖØ-Ý][a-zà-öø-ÿ']+\s[A-ZÀ-ÖØ-Ý][a-zà-öø-ÿ']+$/,
+                    pattern: /^[A-Za-zÀ-ÖØ-öø-ÿ]+([''\s-][A-Za-zÀ-ÖØ-öø-ÿ]+)+$/,
                   })}
                   className={` ${(errors.name && 'border-red-500 bg-red-100 focus:ring-3 focus:ring-red-300 focus:outline-hidden') || 'bg-neutral-100 focus:ring-emerald-200'} w-full rounded-xl border bg-neutral-100 p-3 indent-2 text-lg text-neutral-500 focus:ring-3 focus:outline-hidden`}
                 />
@@ -196,7 +195,7 @@ export default function ContactForm({ call, config }: contact) {
                   placeholder="Email"
                   {...register('email', {
                     required: true,
-                    pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                    pattern: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
                   })}
                   className={` ${(errors.email && 'border-red-500 bg-red-100 focus:ring-3 focus:ring-red-300 focus:outline-hidden') || 'bg-neutral-100 focus:ring-emerald-200'} w-full rounded-xl border bg-neutral-100 p-3 indent-2 text-lg text-neutral-500 focus:ring-3 focus:outline-hidden`}
                 />
@@ -220,7 +219,7 @@ export default function ContactForm({ call, config }: contact) {
                   })}
                 />
                 <p className="mt-2 text-lg text-neutral-500">
-                  Caratteri Digitati: {formValue.message?.length || 0} / 50
+                  Caratteri Digitati: {formValue.message?.length || 0} / 250
                 </p>
                 {errors.message && (
                   <p className="mb-2 text-sm text-red-500 md:text-base lg:text-lg">
@@ -239,19 +238,6 @@ export default function ContactForm({ call, config }: contact) {
               </button>
             </div>
           </form>
-
-          {call && (
-            <div className="mt-7">
-              <button
-                className="bold rounded-full bg-gray-900 px-3 py-3 text-lg font-semibold text-white"
-                data-cal-namespace="30min"
-                data-cal-link={config?.callLink}
-                data-cal-config='{"layout":"month_view"}'
-              >
-                Prenota chiamata
-              </button>
-            </div>
-          )}
         </div>
       </div>
     </>

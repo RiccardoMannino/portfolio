@@ -306,7 +306,7 @@ export default function Home() {
         </div>
       </Container>
       <Container type="section" className="py-24" id="contact">
-        <ContactForm call={false} />
+        <ContactForm />
       </Container>
     </>
   )
