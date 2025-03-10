@@ -57,10 +57,14 @@ export default function ContactForm() {
       const config: ConfigData = await response.json()
 
       // Poi usa i dati di configurazione
-      await emailjs.sendForm(
+      await emailjs.send(
         config.emailJsServiceId,
         config.emailJsTemplateId,
-        form.current!,
+        {
+          name: data.name, // Assicurati che questi nomi corrispondano
+          email: data.email, // ai parametri nel tuo template EmailJS
+          message: data.message,
+        },
         config.emailJsPublicKey,
       )
 
@@ -101,15 +105,23 @@ export default function ContactForm() {
   const formValue = watch()
 
   useEffect(() => {
-    async function prenotation() {
+    ;(async function () {
       const cal = await getCalApi({ namespace: '30min' })
+      cal('floatingButton', {
+        calLink: 'riccardo-mannino-mogao4/30min',
+        config: { layout: 'month_view' },
+        hideButtonIcon: false,
+        buttonColor: '#00b87b',
+        buttonText: 'Prenota chiamata',
+      })
       cal('ui', {
-        theme: 'light',
         hideEventTypeDetails: false,
         layout: 'month_view',
+        styles: {
+          branding: { brandColor: '#000000' },
+        },
       })
-    }
-    prenotation()
+    })()
   }, [])
 
   return (
