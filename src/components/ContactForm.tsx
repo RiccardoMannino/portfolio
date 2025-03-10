@@ -13,61 +13,64 @@ import {
 import toast, { Toast } from 'react-hot-toast'
 import emailjs from '@emailjs/browser'
 
+type Pagine = {
+  pagina: string
+  href: string
+  image?: ReactNode
+}
+
+type ConfigData = {
+  callLink: string
+  emailJsPublicKey: string
+  emailJsServiceId: string
+  emailJsTemplateId: string
+}
+const social: Pagine[] = [
+  {
+    pagina: 'Linkedin',
+    href: 'https://www.linkedin.com/in/riccardo-mannino/',
+    image: <IconBrandLinkedin size={20} />,
+  },
+  {
+    pagina: 'Github',
+    href: 'https://github.com/RiccardoMannino/',
+    image: <IconBrandGithub size={20} />,
+  },
+]
+
 export default function ContactForm() {
   const [IsSending, setIsSending] = useState(false)
 
   const form = useRef(null)
 
-  type Pagine = {
-    pagina: string
-    href: string
-    image?: ReactNode
-  }
-
-  const social: Pagine[] = [
-    {
-      pagina: 'Linkedin',
-      href: 'https://www.linkedin.com/in/riccardo-mannino/',
-      image: <IconBrandLinkedin size={20} />,
-    },
-    {
-      pagina: 'Github',
-      href: 'https://github.com/RiccardoMannino/',
-      image: <IconBrandGithub size={20} />,
-    },
-  ]
-
-  type ConfigData = {
-    callLink: string
-    emailJsPublicKey: string
-    emailJsServiceId: string
-    emailJsTemplateId: string
-  }
-
   // Funzione per inviare l'email
   const sendEmail = async (data: FieldValues) => {
     try {
       setIsSending(true)
-
-      // Prima recupera la configurazione
+      // recupero chiavi dal file .env
       const response = await fetch('/api/config')
+
       if (!response.ok) {
         throw new Error('Impossibile recuperare la configurazione')
       }
+
       const config: ConfigData = await response.json()
 
-      // Poi usa i dati di configurazione
+      //input dei campi del form
+      const formData = {
+        name: data.name,
+        email: data.email,
+        message: data.message,
+      }
+
+      // invio della mail
       await emailjs.send(
         config.emailJsServiceId,
         config.emailJsTemplateId,
-        {
-          name: data.name, // Assicurati che questi nomi corrispondano
-          email: data.email, // ai parametri nel tuo template EmailJS
-          message: data.message,
-        },
+        formData,
         config.emailJsPublicKey,
       )
-
+      //Toast in caso di invio o errore
       toast.custom((t: Toast) => (
         <div
           className={`rounded-full bg-[#111827] px-6 py-4 text-white shadow-md ${
@@ -94,6 +97,7 @@ export default function ContactForm() {
     }
   }
 
+  // Hook di react-use form
   const {
     register,
     handleSubmit,
@@ -104,6 +108,7 @@ export default function ContactForm() {
 
   const formValue = watch()
 
+  // Widget Cal.com
   useEffect(() => {
     ;(async function () {
       const cal = await getCalApi({ namespace: '30min' })
