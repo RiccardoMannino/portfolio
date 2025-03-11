@@ -108,26 +108,19 @@ export default function ContactForm() {
 
   const formValue = watch()
 
-  // Widget Cal.com
-  useEffect(() => {
-    ;(async function () {
-      const cal = await getCalApi({ namespace: '30min' })
-      cal('floatingButton', {
-        calLink: 'riccardo-mannino-mogao4/30min',
-        config: { layout: 'month_view' },
-        hideButtonIcon: false,
-        buttonColor: '#00b87b',
-        buttonText: 'Prenota chiamata',
-      })
-      cal('ui', {
-        hideEventTypeDetails: false,
-        layout: 'month_view',
-        styles: {
-          branding: { brandColor: '#000000' },
-        },
-      })
-    })()
-  }, [])
+  // // Widget Cal.com
+  // useEffect(() => {
+  //   ;(async function () {
+  //     const cal = await getCalApi({ namespace: '30min' })
+  //     cal('ui', {
+  //       hideEventTypeDetails: false,
+  //       layout: 'month_view',
+  //       styles: {
+  //         branding: { brandColor: '#421355' },
+  //       },
+  //     })
+  //   })()
+  // }, [])
 
   return (
     <>

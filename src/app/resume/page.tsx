@@ -12,7 +12,7 @@ export default function page() {
         tecnologie moderne come React.js, Material UI, e Styled Components.
       </p>
       <div>
-        <div className="relative my-20 flex flex-col space-x-10 space-y-10 md:flex-row md:space-y-0">
+        {/* <div className="relative my-20 flex flex-col space-x-10 space-y-10 md:flex-row md:space-y-0">
           <p className="w-30 text-sm text-neutral-500">07/2023 ad oggi</p>
           <div>
             <h5 className="text-lg font-bold text-emerald-500">Freelance</h5>
@@ -64,8 +64,8 @@ export default function page() {
               </p>
             </div>
           </div>
-        </div>
-        <div className="relative my-20 flex flex-col space-x-10 space-y-10 md:flex-row md:space-y-0">
+        </div> */}
+        <div className="relative my-20 flex flex-col space-y-10 space-x-10 md:flex-row md:space-y-0">
           <p className="w-30 text-sm text-neutral-500">04/2022 - 10/2022</p>
           <div>
             <h5 className="text-lg font-bold text-emerald-500">
@@ -97,7 +97,7 @@ export default function page() {
             </div>
           </div>
         </div>
-        <div className="relative my-20 flex flex-col space-x-10 space-y-10 md:flex-row md:space-y-0">
+        <div className="relative my-20 flex flex-col space-y-10 space-x-10 md:flex-row md:space-y-0">
           <p className="w-30 text-sm text-neutral-500">10/2020 - 03/2022</p>
           <div>
             <h5 className="text-lg font-bold text-emerald-500">
