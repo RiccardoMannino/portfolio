@@ -34,7 +34,7 @@ export default function page() {
           </div>
         </div>*/}
         <div className="relative my-20 flex flex-col space-y-10 space-x-10 md:flex-row md:space-y-0">
-          <p className="w-30 text-lg text-neutral-500">11/2022 - 07/2023</p>
+          <p className="w-30 text-base text-neutral-500">11/2022 - 07/2023</p>
           <div>
             <h5 className="text-lg font-bold text-emerald-500">
               The Cove S.R.L Bergamo, Italia
@@ -58,7 +58,7 @@ export default function page() {
             </div>
             <div className="my-2 flex items-start space-x-1">
               <IconCircleCheckFilled className="h-4 w-8 text-emerald-200 sm:w-4" />
-              <p className="text-sm text-neutral-500">
+              <p className="text-lg text-neutral-500">
                 Implementato il routing delle pagine con Next.js e lavorato
                 anche con react router.
               </p>
@@ -66,7 +66,7 @@ export default function page() {
           </div>
         </div>
         <div className="relative my-20 flex flex-col space-y-10 space-x-10 md:flex-row md:space-y-0">
-          <p className="w-30 text-lg text-neutral-500">04/2022 - 10/2022</p>
+          <p className="w-30 text-base text-neutral-500">04/2022 - 10/2022</p>
           <div>
             <h5 className="text-lg font-bold text-emerald-500">
               DevelHope S.R.L Palermo, Italia
@@ -98,7 +98,7 @@ export default function page() {
           </div>
         </div>
         <div className="relative my-20 flex flex-col space-y-10 space-x-10 md:flex-row md:space-y-0">
-          <p className="w-30 text-sm text-neutral-500">10/2020 - 03/2022</p>
+          <p className="w-30 text-base text-neutral-500">10/2020 - 03/2022</p>
           <div>
             <h5 className="text-lg font-bold text-emerald-500">
               Forneria Messina di Messina G.& C. SNC, Monreale, Italia
