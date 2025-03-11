@@ -23,7 +23,7 @@ export default function Progetto() {
     .map((el) => el.tecnologie.map((ele) => <Tag title={ele} key={ele} />))
 
   if (!progetto) {
-    return <p className="text-red-500">Progetto non trovato</p>
+    return <p className="font-semibold text-red-500">Progetto non trovato!</p>
   }
 
   return (
@@ -36,7 +36,7 @@ export default function Progetto() {
       >
         <Button
           type="button"
-          className="phone:p-0 bg-emerald-500 p-0"
+          className="phone:p-0 bg-emerald-500 p-0 hover:cursor-pointer"
           animate={{ x: hover ? -5 : 0 }}
           whileHover={{ x: -5 }}
         >
@@ -50,13 +50,17 @@ export default function Progetto() {
           Torna indietro
         </span>
       </div>
-      <div className="phone:flex-col flex gap-7">
+      <div className="phone:grid-rows-2 phone:grid-cols-1 grid grid-cols-2 gap-7">
         <div className="flex flex-col gap-3">
-          <div className="flex items-center gap-5">
+          <div className="flex items-center justify-center gap-5">
             <h1 className="text-3xl font-bold text-emerald-500">
               {progetto?.nome}
             </h1>
-            <Button type="button" whileHover={{ scale: 1.1 }}>
+            <Button
+              type="button"
+              whileHover={{ scale: 1.1 }}
+              className="bg-emerald-500"
+            >
               <Link href={progetto?.href} target="_blank">
                 Link
               </Link>
@@ -66,7 +70,9 @@ export default function Progetto() {
           <p className="phone:text-center mt-4 text-neutral-500">
             {progetto?.descrizione}
           </p>
-          <p className="mt-2 text-neutral-500">{progetto?.approfondimento}</p>
+          <p className="phone:text-center mt-2 text-neutral-500">
+            {progetto?.approfondimento}
+          </p>
           <Image
             src={progetto?.immagine}
             alt="immagine"

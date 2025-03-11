@@ -50,11 +50,14 @@ export default function Home() {
               e.preventDefault(), router.push('#progetti')
             }}
             type="button"
-            className="text-base"
+            className="cursor-pointer text-base"
           >
             Progetti
           </Button>
-          <Button type="button" className="bg-emerald-500 text-base">
+          <Button
+            type="button"
+            className="cursor-pointer bg-emerald-500 text-base"
+          >
             <Link href="#contact">Contattami Ora</Link>
           </Button>
         </div>
@@ -97,7 +100,7 @@ export default function Home() {
                 e.preventDefault(), router.push('/about')
               }}
               type="button"
-              className="mt-10 text-base"
+              className="mt-10 cursor-pointer text-base"
             >
               Scopri di più su di me
             </Button>
