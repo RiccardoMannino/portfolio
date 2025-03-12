@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   },
 }
 
-export function Contact() {
+export default function Contact() {
   return (
     <Container type="section" className="py-24">
       <ContactForm />
