@@ -4,6 +4,15 @@ import Image from 'next/image'
 import Me from '@/assets/aboutme.jpg'
 import Pc from '@/assets/pc.jpg'
 import Container from '@/components/Container'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  description: 'About Me',
+  openGraph: {
+    title: 'Riccardo Mannino | Chi Sono',
+    description: 'About Me',
+  },
+}
 
 export default function About() {
   return (

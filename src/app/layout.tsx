@@ -21,8 +21,13 @@ export const metadata: Metadata = {
   description:
     'Sono Riccardo Mannino Realizzo siti web moderni e personalizzati per aziende e privati.',
   openGraph: {
+    url: 'https://www.riccardomannino.it',
+    title: 'Riccardo Mannino | Frontend Developer',
+    siteName: 'Riccardo Mannino | Frontend Developer',
     description:
       'Sono Riccardo Mannino Realizzo siti web moderni e personalizzati per aziende e privati.',
+    locale: 'it-IT',
+    type: 'website',
   },
 }
 
@@ -32,7 +37,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="scroll-smooth antialiased">
+    <html lang="it" className="scroll-smooth antialiased">
       <body
         className={`${geistSans.variable} ${geistMono.variable} flex bg-slate-100`}
       >
