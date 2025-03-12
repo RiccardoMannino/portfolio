@@ -23,7 +23,14 @@ export const metadata: Metadata = {
   openGraph: {
     url: 'https://riccardomannino.it',
     title: 'Riccardo Mannino | Frontend Developer',
-    siteName: 'Riccardo Mannino | Frontend Developer',
+    siteName: 'Riccardo Mannino',
+    images: [
+      {
+        url: '../assets/Me.jpg',
+        width: 1200,
+        height: 630,
+      },
+    ],
     description:
       'Sono Riccardo Mannino Realizzo siti web moderni e personalizzati per aziende e privati.',
     locale: 'it-IT',
