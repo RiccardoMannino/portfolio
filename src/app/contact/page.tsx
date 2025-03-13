@@ -4,10 +4,6 @@ import { Metadata } from 'next'
 
 export const metadata: Metadata = {
   description: 'Contattami compilando il form',
-  openGraph: {
-    title: 'Riccardo Mannino | Contatti',
-    description: 'Contattami compilando il form',
-  },
 }
 
 export default function Contact() {

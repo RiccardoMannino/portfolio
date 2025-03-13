@@ -4,10 +4,6 @@ import { Metadata } from 'next'
 
 export const metadata: Metadata = {
   description: 'Esperienze Lavorative',
-  openGraph: {
-    title: 'Riccardo Mannino | Curriculum',
-    description: 'Esperienze Lavorative',
-  },
 }
 
 export default function page() {

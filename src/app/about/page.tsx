@@ -7,11 +7,7 @@ import Container from '@/components/Container'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  description: 'About Me',
-  openGraph: {
-    title: 'Riccardo Mannino | Chi Sono',
-    description: 'About Me',
-  },
+  description: 'Chi sono',
 }
 
 export default function About() {
