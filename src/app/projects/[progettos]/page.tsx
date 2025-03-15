@@ -4,7 +4,7 @@ import { progetti } from '@/progetti'
 import Link from 'next/link'
 import Image from 'next/image'
 import React, { useState } from 'react'
-import { motion } from 'motion/react'
+
 import Container from '@/components/Container'
 import Button from '@/components/ButtonLink'
 import { IconArrowNarrowLeft } from '@tabler/icons-react'
