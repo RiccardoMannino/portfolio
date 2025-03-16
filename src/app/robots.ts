@@ -4,7 +4,7 @@ export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
       userAgent: '*',
-      allow: '/',
+      allow: ['/', '/about', '/contact', '/projects', '/resume'],
       disallow: ['/api/*'],
     },
     sitemap: 'https://riccardomannino.it/sitemap.xml',
