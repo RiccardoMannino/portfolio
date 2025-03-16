@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/api/*'],
     },
-    sitemap: 'https://riccardomannino.it',
+    sitemap: 'https://riccardomannino.it/sitemap.xml',
   }
 }
