@@ -8,7 +8,6 @@ import React, { useState } from 'react'
 import Container from '@/components/Container'
 import Button from '@/components/ButtonLink'
 import { IconArrowNarrowLeft } from '@tabler/icons-react'
-import Tag from '@/components/Tag'
 
 export default function Progetto() {
   const [hover, setHover] = useState(false)
@@ -20,7 +19,23 @@ export default function Progetto() {
   )
   const tecnologie = progetti
     .filter((p) => p.nome.toLowerCase().split(' ').join('-') === progettos)
-    .map((el) => el.tecnologie.map((ele) => <Tag title={ele} key={ele} />))
+    .map((el) =>
+      el.tecnologie.map((ele) => (
+        <div
+          className="flex flex-col flex-wrap items-center justify-center"
+          key={ele.nome}
+        >
+          <Image
+            src={ele.image}
+            width={75}
+            height={75}
+            alt="tecnologie"
+            className="cursor-pointer transition-all duration-200 hover:-translate-y-2"
+          />
+          <p className="font-semibold text-emerald-500">{ele.nome}</p>
+        </div>
+      )),
+    )
 
   if (!progetto) {
     return <p className="font-semibold text-red-500">Progetto non trovato!</p>
@@ -50,9 +65,9 @@ export default function Progetto() {
           Torna indietro
         </span>
       </div>
-      <div className="phone:grid-rows-2 phone:grid-cols-1 grid grid-cols-2 gap-7">
+      <div className="phone:grid-rows-2 phone:grid-cols-1 grid gap-7">
         <div className="flex flex-col gap-3">
-          <div className="flex items-center justify-center gap-5">
+          <div className="flex items-center justify-center gap-7">
             <h1 className="text-3xl font-bold text-emerald-500">
               {progetto?.nome}
             </h1>
@@ -67,24 +82,27 @@ export default function Progetto() {
             </Button>
           </div>
 
-          <p className="phone:text-center mt-4 text-neutral-500">
+          <p className="mt-4 text-center text-neutral-500">
             {progetto?.descrizione}
           </p>
-          <p className="phone:text-center mt-2 text-neutral-500">
+          <p className="mt-2 text-center text-neutral-500">
             {progetto?.approfondimento}
           </p>
           <Image
             src={progetto?.immagine}
             alt="immagine"
-            className="rounded-2xl"
+            className="self-center rounded-2xl"
+            width={500}
           />
         </div>
         <div className="flex w-full flex-col flex-wrap gap-2">
-          <div className="flex h-fit flex-col gap-5 rounded-2xl bg-emerald-500 p-4">
-            <h1 className="text-center font-semibold text-neutral-50">
+          <div className="flex h-fit flex-col gap-5 rounded-2xl p-4">
+            <h1 className="text-center font-semibold text-emerald-500">
               Tecnologie utilizzate
             </h1>
-            <div className="flex flex-wrap gap-5">{tecnologie}</div>
+            <div className="flex flex-wrap justify-center gap-5">
+              {tecnologie}
+            </div>
           </div>
         </div>
       </div>

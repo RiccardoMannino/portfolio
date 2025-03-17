@@ -8,7 +8,6 @@ export default function Footer() {
         <p>© 2025 Riccardo Mannino. Tutti i diritti riservati.</p>
         <div className="phone:pb-10 phone:text-center flex items-center gap-5 font-semibold">
           <Link href="/privacy">Privacy policy</Link>
-          <Link href="#">Cookie policy</Link>
         </div>
       </div>
     </footer>

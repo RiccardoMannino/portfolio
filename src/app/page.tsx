@@ -301,7 +301,7 @@ export default function Home() {
               <p>{el.descrizione}</p>
               <div className="flex flex-wrap gap-4">
                 {el.tecnologie.map((ele) => (
-                  <Tag key={ele} title={ele} />
+                  <Tag key={ele.nome} title={ele.nome} />
                 ))}
               </div>
             </Container>
