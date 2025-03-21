@@ -187,7 +187,7 @@ export default function ContactForm() {
                   {...register('name', {
                     required: true,
                     maxLength: 50,
-                    pattern: /^[A-Za-zÀ-ÖØ-öø-ÿ]+([''\s-][A-Za-zÀ-ÖØ-öø-ÿ]+)+$/,
+                    pattern: /^[A-Za-zÀ-ÿ]+(?: [A-Za-zÀ-ÿ]+)*$/,
                   })}
                   className={` ${(errors.name && 'border-red-500 bg-red-100 focus:ring-3 focus:ring-red-300 focus:outline-hidden') || 'bg-neutral-100 focus:ring-emerald-200'} w-full rounded-xl border bg-neutral-100 p-3 indent-2 text-lg text-neutral-500 focus:ring-3 focus:outline-hidden`}
                 />

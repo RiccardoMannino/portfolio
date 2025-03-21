@@ -23,6 +23,7 @@ export const metadata: Metadata = {
     'Sviluppatore Frontend Junior',
     'Riccardo mannino',
     'Frontend Developer Junior',
+    'Sviluppatore Web',
   ],
   description:
     'Sono Riccardo Mannino Realizzo siti web moderni e personalizzati per aziende e privati.',
