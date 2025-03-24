@@ -221,6 +221,7 @@ export default function ContactForm() {
                   disabled={IsSending}
                   className={` ${(errors.message && 'border-red-500 bg-red-100 focus:ring-3 focus:ring-red-300 focus:outline-hidden') || 'bg-neutral-100 focus:ring-emerald-200'} w-full rounded-xl border bg-neutral-100 p-3 indent-2 text-lg text-neutral-500 focus:ring-3 focus:outline-hidden`}
                   rows={10}
+                  maxLength={250}
                   placeholder="Inserisci il tuo messaggio"
                   {...register('message', {
                     required: true,
@@ -233,7 +234,7 @@ export default function ContactForm() {
                 </p>
                 {errors.message && (
                   <p className="mb-2 text-sm text-red-500 md:text-base lg:text-lg">
-                    Inserisci un messaggio di almeno 50 caratteri
+                    Inserisci un messaggio di almeno 50
                   </p>
                 )}
               </div>
