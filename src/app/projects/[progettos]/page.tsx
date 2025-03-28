@@ -1,13 +1,13 @@
 'use client'
+import React, { useState } from 'react'
 import { useParams, useRouter } from 'next/navigation'
-import { progetti } from '@/progetti'
 import Link from 'next/link'
 import Image from 'next/image'
-import React, { useState } from 'react'
 
+import { IconArrowNarrowLeft } from '@tabler/icons-react'
+import { progetti } from '@/progetti'
 import Container from '@/components/Container'
 import Button from '@/components/ButtonLink'
-import { IconArrowNarrowLeft } from '@tabler/icons-react'
 
 export default function Progetto() {
   const [hover, setHover] = useState(false)
@@ -21,16 +21,13 @@ export default function Progetto() {
     .filter((p) => p.nome.toLowerCase().split(' ').join('-') === progettos)
     .map((el) =>
       el.tecnologie.map((ele) => (
-        <div
-          className="flex flex-col flex-wrap items-center justify-center"
-          key={ele.nome}
-        >
+        <div className="grid place-items-center" key={ele.nome}>
           <Image
             src={ele.image}
-            width={75}
-            height={75}
+            width={70}
+            height={70}
             alt="tecnologie"
-            className="cursor-pointer transition-all duration-200 hover:-translate-y-2"
+            className="phone:w-10 phone:h-10 cursor-pointer transition-all duration-200 hover:-translate-y-2"
           />
           <p className="font-semibold text-emerald-500">{ele.nome}</p>
         </div>
@@ -65,7 +62,7 @@ export default function Progetto() {
           Torna indietro
         </span>
       </div>
-      <div className="phone:grid-rows-2 phone:grid-cols-1 grid gap-7">
+      <div className="phone:grid-rows-2 phone:grid-cols-1 phone:gap-1 grid gap-7">
         <div className="flex flex-col gap-3">
           <div className="flex items-center justify-center gap-7">
             <h1 className="text-3xl font-bold text-emerald-500">
@@ -100,7 +97,7 @@ export default function Progetto() {
             <h1 className="text-center font-semibold text-emerald-500">
               Tecnologie utilizzate
             </h1>
-            <div className="flex flex-wrap justify-center gap-5">
+            <div className="phonesm:grid-cols-1 grid grid-flow-row grid-cols-2 place-content-center gap-2">
               {tecnologie}
             </div>
           </div>
