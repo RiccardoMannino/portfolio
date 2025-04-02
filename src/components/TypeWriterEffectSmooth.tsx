@@ -29,7 +29,7 @@ export const TypewriterEffectSmooth = ({
       if (currentText.length > 0) {
         timeout = setTimeout(() => {
           setCurrentText(currentText.slice(0, -1))
-        }, 50) // Velocità di cancellazione
+        }, 40) // Velocità di cancellazione
       } else {
         setIsDeleting(false)
         setPhraseIndex((prevIndex) => (prevIndex + 1) % words.length)
@@ -38,7 +38,7 @@ export const TypewriterEffectSmooth = ({
       if (currentText.length < fullText.length) {
         timeout = setTimeout(() => {
           setCurrentText(fullText.slice(0, currentText.length + 1))
-        }, 100) // Velocità di scrittura
+        }, 60) // Velocità di scrittura
       } else {
         timeout = setTimeout(() => {
           setIsDeleting(true)
@@ -51,7 +51,7 @@ export const TypewriterEffectSmooth = ({
 
   return (
     <div className={cn('my-2 flex space-x-1', className)}>
-      <motion.div className="flex h-20 flex-wrap justify-center text-wrap font-bold">
+      <motion.div className="flex h-20 flex-wrap justify-center font-bold text-wrap">
         {words[phraseIndex].map((word, idx) => (
           <span key={word.text} className={cn(word.className)}>
             {currentText.slice(
@@ -74,7 +74,7 @@ export const TypewriterEffectSmooth = ({
             repeatType: 'reverse',
           }}
           className={cn(
-            'h-12 w-[4px] self-start rounded-xs bg-emerald-500 phone:block',
+            'phone:block h-12 w-[4px] self-start rounded-xs bg-emerald-500',
             cursorClassName,
           )}
         ></motion.span>
