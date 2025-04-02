@@ -14,7 +14,7 @@ export default function About() {
   return (
     <>
       <h1 className="phone:text-center mb-4 text-3xl font-bold text-emerald-500 md:text-4xl">
-        Chi sono <span>📖</span>
+        Chi sono <span className="text-2xl">📖</span>
       </h1>
       <Container type="div" className="phone:justify-center flex w-full gap-10">
         <Image

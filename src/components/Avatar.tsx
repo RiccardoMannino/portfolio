@@ -9,14 +9,14 @@ export default function Avatar() {
         <Image
           src={profilePic}
           alt="Riccardo Mannino"
-          width={40}
-          height={40}
-          className="rounded-[50%]"
+          width={50}
+          height={50}
+          className="phone:hidden rounded-[50%]"
           priority={true}
         />
       </div>
 
-      <div className="flex flex-col text-sm transition-all duration-200 phone:hidden sm:flex">
+      <div className="phone:hidden flex flex-col text-sm transition-all duration-200 sm:flex">
         <p className="font-bold">Riccardo Mannino</p>
         <p className="font-thin">Jr Frontend Developer</p>
       </div>

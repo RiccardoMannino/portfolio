@@ -120,7 +120,7 @@ export default function Sidebar() {
           medium ? { y: isVisible ? 0 : 220 } : { x: isVisible ? 0 : -220 }
         }
         transition={{ type: 'linear', duration: 0.3, damping: 10 }}
-        className={`phone:bottom-0 phone:h-14 phone:w-full phone:flex-row phone:bg-linear-to-t phone:from-emerald-50 phone:to-emerald-100 phone:py-0 fixed left-0 z-50 flex h-full flex-col justify-between bg-linear-to-r from-emerald-100 to-emerald-50 px-5 py-10 transition-all duration-200 ease-out`}
+        className={`phone:bottom-0 phone:h-fit phone:w-full phone:flex-row phone:bg-linear-to-t phone:from-emerald-50 phone:to-emerald-100 phone:py-2 fixed left-0 z-50 flex h-full flex-col justify-between bg-linear-to-r from-emerald-100 to-emerald-50 px-5 py-10 transition-all duration-200 ease-out`}
       >
         <div className="iphone:gap-0 phone:w-full phone:flex-row phone:items-center phone:gap-1 flex flex-col gap-7">
           <Avatar />
@@ -139,16 +139,16 @@ export default function Sidebar() {
                   }}
                   className={
                     (isActive(`${li.href}`) &&
-                      'phone:justify-center phone:p-2 flex w-full items-center justify-start bg-gray-900 p-[8px] text-sm text-emerald-500 shadow-lg hover:cursor-pointer') ||
-                    'phone:justify-center phone:p-2 flex w-full justify-start bg-emerald-500 stroke-neutral-50 p-[8px] text-sm text-neutral-50 shadow-lg transition-all duration-200 hover:cursor-pointer hover:text-gray-900'
+                      'phone:justify-center phone:p-2 phone:flex-col flex w-full items-center justify-start bg-gray-900 p-[8px] text-emerald-500 shadow-lg hover:cursor-pointer sm:text-sm') ||
+                    'phone:justify-center phone:flex-col phone:p-2 flex w-full justify-start bg-emerald-500 stroke-neutral-50 p-[8px] text-neutral-50 shadow-lg transition-all duration-200 hover:cursor-pointer hover:text-gray-900 sm:text-sm'
                   }
                 >
                   {li.image}
                   <span
                     className={
                       (isActive(`${li.href}`) &&
-                        'phone:hidden ml-3 gap-4 transition-all duration-200 sm:flex') ||
-                      'phone:hidden ml-3 gap-4 transition-all duration-200 hover:text-gray-900 sm:flex'
+                        'phone:flex-col phone:ml-0 ml-3 gap-4 transition-all duration-200 sm:flex') ||
+                      'phone:ml-0 ml-3 gap-4 transition-all duration-200 hover:text-gray-900 sm:flex sm:flex-col'
                     }
                   >
                     {li.pagina}
@@ -164,7 +164,7 @@ export default function Sidebar() {
             e.preventDefault(), router.push('/resume')
           }}
           type="button"
-          className="phone:p-2"
+          className="phone:p-3"
           initial={{ opacity: 0, x: -100 }}
           animate={{
             x: 0,
@@ -175,7 +175,7 @@ export default function Sidebar() {
           }}
         >
           <div className="flex gap-2">
-            <span className="phone:inline hidden hover:cursor-pointer">Cv</span>
+            <span className="phone:inline hidden hover:cursor-pointer">CV</span>
             <span className="phone:hidden hover:cursor-pointer">
               Leggi curriculum
             </span>
