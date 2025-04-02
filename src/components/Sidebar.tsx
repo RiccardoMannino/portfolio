@@ -198,7 +198,7 @@ export default function Sidebar() {
         ) : (
           <IconLayoutSidebarRightExpand className="" />
         )}
-        menu
+        <span>menu</span>
       </motion.button>
     </>
   )
