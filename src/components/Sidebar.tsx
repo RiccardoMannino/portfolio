@@ -186,19 +186,19 @@ export default function Sidebar() {
             />
           </div>
         </Button>
-      </motion.div>
-
+      </motion.div>{' '}
       <motion.button
-        animate={{ rotate: !isVisible ? 0 : 180 }}
+        animate={{ rotate: !isVisible ? 0 : 360 }}
         transition={{ duration: 0.3, type: 'spring' }}
-        className="fixed top-4 right-4 z-100 rounded-[50%] border p-3"
+        className="fixed top-4 right-4 z-100 flex flex-col items-center rounded-[50%] border p-3"
         onClick={() => setIsVisible(!isVisible)}
       >
         {isVisible ? (
-          <IconLayoutSidebarRightCollapse className="h-4 w-4" />
+          <IconLayoutSidebarRightCollapse className="" />
         ) : (
-          <IconLayoutSidebarRightExpand className="h-4 w-4" />
+          <IconLayoutSidebarRightExpand className="" />
         )}
+        menu
       </motion.button>
     </>
   )
