@@ -12,6 +12,7 @@ import {
 } from '@tabler/icons-react'
 import toast, { Toast } from 'react-hot-toast'
 import emailjs from '@emailjs/browser'
+import Button from './ButtonLink'
 
 type Pagine = {
   pagina: string
@@ -29,12 +30,12 @@ const social: Pagine[] = [
   {
     pagina: 'Linkedin',
     href: 'https://www.linkedin.com/in/riccardo-mannino/',
-    image: <IconBrandLinkedin size={20} />,
+    image: <IconBrandLinkedin size={25} />,
   },
   {
     pagina: 'Github',
     href: 'https://github.com/RiccardoMannino/',
-    image: <IconBrandGithub size={20} />,
+    image: <IconBrandGithub size={25} />,
   },
 ]
 
@@ -108,20 +109,6 @@ export default function ContactForm() {
 
   const formValue = watch()
 
-  // // Widget Cal.com
-  // useEffect(() => {
-  //   ;(async function () {
-  //     const cal = await getCalApi({ namespace: '30min' })
-  //     cal('ui', {
-  //       hideEventTypeDetails: false,
-  //       layout: 'month_view',
-  //       styles: {
-  //         branding: { brandColor: '#421355' },
-  //       },
-  //     })
-  //   })()
-  // }, [])
-
   return (
     <>
       <h1 className="mb-4 text-center text-3xl font-bold text-emerald-500 md:text-4xl">
@@ -158,18 +145,22 @@ export default function ContactForm() {
             </div>
           </div>
 
-          <div className="mt-8 flex">
+          <div className="mt-8 flex gap-1">
             {social.map((so) => (
-              <Link
-                href={so.href}
-                target="_blank"
+              <Button
                 key={so.href}
-                className="phone:justify-center phone:stroke-neutral-50 flex transform p-[6px] text-sm text-neutral-50 delay-75 duration-100 ease-in hover:stroke-neutral-700 hover:text-neutral-700"
+                className="flex transform items-center rounded-lg bg-emerald-500 font-medium text-neutral-50 delay-75 duration-100 ease-in hover:cursor-pointer hover:text-neutral-700"
+                type="button"
               >
-                <div className="rounded-lg bg-emerald-500 p-3 hover:cursor-pointer">
+                <Link
+                  href={so.href}
+                  target="_blank"
+                  className="flex items-center stroke-neutral-50 p-[3px] text-lg font-semibold"
+                >
                   {so.image}
-                </div>
-              </Link>
+                  {so.pagina}
+                </Link>
+              </Button>
             ))}
           </div>
         </div>
@@ -242,7 +233,7 @@ export default function ContactForm() {
             <div className="mt-10 flex w-full justify-end">
               <button
                 disabled={IsSending}
-                className="w-full rounded-full border-gray-700 bg-emerald-500 px-4 py-2 text-lg text-neutral-50 focus:ring-3 focus:ring-gray-300 focus:outline-hidden active:ring-3 active:ring-gray-300 active:outline-hidden"
+                className="w-full cursor-pointer rounded-full border-gray-700 bg-emerald-500 px-4 py-2 text-lg font-semibold text-neutral-50 focus:ring-3 focus:ring-gray-300 focus:outline-hidden active:ring-3 active:ring-gray-300 active:outline-hidden"
                 type="submit"
               >
                 {IsSending ? 'Invio in corso...' : 'Invia Messaggio'}

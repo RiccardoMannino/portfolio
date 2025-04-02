@@ -2,14 +2,14 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-
+import { lazy } from 'react'
 import { useRouter } from 'next/navigation'
 
 import { progetti } from '@/progetti'
 import Tag from '@/components/Tag'
 import Container from '@/components/Container'
 import ContactForm from '@/components/ContactForm'
-import TypewriterEffect from '@/components/TypeWriterEffect'
+
 import Button from '@/components/ButtonLink'
 import Me from '@/assets/ric.jpg'
 import { IconCircleCheckFilled } from '@tabler/icons-react'
@@ -19,6 +19,8 @@ import TailwindIcon from '../icons/tailwind-css.svg'
 import TypescriptIcon from '../icons/typescript.svg'
 import SupabaseIcon from '../icons/supabase.svg'
 import GitIcon from '../icons/git.svg'
+
+const TypeWriter = lazy(() => import('@/components/TypeWriterEffect'))
 
 export default function Home() {
   const router = useRouter()
@@ -35,15 +37,15 @@ export default function Home() {
         className="mb-40"
         type="section"
       >
-        <TypewriterEffect />
+        <TypeWriter />
         <h1 className="mb-4 text-3xl font-bold text-wrap text-emerald-500 md:text-4xl">
           Realizzo siti web moderni e personalizzati per aziende e privati.
         </h1>
-        <p className="mt-5 text-lg text-neutral-500">
+        <h2 className="mt-5 text-lg text-neutral-500">
           Trasformo idee in esperienze digitali di impatto, utilizzando
           tecnologie moderne e design funzionale per migliorare la tua presenza
           online.
-        </p>
+        </h2>
         <div className="mt-10 flex w-full gap-6">
           <Button
             onClick={(e) => {
@@ -87,14 +89,14 @@ export default function Home() {
             <h1 className="mb-4 text-3xl font-bold text-wrap text-emerald-500 md:text-4xl">
               Chi Sono
             </h1>
-            <p className="text-lg text-neutral-500">
+            <h2 className="text-lg text-neutral-500">
               Mi chiamo Riccardo Mannino, sono uno sviluppatore frontend junior
               con una passione per la tecnologia e il design. Lavoro per creare
               siti web che siano non solo belli da vedere, ma anche semplici da
               usare e adatti a ogni esigenza. Collaborare con aziende e privati
               è per me un’occasione per ascoltare le loro esigenze e
               trasformarle in soluzioni digitali su misura.
-            </p>
+            </h2>
             <Button
               onClick={(e) => {
                 e.preventDefault(), router.push('/about')
@@ -111,10 +113,10 @@ export default function Home() {
         <h1 className="phone:text-center text-3xl font-bold text-wrap text-emerald-500 md:text-4xl">
           Come posso aiutarti?
         </h1>
-        <p className="phone:text-center text-lg text-neutral-500">
+        <h2 className="phone:text-center text-lg text-neutral-500">
           Lavoro con aziende e privati per trasformare le loro idee in siti web
           moderni e funzionali. Ecco cosa posso fare per te
-        </p>
+        </h2>
         <div className="mt-7 flex h-full w-full flex-col items-center justify-center">
           <h1 className="mb-5 text-3xl font-bold text-wrap text-emerald-500 md:text-4xl">
             Servizi
@@ -126,9 +128,9 @@ export default function Home() {
               translate="translateX(-100px)"
               className="h-60 rounded-2xl bg-emerald-500 p-8"
             >
-              <h3 className="text-center text-xl font-semibold text-neutral-50">
+              <h2 className="text-center text-xl font-semibold text-neutral-50">
                 Aziende
-              </h3>
+              </h2>
               <div className="my-2 flex space-x-1">
                 <IconCircleCheckFilled className="mt-2 h-4 w-8 text-neutral-50 sm:w-4" />
                 <p className="text-base text-neutral-50 md:text-lg">
@@ -149,9 +151,9 @@ export default function Home() {
               translate="translateX(100px)"
               className="h-60 rounded-2xl bg-emerald-500 p-8"
             >
-              <h3 className="text-center text-xl font-semibold text-neutral-50">
+              <h2 className="text-center text-xl font-semibold text-neutral-50">
                 Privati
-              </h3>
+              </h2>
               <div className="my-2 flex space-x-1">
                 <IconCircleCheckFilled className="mt-2 h-4 w-8 text-neutral-50 sm:w-4" />
                 <p className="text-base text-neutral-50 md:text-lg">
@@ -175,9 +177,9 @@ export default function Home() {
         <h1 className="text-3xl font-bold text-wrap text-emerald-500 md:text-4xl">
           Competenze Tecniche
         </h1>
-        <p className="phone:text-center text-lg text-neutral-500">
+        <h2 className="phone:text-center text-lg text-neutral-500">
           Le tecnologie e gli strumenti che utilizzo
-        </p>
+        </h2>
         <div className="phone:flex-col flex w-full justify-center gap-7">
           <Container
             type="div"
