@@ -1,4 +1,5 @@
 'use client'
+
 import { TypewriterEffectSmooth } from '@/components/TypeWriterEffectSmooth'
 
 export default function TypewriterEffect() {

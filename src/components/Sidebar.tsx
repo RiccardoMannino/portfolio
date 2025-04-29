@@ -24,7 +24,7 @@ type Pagine = {
 }
 
 export default function Sidebar() {
-  const [isVisible, setIsVisible] = useState(true)
+  const [isVisible, setIsVisible] = useState(false)
 
   const router = useRouter()
   const pathname = usePathname()

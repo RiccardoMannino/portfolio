@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import React from 'react'
 import profilePic from '../assets/Me.jpg'
 
 export default function Avatar() {

@@ -6,7 +6,6 @@ import Tag from '@/components/Tag'
 import Container from '@/components/Container'
 import ContactForm from '@/components/ContactForm'
 
-import Button from '@/components/Button'
 import Me from '@/assets/ric.jpg'
 import { IconCircleCheckFilled } from '@tabler/icons-react'
 import ReactIcon from '../icons/react.svg'
@@ -82,7 +81,10 @@ export default function Home() {
               è per me un’occasione per ascoltare le loro esigenze e
               trasformarle in soluzioni digitali su misura.
             </h2>
-            <Link href={'/about'} className="mt-10 cursor-pointer text-base">
+            <Link
+              href={'/about'}
+              className="phone:self-center phone:px-4 phone:py-2 mt-10 flex w-fit cursor-pointer items-center justify-between rounded-full bg-gray-900 px-4 py-3 text-base font-semibold text-white"
+            >
               Scopri di più su di me
             </Link>
           </Container>
