@@ -27,9 +27,11 @@ export default function Progetto() {
             width={70}
             height={70}
             alt="tecnologie"
-            className="phone:w-10 phone:h-10 cursor-pointer transition-all duration-200 hover:-translate-y-2"
+            className="phone:w-15 phone:h-15 cursor-pointer transition-all duration-200 hover:-translate-y-2"
           />
-          <p className="font-semibold text-emerald-500">{ele.nome}</p>
+          <p className="text-center font-semibold text-emerald-500">
+            {ele.nome}
+          </p>
         </div>
       )),
     )
@@ -62,7 +64,7 @@ export default function Progetto() {
           Torna indietro
         </span>
       </div>
-      <div className="phone:grid-rows-2 phone:grid-cols-1 phone:gap-1 grid gap-7">
+      <div className="phone:grid-rows-1 phone:grid-cols-1 grid gap-7">
         <div className="flex flex-col gap-3">
           <div className="flex items-center justify-center gap-7">
             <h1 className="text-3xl font-bold text-emerald-500">
@@ -97,7 +99,7 @@ export default function Progetto() {
             <h1 className="text-center font-semibold text-emerald-500">
               Tecnologie utilizzate
             </h1>
-            <div className="phonesm:grid-cols-1 grid grid-flow-row grid-cols-2 place-content-center gap-2">
+            <div className="phone:grid-flow-row grid grid-flow-col grid-rows-1 place-content-center gap-5">
               {tecnologie}
             </div>
           </div>
