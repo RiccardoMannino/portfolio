@@ -24,7 +24,7 @@ type Pagine = {
 }
 
 export default function Sidebar() {
-  const [isVisible, setIsVisible] = useState(false)
+  const [isVisible, setIsVisible] = useState(true)
 
   const router = useRouter()
   const pathname = usePathname()
@@ -118,7 +118,9 @@ export default function Sidebar() {
       {/* Navbar responsiva */}
       <motion.div
         animate={
-          medium ? { y: isVisible ? 0 : 220 } : { x: isVisible ? 0 : -220 }
+          medium
+            ? { y: isVisible ? 0 : 220, opacity: 1 }
+            : { x: isVisible ? 0 : -220, opacity: 1 }
         }
         transition={{ type: 'linear', duration: 0.3, damping: 10 }}
         className={`phone:bottom-0 phone:h-fit phone:w-full phone:flex-row phone:bg-linear-to-t phone:from-emerald-50 phone:to-emerald-100 phone:py-2 phone:px:4 fixed left-0 z-50 flex h-full flex-col justify-between bg-linear-to-r from-emerald-100 to-emerald-50 px-5 py-10 transition-all duration-200 ease-out`}
