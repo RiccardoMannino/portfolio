@@ -5,9 +5,9 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 import { IconArrowNarrowLeft } from '@tabler/icons-react'
-import { progetti } from '@/progetti'
+import { progetti } from '@/data/progetti'
 import Container from '@/components/Container'
-import Button from '@/components/ButtonLink'
+import Button from '@/components/Button'
 
 export default function Progetto() {
   const [hover, setHover] = useState(false)

@@ -8,9 +8,9 @@ import {
   TargetAndTransition,
 } from 'motion/react'
 
-interface SectionProps {
+type SectionProps = {
   children: ReactNode
-  type: string
+  type?: 'div' | 'section'
   transition?: string | undefined
   transform?: string
   translate?: string
@@ -28,7 +28,7 @@ export default function Container({
   transition = 'opacity 0.5s ease, transform 0.5s ease',
   className,
   id,
-  type,
+  type = 'div',
   whileHover,
 }: SectionProps) {
   const sectionRef = useRef<HTMLElement>(null)
@@ -42,7 +42,17 @@ export default function Container({
     transition,
   }
 
-  return type === 'section' ? (
+  return type === 'div' ? (
+    <motion.div
+      id={id}
+      ref={divRef}
+      style={style}
+      className={className}
+      whileHover={whileHover}
+    >
+      {children}
+    </motion.div>
+  ) : (
     <motion.section
       id={id}
       ref={sectionRef}
@@ -51,17 +61,5 @@ export default function Container({
     >
       {children}
     </motion.section>
-  ) : (
-    type === 'div' && (
-      <motion.div
-        id={id}
-        ref={divRef}
-        style={style}
-        className={className}
-        whileHover={whileHover}
-      >
-        {children}
-      </motion.div>
-    )
   )
 }

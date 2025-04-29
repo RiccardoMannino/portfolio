@@ -1,3 +1,5 @@
+'use client'
+
 import { cn } from '@/lib/utils'
 import React, { ReactNode } from 'react'
 import { motion } from 'motion/react'
@@ -12,7 +14,7 @@ import {
 type Button = {
   onClick?: (event: React.FormEvent) => void
   children: ReactNode
-  type: 'submit' | 'reset' | 'button' | undefined
+  type?: 'submit' | 'reset' | 'button' | undefined
   className?: string
   transition?: Transition
   initial?: boolean | Target | VariantLabels

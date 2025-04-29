@@ -12,7 +12,7 @@ import {
 } from '@tabler/icons-react'
 import toast, { Toast } from 'react-hot-toast'
 import emailjs from '@emailjs/browser'
-import Button from './ButtonLink'
+import Button from './Button'
 
 type Pagine = {
   pagina: string

@@ -1,16 +1,12 @@
-'use client'
-
 import Image from 'next/image'
 import Link from 'next/link'
-import { lazy } from 'react'
-import { useRouter } from 'next/navigation'
 
-import { progetti } from '@/progetti'
+import { progetti } from '@/data/progetti'
 import Tag from '@/components/Tag'
 import Container from '@/components/Container'
 import ContactForm from '@/components/ContactForm'
 
-import Button from '@/components/ButtonLink'
+import Button from '@/components/Button'
 import Me from '@/assets/ric.jpg'
 import { IconCircleCheckFilled } from '@tabler/icons-react'
 import ReactIcon from '../icons/react.svg'
@@ -19,16 +15,9 @@ import TailwindIcon from '../icons/tailwind-css.svg'
 import TypescriptIcon from '../icons/typescript.svg'
 import SupabaseIcon from '../icons/supabase.svg'
 import GitIcon from '../icons/git.svg'
-
-const TypeWriter = lazy(() => import('@/components/TypeWriterEffect'))
+import TypewriterEffect from '@/components/TypeWriterEffect'
 
 export default function Home() {
-  const router = useRouter()
-
-  const handleClick = (slug: string) => {
-    router.push(`/projects/${slug.toLowerCase().split(' ').join('-')}`)
-  }
-
   return (
     <>
       <Container
@@ -37,7 +26,7 @@ export default function Home() {
         className="mb-40"
         type="section"
       >
-        <TypeWriter />
+        <TypewriterEffect />
         <h1 className="mb-4 text-3xl font-bold text-wrap text-emerald-500 md:text-4xl">
           Realizzo siti web moderni e personalizzati per aziende e privati.
         </h1>
@@ -47,21 +36,19 @@ export default function Home() {
           online.
         </h2>
         <div className="mt-10 flex w-full gap-6">
-          <Button
-            onClick={(e) => {
-              e.preventDefault(), router.push('#progetti')
-            }}
-            type="button"
-            className="cursor-pointer text-base"
+          <Link
+            className="phone:self-center phone:px-4 phone:py-2 flex w-fit cursor-pointer items-center justify-between rounded-full bg-gray-900 px-4 py-3 text-base font-semibold text-white"
+            href={'#progetti'}
           >
             Progetti
-          </Button>
-          <Button
-            type="button"
-            className="cursor-pointer bg-emerald-500 text-base"
+          </Link>
+
+          <Link
+            className="phone:self-center phone:px-4 phone:py-2 flex w-fit cursor-pointer items-center justify-between rounded-full bg-emerald-500 px-4 py-3 text-base font-semibold text-white"
+            href="#contact"
           >
-            <Link href="#contact">Contattami Ora</Link>
-          </Button>
+            Contattami Ora
+          </Link>
         </div>
       </Container>
       <section className="mt-40 flex flex-col gap-7">
@@ -69,7 +56,6 @@ export default function Home() {
           <Container
             transform="translateX(0)"
             translate="translateX(-100px)"
-            type="div"
             className="w-[50%]"
           >
             <Image
@@ -81,7 +67,6 @@ export default function Home() {
             />
           </Container>
           <Container
-            type="div"
             transform="translateX(0)"
             translate="translateX(100px)"
             className="phone:w-full flex w-[50%] flex-col"
@@ -97,15 +82,9 @@ export default function Home() {
               è per me un’occasione per ascoltare le loro esigenze e
               trasformarle in soluzioni digitali su misura.
             </h2>
-            <Button
-              onClick={(e) => {
-                e.preventDefault(), router.push('/about')
-              }}
-              type="button"
-              className="mt-10 cursor-pointer text-base"
-            >
+            <Link href={'/about'} className="mt-10 cursor-pointer text-base">
               Scopri di più su di me
-            </Button>
+            </Link>
           </Container>
         </div>
       </section>
@@ -123,7 +102,6 @@ export default function Home() {
           </h1>
           <div className="phone:mt-7 phone:flex-col flex h-full w-full items-center justify-between gap-7">
             <Container
-              type="div"
               transform="translateX(0)"
               translate="translateX(-100px)"
               className="h-60 rounded-2xl bg-emerald-500 p-8"
@@ -146,7 +124,6 @@ export default function Home() {
             </Container>
 
             <Container
-              type="div"
               transform="translateX(0)"
               translate="translateX(100px)"
               className="h-60 rounded-2xl bg-emerald-500 p-8"
@@ -170,6 +147,7 @@ export default function Home() {
           </div>
         </div>
       </Container>
+
       <Container
         type="section"
         className="mt-40 flex flex-col gap-7 text-center"
@@ -182,7 +160,6 @@ export default function Home() {
         </h2>
         <div className="phone:flex-col flex w-full justify-center gap-7">
           <Container
-            type="div"
             transform="translateX(0)"
             translate="translateX(-100px)"
             whileHover={{
@@ -238,7 +215,6 @@ export default function Home() {
             </div>
           </Container>
           <Container
-            type="div"
             transform="translateX(0)"
             translate="translateX(100px)"
             whileHover={{
@@ -277,6 +253,7 @@ export default function Home() {
           </Container>
         </div>
       </Container>
+
       <Container
         type="section"
         className="mt-40 flex flex-col gap-7 py-24 text-center"
@@ -289,17 +266,16 @@ export default function Home() {
           {progetti.map((el) => (
             <Container
               key={el.nome}
-              type="div"
               transform="translateX(0)"
               translate="translateX(-100px)"
               className="flex flex-col gap-5 rounded-2xl bg-emerald-500 px-8 py-5 text-left text-neutral-50"
             >
-              <h2
+              <Link
                 className="cursor-pointer text-xl font-semibold"
-                onClick={() => handleClick(el.nome)}
+                href={`/projects/${el.nome.toLowerCase().split(' ').join('-')}`}
               >
                 {el.nome}
-              </h2>
+              </Link>
               <p>{el.descrizione}</p>
               <div className="flex flex-wrap gap-4">
                 {el.tecnologie.map((ele) => (

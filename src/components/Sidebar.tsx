@@ -15,7 +15,7 @@ import {
   IconLayoutSidebarRightCollapse,
   IconLayoutSidebarRightExpand,
 } from '@tabler/icons-react'
-import Button from './ButtonLink'
+import Button from './Button'
 
 type Pagine = {
   pagina: string

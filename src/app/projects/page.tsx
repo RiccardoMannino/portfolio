@@ -1,7 +1,7 @@
 'use client'
 
 import Container from '@/components/Container'
-import { progetti } from '@/progetti'
+import { progetti } from '@/data/progetti'
 
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
