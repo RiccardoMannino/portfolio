@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     type: 'profile',
     images: [
       {
-        url: '/og/about.jpg',
+        url: '../../assets/Me.jpg',
         width: 1200,
         height: 630,
         alt: 'Chi sono - Riccardo Mannino',

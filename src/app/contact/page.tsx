@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     type: 'profile',
     images: [
       {
-        url: '/og/contact.jpg',
+        url: '../../assets/Me.jpg',
         width: 1200,
         height: 630,
         alt: 'Contattami - Riccardo Mannino',

@@ -20,8 +20,8 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://riccardomannino.it'),
   title: 'Riccardo Mannino | Frontend Developer',
   keywords: [
-    'Sviluppatore Frontend Junior',
     'Riccardo mannino',
+    'Sviluppatore Frontend Junior',
     'Frontend Developer Junior',
     'Sviluppatore Web',
   ],
