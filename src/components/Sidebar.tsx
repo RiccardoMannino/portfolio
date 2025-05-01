@@ -2,26 +2,17 @@
 
 import { useMediaQuery } from '@/hooks/useMediaQuery'
 import { useRouter, usePathname } from 'next/navigation'
-import { ReactNode, useCallback, useEffect, useMemo, useState } from 'react'
+import { useCallback, useState } from 'react'
 import { motion } from 'motion/react'
+import { listaPagine } from '@/lib/pagine'
 
 import Avatar from './Avatar'
 import {
   IconChevronRight,
-  IconBriefcase,
-  IconHome,
-  IconUser,
-  IconMessage,
   IconLayoutSidebarRightCollapse,
   IconLayoutSidebarRightExpand,
 } from '@tabler/icons-react'
 import Button from './Button'
-
-type Pagine = {
-  pagina: string
-  href: string
-  image?: ReactNode
-}
 
 export default function Sidebar() {
   const [isVisible, setIsVisible] = useState(true)
@@ -36,66 +27,6 @@ export default function Sidebar() {
     },
     [pathname],
   )
-
-  const listaPagine: Pagine[] = useMemo(
-    () => [
-      {
-        pagina: 'Home',
-        href: '/',
-        image: (
-          <IconHome
-            size={20}
-            className={isActive(`/`) ? 'stroke-emerald-500' : ''}
-          />
-        ),
-      },
-      {
-        pagina: 'Chi sono',
-        href: '/about',
-        image: (
-          <IconUser
-            size={20}
-            className={isActive(`/about`) ? 'stroke-emerald-500' : ''}
-          />
-        ),
-      },
-      {
-        pagina: 'Progetti',
-        href: '/projects',
-        image: (
-          <IconBriefcase
-            size={20}
-            className={isActive(`/projects`) ? 'stroke-emerald-500' : ''}
-          />
-        ),
-      },
-      {
-        pagina: 'Contatti',
-        href: '/contact',
-        image: (
-          <IconMessage
-            size={20}
-            className={isActive(`/contact`) ? 'stroke-emerald-500' : ''}
-          />
-        ),
-      },
-    ],
-    [isActive],
-  )
-
-  useEffect(() => {
-    listaPagine.filter((pag, index) => {
-      if (pathname === '/') {
-        document.title = 'Riccardo Mannino - Home'
-      }
-
-      if (isActive(pag.href)) {
-        document.title = `Riccardo Mannino - ${pag.pagina
-          .charAt(0)
-          .toUpperCase()}${pag.pagina.slice(1)}`
-      }
-    })
-  }, [pathname, listaPagine, isActive])
 
   const container = {
     hidden: { opacity: 0 },
@@ -134,32 +65,38 @@ export default function Sidebar() {
             animate="show"
             className="phone:mt-0 phone:w-full phone:flex-row phone:justify-center mt-4 flex flex-col gap-2"
           >
-            {listaPagine.map((li) => (
-              <motion.li variants={item} key={li.href}>
-                <Button
-                  type="button"
-                  onClick={() => {
-                    router.push(li.href)
-                  }}
-                  className={
-                    (isActive(`${li.href}`) &&
-                      'phone:justify-center phone:p-2 phone:flex-col flex w-full items-center justify-start bg-gray-900 p-[8px] text-emerald-500 shadow-lg hover:cursor-pointer sm:text-sm') ||
-                    'phone:justify-center phone:flex-col phone:p-2 flex w-full justify-start bg-emerald-500 stroke-neutral-50 p-[8px] text-neutral-50 shadow-lg transition-all duration-200 hover:cursor-pointer hover:text-gray-900 sm:text-sm'
-                  }
-                >
-                  {li.image}
-                  <span
+            {listaPagine.map((li) => {
+              const Icon = li.image
+              return (
+                <motion.li variants={item} key={li.href}>
+                  <Button
+                    type="button"
+                    onClick={() => {
+                      router.push(li.href)
+                    }}
                     className={
                       (isActive(`${li.href}`) &&
-                        'phone:flex-col phone:ml-0 ml-3 gap-4 transition-all duration-200 sm:flex') ||
-                      'phone:ml-0 ml-3 gap-4 transition-all duration-200 hover:text-gray-900 sm:flex sm:flex-col'
+                        'phone:justify-center phone:p-2 phone:flex-col flex w-full items-center justify-start bg-gray-900 p-[8px] text-emerald-500 shadow-lg hover:cursor-pointer sm:text-sm') ||
+                      'phone:justify-center phone:flex-col phone:p-2 flex w-full justify-start bg-emerald-500 stroke-neutral-50 p-[8px] text-neutral-50 shadow-lg transition-all duration-200 hover:cursor-pointer hover:text-gray-900 sm:text-sm'
                     }
                   >
-                    {li.pagina}
-                  </span>
-                </Button>
-              </motion.li>
-            ))}
+                    <Icon
+                      size={20}
+                      className={isActive(li.href) ? 'stroke-emerald-500' : ''}
+                    />
+                    <span
+                      className={
+                        (isActive(`${li.href}`) &&
+                          'phone:flex-col phone:ml-0 ml-3 gap-4 transition-all duration-200 sm:flex') ||
+                        'phone:ml-0 ml-3 gap-4 transition-all duration-200 hover:text-gray-900 sm:flex sm:flex-col'
+                      }
+                    >
+                      {li.pagina}
+                    </span>
+                  </Button>
+                </motion.li>
+              )
+            })}
           </motion.ul>
         </div>
 

@@ -16,6 +16,35 @@ import SupabaseIcon from '../icons/supabase.svg'
 import GitIcon from '../icons/git.svg'
 import TypewriterEffect from '@/components/TypeWriterEffect'
 
+export const metadata = {
+  title: 'Riccardo Mannino - Frontend Developer a Palermo',
+  description:
+    'Realizzo siti web moderni e personalizzati per aziende e privati. Trasformo idee in esperienze digitali di impatto, utilizzando tecnologie moderne e design funzionale.',
+  keywords: [
+    'Riccardo Mannino',
+    'sviluppatore frontend',
+    'Palermo',
+    'siti web personalizzati',
+    'esperienze digitali',
+  ],
+  openGraph: {
+    title: 'Riccardo Mannino - Frontend Developer a Palermo',
+    description:
+      'Realizzo siti web moderni e personalizzati per aziende e privati.',
+    url: 'https://www.riccardomannino.it/',
+    siteName: 'Riccardo Mannino Portfolio',
+    type: 'website',
+    images: [
+      {
+        url: '/og/home.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Riccardo Mannino - Home',
+      },
+    ],
+  },
+}
+
 export default function Home() {
   return (
     <>

@@ -7,7 +7,26 @@ import Container from '@/components/Container'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  description: 'Chi sono',
+  title: 'Chi sono - Riccardo Mannino',
+  description:
+    'Mi chiamo Riccardo Mannino e sono un appassionato frontend developer con un forte interesse per la creazione di interfacce web eleganti e funzionali.',
+  keywords: ['Chi sono', 'Riccardo Mannino', 'frontend developer', 'Palermo'],
+  openGraph: {
+    title: 'Chi sono - Riccardo Mannino',
+    description:
+      'Frontend developer con forte attenzione all’usabilità e al design moderno.',
+    url: 'https://www.riccardomannino.it/about',
+    siteName: 'Riccardo Mannino Portfolio',
+    type: 'profile',
+    images: [
+      {
+        url: '/og/about.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Chi sono - Riccardo Mannino',
+      },
+    ],
+  },
 }
 
 export default function About() {

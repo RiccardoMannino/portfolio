@@ -2,7 +2,26 @@ import { IconCircleCheckFilled } from '@tabler/icons-react'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  description: 'Esperienze Lavorative',
+  title: 'Curriculum - Riccardo Mannino',
+  description:
+    'Consulta il curriculum vitae di Riccardo Mannino, frontend developer con esperienza in React, Next.js, e interfacce moderne.',
+  keywords: ['Curriculum', 'CV', 'Riccardo Mannino', 'esperienza', 'frontend'],
+  openGraph: {
+    title: 'Curriculum - Riccardo Mannino',
+    description:
+      'Frontend developer specializzato in tecnologie moderne per il web.',
+    url: 'https://www.riccardomannino.it/resume',
+    siteName: 'Riccardo Mannino Portfolio',
+    type: 'website',
+    images: [
+      {
+        url: '/og/resume.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Curriculum - Riccardo Mannino',
+      },
+    ],
+  },
 }
 
 export default function page() {
