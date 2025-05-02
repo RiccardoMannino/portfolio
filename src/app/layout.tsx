@@ -17,7 +17,7 @@ const geistMono = localFont({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://riccardomannino.it'),
+  metadataBase: new URL('https:/www./riccardomannino.it'),
   title: 'Riccardo Mannino | Frontend Developer',
   keywords: [
     'Riccardo mannino',
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   description:
     'Sono Riccardo Mannino Realizzo siti web moderni e personalizzati per aziende e privati.',
   openGraph: {
-    url: 'https://riccardomannino.it',
+    url: 'https://www.riccardomannino.it',
     title: 'Riccardo Mannino | Frontend Developer',
     siteName: 'Riccardo Mannino',
     images: [

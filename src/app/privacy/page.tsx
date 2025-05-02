@@ -1,6 +1,33 @@
 import Container from '@/components/Container'
 import React from 'react'
 
+// app/privacy-policy/page.tsx
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Privacy Policy - Riccardo Mannino',
+  description:
+    'Leggi la nostra informativa sulla privacy. Scopri come trattiamo i tuoi dati e proteggiamo la tua sicurezza sul sito riccardomannino.it.',
+  keywords: [
+    'privacy policy',
+    'dati personali',
+    'riccardo mannino',
+    'informativa privacy',
+  ],
+  openGraph: {
+    title: 'Privacy Policy - Riccardo Mannino',
+    description:
+      'Informazioni dettagliate su come Riccardo Mannino gestisce i dati personali degli utenti.',
+    url: 'https://www.riccardomannino.it/privacy',
+    siteName: 'Riccardo Mannino',
+    type: 'article',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+}
+
 export default function Privacy() {
   return (
     <Container type="section" className="flex flex-col gap-4">
