@@ -34,7 +34,7 @@ export const progetti: progetti[] = [
       { nome: 'Tailwind Css', image: TailwindIcon },
       { nome: 'Framer Motion', image: FramerIcon },
       { nome: 'Supabase', image: Supabase },
-      { nome: 'React Query', image: ReactQueryIcon },
+      // { nome: 'React Query', image: ReactQueryIcon },
     ],
     href: 'https://forneria-messina.vercel.app',
   },
