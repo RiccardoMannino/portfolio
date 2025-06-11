@@ -12,7 +12,7 @@ import { StaticImport } from 'next/dist/shared/lib/get-img-props'
 type progetti = {
   nome: string
   descrizione: string
-  approfondimento: string
+  obiettivo: string
   immagine: StaticImageData
   tecnologie: {
     nome: string
@@ -26,7 +26,7 @@ export const progetti: progetti[] = [
     nome: 'Forneria Messina',
     descrizione:
       'Rivisitazione del sito web da me creato (precedentemente in Wordpress) per Forneria Messina',
-    approfondimento: 'Questa è una demo che non viene usata dal web',
+
     immagine: Forneria,
     tecnologie: [
       { nome: 'React', image: ReactIcon },
@@ -37,12 +37,14 @@ export const progetti: progetti[] = [
       // { nome: 'React Query', image: ReactQueryIcon },
     ],
     href: 'https://forneria-messina.vercel.app',
+    obiettivo:
+      'Modernizzare un sito esistente mantenendone l’identità ma migliorando performance, aggiornabilità e UX su mobile.',
   },
   {
     nome: 'Sito Portfolio',
     descrizione:
       'Portfolio personale realizzato con Next.js Tailwind Css e Framer Motion',
-    approfondimento: '',
+    obiettivo: '',
     immagine: Portfolio,
     tecnologie: [
       { nome: 'React', image: ReactIcon },

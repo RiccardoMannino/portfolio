@@ -85,15 +85,15 @@ export default function Progetto() {
           <p className="mt-4 text-center text-neutral-500">
             {progetto?.descrizione}
           </p>
-          <p className="mt-2 text-center text-neutral-500">
-            {progetto?.approfondimento}
-          </p>
           <Image
             src={progetto?.immagine}
             alt="immagine"
             className="self-center rounded-2xl"
             width={500}
           />
+          <p className="mt-2 text-center text-neutral-500">
+            {progetto?.obiettivo}
+          </p>
         </div>
         <div className="flex w-full flex-col flex-wrap gap-2">
           <div className="flex h-fit flex-col gap-5 rounded-2xl p-4">
