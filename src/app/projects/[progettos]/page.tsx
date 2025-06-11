@@ -54,7 +54,7 @@ export default async function Progetto({
               className="bg-emerald-500"
             >
               <Link href={progetto?.href} target="_blank">
-                Link
+                Guarda il sito
               </Link>
             </Button>
           </div>

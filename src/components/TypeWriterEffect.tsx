@@ -9,9 +9,9 @@ export default function TypewriterEffect() {
       { text: 'Mannino', className: 'text-4xl' },
     ],
     [
-      { text: 'Junior', className: 'text-4xl ,' },
-      { text: 'Frontend', className: 'text-4xl' },
-      { text: 'Developer', className: 'text-emerald-500 text-4xl' },
+      { text: 'Junior', className: 'md:text-4xl text-3xl,' },
+      { text: 'Frontend', className: 'md:text-4xl text-3xl' },
+      { text: 'Developer', className: 'text-emerald-500 md:text-4xl text-3xl' },
     ],
   ]
 
