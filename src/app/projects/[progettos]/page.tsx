@@ -1,19 +1,17 @@
-'use client'
-
-import React, { useState } from 'react'
-import { useParams, useRouter } from 'next/navigation'
+import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-
-import { IconArrowNarrowLeft } from '@tabler/icons-react'
 import { progetti } from '@/data/progetti'
 import Container from '@/components/Container'
 import Button from '@/components/Button'
+import BackButton from '@/components/BackButton'
 
-export default function Progetto() {
-  const [hover, setHover] = useState(false)
-  const { progettos } = useParams()
-  const router = useRouter()
+export default async function Progetto({
+  params,
+}: {
+  params: Promise<{ progettos: string }>
+}) {
+  const { progettos } = await params
 
   const progetto = progetti.find(
     (p) => p.nome.toLowerCase().split(' ').join('-') === progettos,
@@ -43,28 +41,7 @@ export default function Progetto() {
 
   return (
     <Container type="section" className="mx-auto flex flex-col gap-7 p-6">
-      <div
-        onClick={(e) => {
-          e.preventDefault(), router.back()
-        }}
-        className="flex items-center gap-2 hover:cursor-pointer"
-      >
-        <Button
-          type="button"
-          className="phone:p-0 bg-emerald-500 p-0 hover:cursor-pointer"
-          animate={{ x: hover ? -5 : 0 }}
-          whileHover={{ x: -5 }}
-        >
-          <IconArrowNarrowLeft size={30} color="white" />
-        </Button>
-        <span
-          onMouseOver={() => setHover(true)}
-          onMouseLeave={() => setHover(!hover)}
-          className="text-lg font-semibold text-emerald-500"
-        >
-          Torna indietro
-        </span>
-      </div>
+      <BackButton />
       <div className="phone:grid-rows-1 phone:grid-cols-1 grid gap-7">
         <div className="flex flex-col gap-3">
           <div className="flex items-center justify-center gap-7">
@@ -92,7 +69,7 @@ export default function Progetto() {
             width={500}
           />
           <p className="mt-2 text-center text-neutral-500">
-            {progetto?.obiettivo}
+            {progetto?.obiettivo ? `Obiettivo: ${progetto.obiettivo}` : ''}
           </p>
         </div>
         <div className="flex w-full flex-col flex-wrap gap-2">
@@ -105,6 +82,18 @@ export default function Progetto() {
             </div>
           </div>
         </div>
+        {/* <ol className="rounded-2xl bg-emerald-500 p-3 font-semibold text-white">
+          <p>Cosa ho realizzato:</p>
+          <li>
+            Sito responsive con sezioni: home, prodotti, galleria, orari e
+            contatti;
+          </li>
+
+          <li>
+            Backend Supabase per gestione dinamica dei contenuti (es. eventi);
+          </li>
+          <li>Design mobile-first e animazioni fluide con Framer Motion.</li>
+        </ol> */}
       </div>
     </Container>
   )
