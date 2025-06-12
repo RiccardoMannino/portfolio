@@ -35,27 +35,37 @@ export default function page() {
         tecnologie moderne come React.js, Material UI, e Styled Components.
       </p>
       <div>
-        {/* <div className="relative my-20 flex flex-col space-x-10 space-y-10 md:flex-row md:space-y-0">
-          <p className="w-30 text-sm text-neutral-500">07/2023 ad oggi</p>
+        <div className="relative my-20 flex flex-col space-y-10 space-x-10 md:flex-row md:space-y-0">
+          <p className="w-30 text-sm text-neutral-500">
+            Remoto – da ottobre 2023 a oggi
+          </p>
           <div>
             <h5 className="text-lg font-bold text-emerald-500">Freelance</h5>
             <p className="text-base font-semibold">
-              Sviluppatore Web Junior (Front-End).
+              Sviluppatore Web (junior).
             </p>
             <div className="my-2 flex items-start space-x-1">
               <IconCircleCheckFilled className="h-4 w-8 text-emerald-200 sm:w-4" />
-              <p className="text-sm text-neutral-500"></p>
+              <p className="text-sm text-neutral-500">
+                Realizzazione di progetti client-side con React, Next.js e
+                Tailwind
+              </p>
             </div>
             <div className="my-2 flex items-start space-x-1">
               <IconCircleCheckFilled className="h-4 w-8 text-emerald-200 sm:w-4" />
-              <p className="text-sm text-neutral-500"></p>
+              <p className="text-sm text-neutral-500">
+                Sviluppo di un sito per cliente reale con Sanity.io come CMS
+                headless (in corso)
+              </p>
             </div>
             <div className="my-2 flex items-start space-x-1">
               <IconCircleCheckFilled className="h-4 w-8 text-emerald-200 sm:w-4" />
-              <p className="text-sm text-neutral-500"></p>
+              <p className="text-sm text-neutral-500">
+                Gestione portfolio personale su riccardomannino.it
+              </p>
             </div>
           </div>
-        </div>*/}
+        </div>
         <div className="relative my-20 flex flex-col space-y-10 space-x-10 md:flex-row md:space-y-0">
           <p className="phone:w-full w-fit text-base text-neutral-500">
             11/2022 - 07/2023
@@ -70,22 +80,20 @@ export default function page() {
             <div className="my-2 grid grid-flow-col grid-rows-1 space-x-1">
               <IconCircleCheckFilled className="phone:w-4 mr-2 text-emerald-200" />
               <span className="text-lg text-neutral-500">
-                Creato componenti personalizzati con Material UI e Styled
-                Components in React.js per progetti privati.
+                Sviluppo componenti in React con Material UI e Styled Components
               </span>
             </div>
             <div className="my-2 grid grid-flow-col grid-rows-1 space-x-1">
               <IconCircleCheckFilled className="phone:w-4 mr-2 text-emerald-200" />
               <span className="text-lg text-neutral-500">
-                Redux Toolkit per la gestione degli stati integrando anche la
-                comunicazione con API.
+                Utilizzo di Redux Toolkit per gestione stato e comunicazione con
+                API REST.
               </span>
             </div>
             <div className="my-2 grid grid-flow-col grid-rows-1 space-x-1">
               <IconCircleCheckFilled className="phone:w-4 mr-2 text-emerald-200" />
               <p className="text-lg text-neutral-500">
-                Implementato il routing delle pagine con Next.js e lavorato
-                anche con react router.
+                Routing client-side con Next.js e anche con react router.
               </p>
             </div>
           </div>
@@ -138,14 +146,13 @@ export default function page() {
             <div className="my-2 grid grid-flow-col grid-rows-1 space-x-1">
               <IconCircleCheckFilled className="phone:w-4 mr-2 text-emerald-200" />
               <span className="text-lg text-neutral-500">
-                Uso base di Wordpress e del plugin Elementor per ripristinare e
-                mantenere il sito web aziendale.
+                Manutenzione sito WordPress con Elementor.
               </span>
             </div>
             <div className="my-2 flex space-x-1">
               <IconCircleCheckFilled className="phone:w-4 self-center text-emerald-200" />
               <span className="text-lg text-neutral-500">
-                Gestito e pubblicato eventi sul sito web.
+                Pubblicazione eventi e aggiornamenti contenuti.
               </span>
             </div>
           </div>
