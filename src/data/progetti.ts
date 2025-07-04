@@ -1,4 +1,5 @@
 import Portfolio from '@/assets/Portfolio.png'
+import Scifo from '@/assets/Scifo.png'
 import Forneria from '@/assets/Forneria Messina - Home.png'
 import { StaticImageData } from 'next/image'
 import ReactIcon from '../icons/react.svg'
@@ -7,6 +8,7 @@ import FramerIcon from '../icons/framermotion.svg'
 import TailwindIcon from '../icons/tailwind-css.svg'
 import NextIcon from '../icons/nextjs.svg'
 import ReactQueryIcon from '../icons/reactquery.svg'
+import ViteIcon from '../icons/Vite.js.svg'
 import { StaticImport } from 'next/dist/shared/lib/get-img-props'
 
 type progetti = {
@@ -22,6 +24,20 @@ type progetti = {
 }
 
 export const progetti: progetti[] = [
+  {
+    nome: 'Sito Portfolio',
+    descrizione:
+      'Portfolio personale realizzato con Next.js Tailwind Css e Framer Motion',
+    obiettivo: '',
+    immagine: Portfolio,
+    tecnologie: [
+      { nome: 'React', image: ReactIcon },
+      { nome: 'Nextjs', image: NextIcon },
+      { nome: 'Tailwind Css', image: TailwindIcon },
+      { nome: 'Framer Motion', image: FramerIcon },
+    ],
+    href: '/',
+  },
   {
     nome: 'Forneria Messina',
     descrizione:
@@ -41,17 +57,15 @@ export const progetti: progetti[] = [
       'Modernizzare un sito esistente mantenendone l’identità ma migliorando performance, aggiornabilità e UX su mobile.',
   },
   {
-    nome: 'Sito Portfolio',
-    descrizione:
-      'Portfolio personale realizzato con Next.js Tailwind Css e Framer Motion',
+    nome: 'Scifo Assicurazioni',
+    descrizione: 'Sito web realizzato per broker assicurativo ',
     obiettivo: '',
-    immagine: Portfolio,
+    immagine: Scifo,
     tecnologie: [
       { nome: 'React', image: ReactIcon },
-      { nome: 'Nextjs', image: NextIcon },
+      { nome: 'Vite', image: ViteIcon },
       { nome: 'Tailwind Css', image: TailwindIcon },
-      { nome: 'Framer Motion', image: FramerIcon },
     ],
-    href: '/',
+    href: 'www.scifoassicurazioni.it',
   },
 ]
