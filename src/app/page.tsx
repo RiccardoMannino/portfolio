@@ -293,7 +293,7 @@ export default function Home() {
         <h1 className="mb-6 text-3xl font-bold text-wrap text-emerald-500 md:text-4xl">
           I Miei Progetti
         </h1>
-        <div className="phone:grid-rows-2 relative grid grid-flow-col gap-7">
+        <div className="phone:grid-cols-1 relative grid grid-flow-row grid-cols-2 gap-7">
           {progetti.map((el) => (
             <Container
               key={el.nome}

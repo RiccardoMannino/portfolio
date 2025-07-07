@@ -77,7 +77,7 @@ export default async function Progetto({
             <h1 className="text-center font-semibold text-emerald-500">
               Tecnologie utilizzate
             </h1>
-            <div className="phone:grid-flow-row grid grid-flow-col grid-rows-1 place-content-center gap-5">
+            <div className="phone:grid-flow-row phone:grid-cols-2 grid grid-flow-col grid-rows-1 place-content-center gap-5">
               {tecnologie}
             </div>
           </div>
