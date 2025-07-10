@@ -66,6 +66,6 @@ export const progetti: progetti[] = [
       { nome: 'Vite', image: ViteIcon },
       { nome: 'Tailwind Css', image: TailwindIcon },
     ],
-    href: 'www.scifoassicurazioni.it',
+    href: 'https://www.scifoassicurazioni.it',
   },
 ]
