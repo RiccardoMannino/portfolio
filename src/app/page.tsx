@@ -87,6 +87,7 @@ export default function Home() {
             className="w-[50%]"
           >
             <Image
+              fetchPriority="high"
               src={Me}
               alt="riccardo mannino"
               className="phone:self-center mr-10 w-full rounded-full"
