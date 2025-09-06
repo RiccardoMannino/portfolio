@@ -1,5 +1,6 @@
 import Portfolio from '@/assets/Portfolio.png'
 import Scifo from '@/assets/Scifo.png'
+import Smof from '@/assets/smof.png'
 import Forneria from '@/assets/Forneria Messina - Home.png'
 import { StaticImageData } from 'next/image'
 import ReactIcon from '../icons/react.svg'
@@ -8,6 +9,8 @@ import FramerIcon from '../icons/framermotion.svg'
 import TailwindIcon from '../icons/tailwind-css.svg'
 import NextIcon from '../icons/nextjs.svg'
 import ReactQueryIcon from '../icons/reactquery.svg'
+import SanityIcon from '../icons/sanity.png'
+import StripeIcon from '../icons/stripe.png'
 import ViteIcon from '../icons/Vite.js.svg'
 import { StaticImport } from 'next/dist/shared/lib/get-img-props'
 
@@ -16,6 +19,7 @@ type progetti = {
   descrizione: string
   obiettivo: string
   immagine: StaticImageData
+  stato?: string
   tecnologie: {
     nome: string
     image: string | StaticImport
@@ -67,5 +71,20 @@ export const progetti: progetti[] = [
       { nome: 'Tailwind Css', image: TailwindIcon },
     ],
     href: 'https://www.scifoassicurazioni.it',
+  },
+  {
+    nome: 'SMOF',
+    descrizione: 'Sito web per festival outdoor',
+    obiettivo: `Dare possibilità al cliente di modificare i contenuti tramite il pannello del CMS , gestendo utenti quantità dei ticket, ecc...                                                                                                                                Il Sito permette di acquistare biglietti e iscriversi alla newsletter`,
+    immagine: Smof,
+    tecnologie: [
+      { nome: 'React', image: ReactIcon },
+      { nome: 'Nextjs', image: NextIcon },
+      { nome: 'Tailwind Css', image: TailwindIcon },
+      { nome: 'Sanity.io', image: SanityIcon },
+      { nome: 'Stripe', image: StripeIcon },
+    ],
+    href: '',
+    stato: 'Progetto in fase di sviluppo',
   },
 ]

@@ -26,7 +26,7 @@ export default async function Progetto({
             width={70}
             height={70}
             alt="tecnologie"
-            className="phone:w-15 phone:h-15 cursor-pointer transition-all duration-200 hover:-translate-y-2"
+            className="phone:w-fit phone:h-15 cursor-pointer transition-all duration-200 hover:-translate-y-2"
           />
           <p className="text-center font-semibold text-emerald-500">
             {ele.nome}
@@ -59,7 +59,7 @@ export default async function Progetto({
             </Button>
           </div>
 
-          <p className="mt-4 text-center text-neutral-500">
+          <p className="mt-4 text-center font-semibold text-emerald-500">
             {progetto?.descrizione}
           </p>
           <Image
@@ -68,7 +68,10 @@ export default async function Progetto({
             className="self-center rounded-2xl"
             width={500}
           />
-          <p className="mt-2 text-center text-neutral-500">
+          <p className="mt-2 text-center font-semibold whitespace-pre-line text-emerald-500">
+            {progetto?.stato ? ` ${progetto.stato}` : ''}
+          </p>
+          <p className="mt-2 text-center font-semibold whitespace-pre-line text-emerald-500">
             {progetto?.obiettivo ? `Obiettivo: ${progetto.obiettivo}` : ''}
           </p>
         </div>
@@ -82,18 +85,6 @@ export default async function Progetto({
             </div>
           </div>
         </div>
-        {/* <ol className="rounded-2xl bg-emerald-500 p-3 font-semibold text-white">
-          <p>Cosa ho realizzato:</p>
-          <li>
-            Sito responsive con sezioni: home, prodotti, galleria, orari e
-            contatti;
-          </li>
-
-          <li>
-            Backend Supabase per gestione dinamica dei contenuti (es. eventi);
-          </li>
-          <li>Design mobile-first e animazioni fluide con Framer Motion.</li>
-        </ol> */}
       </div>
     </Container>
   )
