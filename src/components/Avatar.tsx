@@ -4,16 +4,14 @@ import profilePic from '../assets/Logo (2).png'
 export default function Avatar() {
   return (
     <div className="phone:hidden mt-1 flex space-x-2">
-      <div className="w-full">
-        <Image
-          src={profilePic}
-          width={150}
-          height={150}
-          className="w-full rounded-full"
-          alt="Riccardo Mannino Logo"
-          priority={true}
-        />
-      </div>
+      <Image
+        src={profilePic}
+        width={150}
+        height={150}
+        className="w-full rounded-full"
+        alt="Riccardo Mannino Logo"
+        priority={true}
+      />
     </div>
   )
 }

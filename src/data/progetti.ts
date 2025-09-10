@@ -75,7 +75,7 @@ export const progetti: progetti[] = [
   {
     nome: 'SMOF',
     descrizione: 'Sito web per festival outdoor',
-    obiettivo: `Dare possibilità al cliente di modificare i contenuti tramite il pannello del CMS , gestendo utenti quantità dei ticket, ecc...                                                                                                                                Il Sito permette di acquistare biglietti e iscriversi alla newsletter`,
+    obiettivo: `Dare possibilità al cliente di modificare i contenuti tramite il pannello del CMS , gestendo utenti quantità dei ticket, ecc...                                                                                                                                Il Sito permette di acquistare biglietti per gli eventi e ricevere news per eventi in uscita`,
     immagine: Smof,
     tecnologie: [
       { nome: 'React', image: ReactIcon },
