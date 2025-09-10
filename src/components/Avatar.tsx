@@ -1,23 +1,18 @@
 import Image from 'next/image'
-import profilePic from '../assets/Me.jpg'
+import profilePic from '../assets/Logo (2).png'
 
 export default function Avatar() {
   return (
     <div className="phone:hidden mt-1 flex space-x-2">
-      <div className="w-fit">
+      <div className="w-full">
         <Image
           src={profilePic}
-          alt="Riccardo Mannino"
-          width={50}
-          height={50}
-          className="rounded-full"
+          width={150}
+          height={150}
+          className="w-full rounded-full"
+          alt="Riccardo Mannino Logo"
           priority={true}
         />
-      </div>
-
-      <div className="flex flex-col text-sm transition-all duration-200">
-        <p className="font-bold">Riccardo Mannino</p>
-        <p className="font-thin">Jr Frontend Developer</p>
       </div>
     </div>
   )
