@@ -1,5 +1,6 @@
 import Portfolio from '@/assets/Portfolio.png'
 import Scifo from '@/assets/Scifo.png'
+import Lavanderia from '@/assets/Lavanderia.png'
 import Smof from '@/assets/smof.png'
 import Forneria from '@/assets/Forneria Messina - Home.png'
 import { StaticImageData } from 'next/image'
@@ -45,7 +46,7 @@ export const progetti: progetti[] = [
   {
     nome: 'Forneria Messina',
     descrizione:
-      'Rivisitazione del sito web da me creato (precedentemente in Wordpress) per Forneria Messina',
+      'Rivisitazione (e clone) del sito web da me creato (precedentemente in Wordpress) per Forneria Messina',
 
     immagine: Forneria,
     tecnologie: [
@@ -84,7 +85,22 @@ export const progetti: progetti[] = [
       { nome: 'Sanity.io', image: SanityIcon },
       { nome: 'Stripe', image: StripeIcon },
     ],
-    href: '',
+    href: 'https://www.smof.vercel.app',
     stato: 'Progetto in fase di sviluppo',
+  },
+  {
+    nome: 'Davi Lavanderie',
+    descrizione:
+      'Sito web per cliente che offre servizi e prodotti di lavanderia',
+    obiettivo: `Dare possibilità al cliente di modificare i contenuti tramite il pannello del CMS Sanity , cambiando quindi i prodotti presenti aggiungendo categorie e pagine se necessario`,
+    immagine: Lavanderia,
+    tecnologie: [
+      { nome: 'React', image: ReactIcon },
+      { nome: 'Nextjs', image: NextIcon },
+      { nome: 'Tailwind Css', image: TailwindIcon },
+      { nome: 'Sanity.io', image: SanityIcon },
+    ],
+    href: 'https://www.davilavanderie.com',
+    // stato: 'Progetto in fase di sviluppo',
   },
 ]
