@@ -28,6 +28,7 @@ export const metadata = {
     'esperienze digitali',
   ],
   openGraph: {
+    locale: 'it_IT',
     title: 'Riccardo Mannino - Frontend Developer a Palermo',
     description:
       'Realizzo siti web moderni e personalizzati per aziende e privati.',
