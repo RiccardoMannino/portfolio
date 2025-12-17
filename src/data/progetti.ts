@@ -76,7 +76,7 @@ export const progetti: progetti[] = [
   {
     nome: 'SMOF',
     descrizione: 'Sito web per festival outdoor',
-    obiettivo: `Dare possibilità al cliente di modificare i contenuti tramite il pannello del CMS , gestendo utenti quantità dei ticket, ecc...                                                                                                                                Il Sito permette di acquistare biglietti per gli eventi e ricevere news per eventi in uscita`,
+    obiettivo: `Dare possibilità al cliente di modificare i contenuti tramite il pannello del CMS , gestendo utenti quantità dei ticket, ecc...                                                                                                                                Il Sito permette di acquistare biglietti per gli eventi`,
     immagine: Smof,
     tecnologie: [
       { nome: 'React', image: ReactIcon },
@@ -85,7 +85,7 @@ export const progetti: progetti[] = [
       { nome: 'Sanity.io', image: SanityIcon },
       { nome: 'Stripe', image: StripeIcon },
     ],
-    href: 'https://www.smof.vercel.app',
+    href: 'https://www.smofest.it',
     stato: 'Progetto in fase di sviluppo',
   },
   {
@@ -101,6 +101,6 @@ export const progetti: progetti[] = [
       { nome: 'Sanity.io', image: SanityIcon },
     ],
     href: 'https://www.davilavanderie.com',
-    // stato: 'Progetto in fase di sviluppo',
+    // stato: '',
   },
 ]
