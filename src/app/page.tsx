@@ -22,8 +22,7 @@ export const metadata = {
     'Realizzo siti web moderni e personalizzati per aziende e privati. Trasformo idee in esperienze digitali di impatto, utilizzando tecnologie moderne e design funzionale.',
   keywords: [
     'Riccardo Mannino',
-    'sviluppatore frontend',
-    'Palermo',
+    'sviluppatore web frontend a palermo',
     'siti web personalizzati',
     'esperienze digitali',
   ],
@@ -301,20 +300,26 @@ export default function Home() {
               key={el.nome}
               transform="translateX(0)"
               translate="translateX(-100px)"
-              className="flex flex-col gap-5 rounded-2xl bg-emerald-500 px-8 py-5 text-left text-neutral-50"
+              className={`z-30 flex h-96 flex-col gap-5 rounded-2xl py-5 text-left`}
             >
               <Link
-                className="cursor-pointer text-xl font-semibold"
+                className="transition-hover relative z-20 m-5 h-full cursor-pointer rounded-2xl text-xl font-semibold hover:bg-emerald-500"
                 href={`/projects/${el.nome.toLowerCase().split(' ').join('-')}`}
               >
-                {el.nome}
+                <Image
+                  src={el.immagine}
+                  alt={el.nome}
+                  className="absolute inset-0 h-full w-min rounded-2xl hover:opacity-10"
+                  fill
+                />
+                <p className="z-30 p-4 font-bold text-white">{el.nome}</p>
+                <p className="z-30 p-4 text-white">{el.descrizione}</p>
+                <div className="z-30 flex flex-wrap gap-4 p-4 text-white">
+                  {el.tecnologie.map((ele) => (
+                    <Tag key={ele.nome} title={ele.nome} />
+                  ))}
+                </div>
               </Link>
-              <p>{el.descrizione}</p>
-              <div className="flex flex-wrap gap-4">
-                {el.tecnologie.map((ele) => (
-                  <Tag key={ele.nome} title={ele.nome} />
-                ))}
-              </div>
             </Container>
           ))}
         </div>

@@ -1,5 +1,3 @@
-
-
 ## Descrizione
 
 Portfolio Personale Stile minimale

@@ -1,16 +1,15 @@
 import type { Metadata } from 'next'
-import localFont from 'next/font/local'
 import './globals.css'
 import Sidebar from '@/components/Sidebar'
 import MainLayout from '@/components/MainLayout'
 import { Toaster } from 'react-hot-toast'
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https:/www./riccardomannino.it'),
+  metadataBase: new URL('https:/www.riccardomannino.it'),
   title: 'Riccardo Mannino | Frontend Developer',
   keywords: [
     'Riccardo mannino',
-    'Sviluppatore Frontend Junior',
+    'Sviluppatore Frontend Junior Palermo',
     'Frontend Developer Junior',
     'Sviluppatore Web',
   ],
