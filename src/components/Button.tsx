@@ -5,7 +5,7 @@ import React, { ReactNode } from 'react'
 import { motion } from 'motion/react'
 import {
   VariantLabels,
-  animationControls,
+
   TargetAndTransition,
   Target,
   Transition,
@@ -18,7 +18,7 @@ type Button = {
   className?: string
   transition?: Transition
   initial?: boolean | Target | VariantLabels
-  animate?: boolean | typeof animationControls | TargetAndTransition | undefined
+  animate?: boolean | TargetAndTransition | undefined
   whileHover?: VariantLabels | TargetAndTransition
   disabled?: boolean
 }
