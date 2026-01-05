@@ -6,7 +6,7 @@ import Image from 'next/image'
 export default function Projects() {
   return (
     <>
-      <h1 className="mb-10 text-3xl font-bold text-emerald-500">Progetti 💼</h1>
+      <h1 className="mb-10 text-3xl font-bold text-primary ombra">Progetti 💼</h1>
       <section>
         {progetti.map((el) => (
           <div
@@ -35,10 +35,10 @@ export default function Projects() {
               transform="translateX(0)"
               translate="translateX(100px)"
             >
-              <h1 className="text-lg font-semibold text-emerald-500">
+              <h1 className="text-lg font-semibold text-primary ombra">
                 {el.nome}
               </h1>
-              <p className="text-base font-semibold text-neutral-500">
+              <p className="text-base font-semibold ">
                 {el.descrizione}
               </p>
             </Container>

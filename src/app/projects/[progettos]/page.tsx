@@ -49,8 +49,7 @@ export default async function Progetto({
             </h1>
             <Button
               type="button"
-              whileHover={{ scale: 1.1 }}
-              className="bg-emerald-500"
+              className=""
             >
               <Link href={progetto?.href} target="_blank">
                 Guarda il sito

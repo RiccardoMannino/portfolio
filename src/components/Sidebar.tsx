@@ -53,8 +53,8 @@ export default function Sidebar() {
             ? { y: isVisible ? 0 : 220, opacity: 1 }
             : { x: isVisible ? 0 : -220, opacity: 1 }
         }
-        transition={{ type: 'linear', duration: 0.3, damping: 10 }}
-        className={`phone:bottom-0 phone:h-fit phone:w-full phone:flex-row phone:bg-linear-to-t phone:from-emerald-50 phone:to-emerald-100 phone:py-2 phone:px:4 fixed left-0 z-50 flex h-full flex-col justify-between bg-linear-to-r from-emerald-100 to-emerald-50 px-5 py-10 transition-all duration-200 ease-out`}
+        transition={{ type: 'spring', duration: 0.3, damping: 10 }}
+        className={`phone:bottom-0 phone:h-fit phone:w-full phone:flex-row phone:bg-linear-to-t phone:from-primary/5 phone:to-primary phone:py-2 phone:px:4 fixed left-0 z-50 flex h-full flex-col justify-between bg-linear-to-r from-primary to-primary/5 px-5 py-10 transition-all duration-200 ease-out`}
       >
         <div className="iphone:gap-0 phone:w-full phone:flex-row phone:items-center phone:gap-1 flex flex-col gap-7">
           <Avatar />
@@ -76,13 +76,13 @@ export default function Sidebar() {
                     }}
                     className={
                       (isActive(`${li.href}`) &&
-                        'phone:justify-center phone:p-2 phone:flex-col flex w-full items-center justify-start bg-gray-900 p-[8px] text-emerald-500 shadow-lg hover:cursor-pointer sm:text-sm') ||
-                      'phone:justify-center phone:flex-col phone:p-2 flex w-full justify-start bg-emerald-500 stroke-neutral-50 p-[8px] text-neutral-50 shadow-lg transition-all duration-200 hover:cursor-pointer hover:text-gray-900 sm:text-sm'
+                        'phone:justify-center hover:bg-foreground phone:flex-col w-full justify-start shadow-primary p-2 sm:text-sm bg-foreground text-primary-foreground  ') ||
+                      'phone:justify-center phone:flex-col w-full justify-start bg-primary p-2 text-foreground shadow-md shadow-foreground transition-all duration-200  sm:text-sm'
                     }
                   >
                     <Icon
                       size={20}
-                      className={isActive(li.href) ? 'stroke-emerald-500' : ''}
+                      className={isActive(li.href) ? 'stroke-background' : ''}
                     />
                     <span
                       className={
@@ -124,7 +124,7 @@ export default function Sidebar() {
             <IconChevronRight
               className="phone:hidden"
               size={15}
-              color="white"
+              color="black"
             />
           </div>
         </Button>

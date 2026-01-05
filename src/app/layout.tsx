@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 import Sidebar from '@/components/Sidebar'
 import MainLayout from '@/components/MainLayout'
+import { Archivo_Black, Space_Grotesk } from "next/font/google";
 import { Toaster } from 'react-hot-toast'
 
 export const metadata: Metadata = {
@@ -33,6 +34,21 @@ export const metadata: Metadata = {
   },
 }
 
+
+const archivoBlack = Archivo_Black({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-head",
+  display: "swap",
+});
+
+const space = Space_Grotesk({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-sans",
+  display: "swap",
+});
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -40,7 +56,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="it" className="scroll-smooth antialiased">
-      <body className={`flex bg-slate-100`}>
+      <body className={`${archivoBlack.variable} ${space.variable}flex bg-slate-100`}>
         <link rel="icon" href="favicon.ico" sizes="16x16" />
 
         <Sidebar />

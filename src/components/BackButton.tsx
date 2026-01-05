@@ -16,16 +16,15 @@ export default function BackButton() {
     >
       <Button
         type="button"
-        className="phone:p-0 bg-emerald-500 p-0 hover:cursor-pointer"
-        animate={{ x: hover ? -5 : 0 }}
-        whileHover={{ x: -5 }}
+        className="phone:p-0 p-0 hover:cursor-pointer"
+     
       >
         <IconArrowNarrowLeft size={30} color="white" />
       </Button>
       <span
         onMouseOver={() => setHover(true)}
         onMouseLeave={() => setHover(!hover)}
-        className="text-lg font-semibold text-emerald-500"
+        className="text-lg font-semibold "
       >
         Torna indietro
       </span>
