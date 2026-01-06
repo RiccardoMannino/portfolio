@@ -1,7 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-
 import { progetti } from '@/data/progetti'
 import Tag from '@/components/Tag'
 import Container from '@/components/Container'
@@ -250,9 +249,9 @@ export default function Home() {
                   width={70}
                   height={70}
                   alt="Typescript"
-                  className="self-center rounded-2xl border border-white bg-white"
+                  className="self-center rounded-2xl  bg-white"
                 />
-                <p className="font-semibold text-neutral-50">Typescript</p>
+                <p className="font-semibold ">Typescript</p>
               </div>
             </div>
           </Container>
@@ -277,7 +276,7 @@ export default function Home() {
                   alt="Git"
                   className="self-center rounded-2xl bg-white p-2"
                 />
-                <p className="font-semibold text-neutral-50">Git</p>
+                <p className="font-semibold ">Git</p>
               </div>
             </div>
             <div className="flex flex-col">
@@ -289,7 +288,7 @@ export default function Home() {
                   alt="supabase"
                   className="self-center rounded-2xl bg-white p-2"
                 />
-                <p className="font-semibold text-neutral-50">Supabase</p>
+                <p className="font-semibold ">Supabase</p>
               </div>
             </div>
           </Container>
@@ -301,34 +300,35 @@ export default function Home() {
         className="mt-40 flex flex-col gap-7 py-24 text-center"
         id="progetti"
       >
-        <h1 className="mb-6 text-3xl font-bold text-wrapmd:text-4xl">
+        <h1 className="mb-6 text-3xl font-bold text-wrap md:text-4xl">
           I Miei Progetti
         </h1>
         <div className="relative  ">
           {progetti.map((el) => (
-            <div className='border-2 shadow shadow-foreground mb-5 border-foreground gap-7 max-md:grid-cols-1 rounded grid grid-flow-row grid-cols-2' key={el.nome}>
+            <div className='border-2 shadow shadow-foreground mb-5 border-foreground  max-md:grid-cols-1 rounded grid grid-flow-row grid-cols-2' key={el.nome}>
             <Container
               transform="translateX(0)"
               translate="translateX(-100px)"
-              className={`z-30 flex h-96 flex-col gap-5 rounded-2xl py-5 text-left`}
+              className={` 
+             p-3 rounded-2xl items-center justify-center w-full`}
               >
-              <Link
-                className="transition-hover relative z-20 m-5 h-full cursor-pointer rounded-2xl text-xl font-semibold hover:bg-emerald-500"
-                href={`/projects/${el.nome.toLowerCase().split(' ').join('-')}`}
-                >
                 <Image
                   src={el.immagine}
                   alt={el.nome}
-                  className="absolute inset-0 h-[clamp(10rem,4vh+1rem, 12rem)] w-[clamp(10rem,4vw+1rem,12rem)] rounded-2xl "
-                  fill
+                  className="rounded-2xl w-full"
+                  
                 />
              
-              </Link>
             </Container>
             <Container className=' flex flex-col justify-center items-center' >
-                <p className="z-30 p-4 font-bold text-white">{el.nome}</p>
-                <p className="z-30 p-4 text-white">{el.descrizione}</p>
-                <div className="z-30 flex flex-wrap gap-4 p-4 text-white">
+              <Link
+                className="m-5 cursor-pointer rounded-2xl  font-semibold "
+                href={`/projects/${el.nome.toLowerCase().split(' ').join('-')}`}
+                >
+                <p className="p-4 ombraxs font-bold text-primary ">{el.nome}</p>
+                  </Link>
+                <p className="p-4 ">{el.descrizione}</p>
+                <div className="flex flex-wrap gap-4 p-4 text-white">
                   {el.tecnologie.map((ele) => (
                     <Tag key={ele.nome} title={ele.nome} />
                   ))}

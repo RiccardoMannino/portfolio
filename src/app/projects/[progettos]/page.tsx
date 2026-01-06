@@ -27,7 +27,7 @@ export default async function Progetto({
             alt="tecnologie"
             className="phone:w-fit phone:h-15 cursor-pointer transition-all duration-200 hover:-translate-y-2"
           />
-          <p className="text-center font-semibold text-emerald-500">
+          <p className="text-center font-semibold ">
             {ele.nome}
           </p>
         </div>
@@ -44,7 +44,7 @@ export default async function Progetto({
       <div className="phone:grid-rows-1 phone:grid-cols-1 grid gap-7">
         <div className="flex flex-col gap-3">
           <div className="flex items-center justify-center gap-7">
-            <h1 className="text-3xl font-bold text-emerald-500">
+            <h1 className="text-3xl font-bold ">
               {progetto?.nome}
             </h1>
             <Button
@@ -57,7 +57,7 @@ export default async function Progetto({
             </Button>
           </div>
 
-          <p className="mt-4 text-center font-semibold text-emerald-500">
+          <p className="mt-4 text-center font-semibold ">
             {progetto?.descrizione}
           </p>
           <Image
@@ -66,16 +66,16 @@ export default async function Progetto({
             className="self-center rounded-2xl"
             width={500}
           />
-          <p className="mt-2 text-center font-semibold whitespace-pre-line text-emerald-500">
+          <p className="mt-2 text-center font-semibold whitespace-pre-line ">
             {progetto?.stato ? ` ${progetto.stato}` : ''}
           </p>
-          <p className="mt-2 text-center font-semibold whitespace-pre-line text-emerald-500">
+          <p className="mt-2 text-center font-semibold whitespace-pre-line ">
             {progetto?.obiettivo ? `Obiettivo: ${progetto.obiettivo}` : ''}
           </p>
         </div>
         <div className="flex w-full flex-col flex-wrap gap-2">
           <div className="flex h-fit flex-col gap-5 rounded-2xl p-4">
-            <h1 className="text-center font-semibold text-emerald-500">
+            <h1 className="text-center font-semibold ">
               Tecnologie utilizzate
             </h1>
             <div className="phone:grid-flow-row phone:grid-cols-2 grid grid-flow-col grid-rows-1 place-content-center gap-5">
