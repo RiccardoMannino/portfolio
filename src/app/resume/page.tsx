@@ -30,7 +30,7 @@ export default function page() {
       <h1 className="phone:text-start mb-4 flex items-center text-3xl font-bold text-primary ombraxs md:text-4xl gap-2">
         Esperienza lavorativa <span className="text-2xl">💼</span>
       </h1>
-      <p className="mb-2 text-lg ">
+      <p className="mb-2 text-lg font-semibold">
         Sono un frontend developer con esperienza nell&apos;utilizzo di
         tecnologie moderne come React.js, Material UI, e Styled Components.
       </p>
@@ -46,14 +46,14 @@ export default function page() {
             </p>
             <div className="my-2 flex items-center space-x-1">
               <IconCircleCheckFilled className="h-4 w-8 text-primary sm:w-4" />
-              <p className="text-lg ">
+              <p className="text-lg font-semibold">
                 Realizzazione di progetti client-side con React, Next.js e
                 Tailwind
               </p>
             </div>
             <div className="my-2 flex items-center space-x-1">
               <IconCircleCheckFilled className="h-4 w-8 text-primary sm:w-4" />
-              <p className="text-lg font-semibold ">
+              <p className="text-lg font-semibold">
                 Sviluppo di un sito per cliente reale con Sanity.io come CMS
                 headless (in corso)
               </p>

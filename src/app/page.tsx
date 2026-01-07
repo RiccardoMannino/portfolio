@@ -13,6 +13,7 @@ import NextIcon from '../icons/nextjs.svg'
 import TailwindIcon from '../icons/tailwind-css.svg'
 import TypescriptIcon from '../icons/typescript.svg'
 import SupabaseIcon from '../icons/supabase.svg'
+import Sanity from '../icons/sanity.png'
 import GitIcon from '../icons/git.svg'
 import TypewriterEffect from '@/components/TypeWriterEffect'
 import Button from '@/components/Button'
@@ -207,7 +208,7 @@ export default function Home() {
               scale: 1.05,
               transition: { duration: 0.2 },
             }}
-            className="flex cursor-pointer flex-col rounded-2xl px-8 py-5 shadow shadow-foreground border-2 border-foreground"
+            className="phone:h-fit phone:w-full flex flex-col h-auto w-fit cursor-pointer  gap-7 rounded-2xl border-2 shadow border-foreground shadow-foreground px-8 py-5"
           >
             <h2 className="p-3 text-xl font-semibold ">
               Frontend
@@ -219,7 +220,7 @@ export default function Home() {
                   width={70}
                   height={70}
                   alt="React"
-                  className="rounded-2xl  p-2"
+                  className="rounded-2xl "
                 />
                 <p className="font-semibold ">React</p>
               </div>
@@ -233,7 +234,7 @@ export default function Home() {
                 />
                 <p className="font-semibold ">Next.js</p>
               </div>
-              <div className="">
+              <div className="flex flex-col">
                 <Image
                   src={TailwindIcon}
                   width={70}
@@ -262,33 +263,45 @@ export default function Home() {
               scale: 1.05,
               transition: { duration: 0.2 },
             }}
-            className="phone:h-fit phone:w-full grid h-auto w-fit cursor-pointer grid-cols-1 grid-rows-1 gap-7 rounded-2xl border-2 shadow border-foreground shadow-foreground px-8 py-5"
+            className="phone:h-fit phone:w-full flex flex-col h-auto w-fit cursor-pointer  gap-7 rounded-2xl border-2 shadow border-foreground shadow-foreground px-8 py-5"
           >
-            <div className="flex cursor-pointer flex-col">
-              <h2 className="p-3 text-xl font-semibold ">
+            <h2 className="p-3 text-xl font-semibold ">
                 Tool & Database
               </h2>
+            <div className="grid grid-cols-2 grid-rows-2 place-items-center gap-5">
               <div className="flex flex-col">
                 <Image
                   src={GitIcon}
                   width={70}
                   height={70}
                   alt="Git"
-                  className="self-center rounded-2xl bg-white p-2"
+                  className="self-center rounded-2xl bg-white"
                 />
                 <p className="font-semibold ">Git</p>
               </div>
-            </div>
-            <div className="flex flex-col">
+              <div className="flex flex-col">
               <div className="flex flex-col">
                 <Image
                   src={SupabaseIcon}
                   width={70}
                   height={70}
                   alt="supabase"
-                  className="self-center rounded-2xl bg-white p-2"
+                  className="rounded-2xl bg-white"
                 />
                 <p className="font-semibold ">Supabase</p>
+              </div>
+            </div>
+            <div className="flex flex-col">
+              <div className="flex flex-col">
+                <Image
+                  src={Sanity}
+                  width={70}
+                  height={70}
+                  alt="supabase"
+                  className="self-center rounded-2xl bg-white "
+                />
+                <p className="font-semibold ">Sanity.io</p>
+              </div>
               </div>
             </div>
           </Container>
