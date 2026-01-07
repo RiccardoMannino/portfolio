@@ -43,8 +43,8 @@ export default async function Progetto({
       <BackButton />
       <div className="phone:grid-rows-1 phone:grid-cols-1 grid gap-7">
         <div className="flex flex-col gap-3">
-          <div className="flex items-center justify-center gap-7">
-            <h1 className="text-3xl font-bold ">
+          <div className="flex max-sm:flex-col items-center justify-center gap-7 w-full">
+            <h1 className="max-sm:text-center text-[clamp(1rem,calc(5vw+1rem),3.5rem)] leading-11 font-bold ">
               {progetto?.nome}
             </h1>
             <Button

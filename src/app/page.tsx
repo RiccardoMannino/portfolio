@@ -325,10 +325,10 @@ export default function Home() {
                 className="m-5 cursor-pointer rounded-2xl  font-semibold "
                 href={`/projects/${el.nome.toLowerCase().split(' ').join('-')}`}
                 >
-                <p className="p-4 ombraxs font-bold text-primary ">{el.nome}</p>
+                <p className="p-4 ombraxs font-bold text-primary text-2xl">{el.nome}</p>
                   </Link>
                 <p className="p-4 ">{el.descrizione}</p>
-                <div className="flex flex-wrap gap-4 p-4 text-white">
+                <div className="flex flex-wrap gap-4 p-4 max-sm:justify-center">
                   {el.tecnologie.map((ele) => (
                     <Tag key={ele.nome} title={ele.nome} />
                   ))}
