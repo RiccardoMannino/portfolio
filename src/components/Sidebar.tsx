@@ -50,7 +50,7 @@ export default function Sidebar() {
       <motion.div
         animate={
           medium
-            ? { y: isVisible ? 0 : 275, opacity: 1 }
+            ? { y: isVisible ? 0 : 280, opacity: 1 }
             : { x: isVisible ? 0 : -220, opacity: 1 }
         }
         transition={{ type: 'spring', duration: 0.3, damping: 10 }}

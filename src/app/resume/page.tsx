@@ -36,7 +36,7 @@ export default function page() {
       </p>
       <div>
         <div className="relative my-20 flex flex-col space-y-10 space-x-10 md:flex-row md:space-y-0">
-          <p className="w-30 text-lg font-semibold ">Ottobre 2023 a oggi</p>
+          <p className="w-30 max-sm:w-full text-lg font-semibold ">Ottobre 2023 a oggi</p>
           <div>
             <h5 className="text-lg font-bold text-primary ombraxs">
               Freelance da Remoto
