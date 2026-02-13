@@ -19,6 +19,7 @@ export default function Projects() {
               type="div"
               transform="translateX(0)"
               translate="translateX(-100px)"
+              className="max-sm:flex max-sm:flex-col max-sm:items-center"
             >
               <Link
                 href={`/projects/${el.nome.toLowerCase().split(' ').join('-')}`}
