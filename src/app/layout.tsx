@@ -1,9 +1,11 @@
 import type { Metadata } from 'next'
 import './globals.css'
-import Sidebar from '@/components/Sidebar'
+import ThemeProvider from './context/theme/ThemeProvider';
+
 import MainLayout from '@/components/MainLayout'
 import { Archivo_Black, Space_Grotesk } from "next/font/google";
 import { Toaster } from 'react-hot-toast'
+import ThemeContextProvider from '@/app/context/theme/ThemeContext'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https:/www.riccardomannino.it'),
@@ -56,11 +58,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="it" className="scroll-smooth antialiased">
-      <body className={`${archivoBlack.variable} ${space.variable}flex bg-slate-100`}>
+      
+      <body className={`${archivoBlack.variable} ${space.variable} flex`}>
         <link rel="icon" href="favicon.ico" sizes="16x16" />
 
-        <Sidebar />
+        {/* <Sidebar /> */}
+  
         <MainLayout>{children}</MainLayout>
+    
         <Toaster
           position="top-center"
           reverseOrder={false}
@@ -76,7 +81,8 @@ export default function RootLayout({
               padding: '1rem',
             },
           }}
-        />
+          />
+        
       </body>
     </html>
   )

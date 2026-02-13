@@ -4,7 +4,13 @@ type title = {
 
 export default function Tag({ title }: title) {
   return (
-    <div className="w-fit rounded-sm bg-primary border-foreground border-2 text-foreground p-1 text-sm font-semibold">
+    <div
+      style={{
+        WebkitTextStrokeColor: 'var(--foreground)',
+        WebkitTextStrokeWidth: '0.4px',
+      }}
+      className="bg-primary border-background w-fit rounded-sm border-2 p-1 text-sm font-semibold"
+    >
       {title}
     </div>
   )

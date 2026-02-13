@@ -74,7 +74,7 @@ export default function ContactForm() {
       //Toast in caso di invio o errore
       toast.custom((t: Toast) => (
         <div
-          className={`rounded-full bg-[#111827] px-6 py-4 text-white shadow-md ${
+          className={`bg-foreground text-background rounded-full px-6 py-4 font-semibold shadow-md ${
             t.visible ? 'animate-enter' : 'animate-leave'
           }`}
         >
@@ -85,7 +85,7 @@ export default function ContactForm() {
       console.error(error)
       toast.custom((t: Toast) => (
         <div
-          className={`font-white rounded-full bg-[#111827] px-6 py-4 text-white shadow-md ${
+          className={`font-white bg-foreground text-background rounded-full px-6 py-4 font-semibold shadow-md ${
             t.visible ? 'animate-enter' : 'animate-leave'
           }`}
         >
@@ -114,20 +114,20 @@ export default function ContactForm() {
       <h1 className="mb-4 text-center text-3xl font-bold md:text-4xl">
         Contattami <span>✉️</span>
       </h1>
-      <p className="phone:text-center mb-2 text-center text-lg ">
+      <p className="phone:text-center text-foreground mb-2 text-center text-lg">
         Compila il Form sottostante e ti risponderò il prima possibile.
       </p>
 
       <div className="phone:flex-col flex gap-10">
         <div>
           <div className="mt-8 flex items-center gap-2">
-            <div className="rounded-lg bg-primary shadow-sm shadow-foreground p-4 text-foreground ">
+            <div className="bg-foreground shadow-primary text-background rounded-lg p-4 shadow-sm">
               {<IconMail />}
             </div>
             <div className="flex flex-col">
-              <p className="text-lg font-semibold ">Email</p>
+              <p className="text-foreground text-lg font-semibold">Email</p>
               <a
-                className="text-lg font-semibold text-foreground"
+                className="text-foreground font-semibold"
                 href="mailto:manninoriccardo3@gmail.com"
               >
                 manninoriccardo3@gmail.com
@@ -136,26 +136,26 @@ export default function ContactForm() {
           </div>
 
           <div className="mt-8 flex items-center gap-2">
-            <div className="rounded-lg bg-foreground shadow-sm shadow-primary p-4 text-neutral-50">
+            <div className="bg-foreground shadow-primary text-background rounded-lg p-4 shadow-sm">
               {<IconMapPin />}
             </div>
             <div className="flex flex-col">
-              <p className="text-lg font-semibold text-neutral-500">Location</p>
-              <p className="font-semibold ">Palermo, IT</p>
+              <p className="text-foreground text-lg font-semibold">Location</p>
+              <p className="text-foreground font-semibold">Palermo, IT</p>
             </div>
           </div>
 
-          <div className="mt-8 flex gap-4">
+          <div className="mt-8 flex gap-4 max-sm:items-end">
             {social.map((so) => (
               <Button
                 key={so.href}
-                className="flex transform items-center last-of-type:hover:bg-foreground last-of-type:shadow-primary last-of-type:text-background last-of-type:bg-foreground  font-medium  delay-75 duration-100 ease-in hover:cursor-pointer "
+                className="flex transform items-center font-medium delay-75 duration-100 ease-in hover:cursor-pointer"
                 type="button"
               >
                 <Link
                   href={so.href}
                   target="_blank"
-                  className="flex items-center stroke-neutral-50 p-0.75 text-lg font-semibold"
+                  className="flex items-center stroke-neutral-50 p-0.75 text-lg font-semibold text-black max-sm:text-base"
                 >
                   {so.image}
                   {so.pagina}
@@ -180,10 +180,10 @@ export default function ContactForm() {
                     maxLength: 50,
                     pattern: /^[A-Za-zÀ-ÿ]+(?: [A-Za-zÀ-ÿ]+)*$/,
                   })}
-                  className={`${errors.name && "border-destructive border-2 shadow-destructive shadow-md " || "border-foreground" } rounded-xl p-3 w-full border-2 shadow-md transition focus:outline-hidden focus:shadow-xs`}
+                  className={`${(errors.name && 'border-destructive shadow-destructive border-2 shadow-md') || 'border-foreground'} text-foreground w-full rounded-xl border-2 p-3 shadow-md transition focus:shadow-xs focus:outline-hidden`}
                 />
                 {errors.name && (
-                  <p className="mb-2 grid pt-1 text-sm error md:text-base lg:text-lg">
+                  <p className="error mb-2 grid pt-1 text-sm md:text-base lg:text-lg">
                     Nome o cognome non validi
                   </p>
                 )}
@@ -198,10 +198,10 @@ export default function ContactForm() {
                     required: true,
                     pattern: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
                   })}
-                   className={`${errors.email && "border-destructive border-2 shadow-destructive shadow-md " || "border-foreground" } rounded-xl p-3 w-full border-2 shadow-md transition focus:outline-hidden focus:shadow-xs`}
+                  className={`${(errors.email && 'border-destructive shadow-destructive border-2 shadow-md') || 'border-foreground'} text-foreground w-full rounded-xl border-2 p-3 shadow-md transition focus:shadow-xs focus:outline-hidden`}
                 />
                 {errors.email && (
-                  <p className="mb-5 pt-1 text-sm error md:text-base lg:text-lg">
+                  <p className="error mb-5 pt-1 text-sm md:text-base lg:text-lg">
                     Email non valida
                   </p>
                 )}
@@ -211,7 +211,7 @@ export default function ContactForm() {
                 <textarea
                   disabled={IsSending}
                   // className={` ${(errors.message && 'border-destructive bg-red-100 focus:ring-3 focus:ring-red-300 focus:outline-hidden') || 'bg-neutral-100 focus:ring-emerald-200'} w-full rounded-xl border bg-neutral-100 p-3 indent-2 text-lg  focus:ring-3 focus:outline-hidden`}
-                  className={`${errors.message && "border-destructive border-2 shadow-destructive shadow-md " || "border-foreground" } rounded-xl px-4 py-2 w-full border-2 shadow-md transition focus:outline-hidden focus:shadow-xs`}
+                  className={`${(errors.message && 'border-destructive shadow-destructive border-2 shadow-md') || 'border-foreground'} text-foreground w-full rounded-xl border-2 px-4 py-2 shadow-md transition focus:shadow-xs focus:outline-hidden`}
                   rows={10}
                   maxLength={250}
                   placeholder="Inserisci il tuo messaggio"
@@ -221,12 +221,12 @@ export default function ContactForm() {
                     maxLength: 250,
                   })}
                 />
-                <p className="mt-2 text-lg">
+                <p className="text-foreground mt-2 text-lg max-sm:text-center">
                   Caratteri Digitati: {formValue.message?.length || 0} / 250
                 </p>
                 {errors.message && (
-                  <p className="mb-2 text-sm error md:text-base lg:text-lg">
-                    Inserisci un messaggio di almeno 50
+                  <p className="error mb-2 text-sm md:text-base lg:text-lg">
+                    Inserisci un messaggio di almeno 50 caratteri
                   </p>
                 )}
               </div>
@@ -234,7 +234,7 @@ export default function ContactForm() {
             <div className="mt-10 flex w-full justify-end">
               <Button
                 disabled={IsSending}
-                className={`w-full justify-center cursor-pointer text-lg  ${IsSending && "bg-foreground shadow shadow-primary text-background hover:bg-foreground"}`}
+                className={`w-full cursor-pointer justify-center text-lg text-black ${IsSending && 'bg-foreground shadow-primary text-background hover:bg-foreground shadow'}`}
                 type="submit"
               >
                 {IsSending ? 'Invio in corso...' : 'Invia Messaggio'}

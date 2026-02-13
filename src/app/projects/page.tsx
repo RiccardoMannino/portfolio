@@ -6,8 +6,10 @@ import Image from 'next/image'
 export default function Projects() {
   return (
     <>
-      <h1 className="mb-10 text-3xl font-bold text-primary ombra">Progetti 💼</h1>
-      <section>
+      <h1 className="text-primary ombra mb-10 text-3xl font-bold max-sm:text-center">
+        Progetti 💼
+      </h1>
+      <section className="max-sm:text-center">
         {progetti.map((el) => (
           <div
             key={el.nome}
@@ -35,10 +37,10 @@ export default function Projects() {
               transform="translateX(0)"
               translate="translateX(100px)"
             >
-              <h1 className="text-lg font-semibold text-primary ombra">
+              <h1 className="text-primary ombra text-lg font-semibold">
                 {el.nome}
               </h1>
-              <p className="text-base font-semibold ">
+              <p className="text-foreground text-base font-semibold">
                 {el.descrizione}
               </p>
             </Container>

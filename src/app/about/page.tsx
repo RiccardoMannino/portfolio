@@ -32,7 +32,7 @@ export const metadata: Metadata = {
 export default function About() {
   return (
     <>
-      <h1 className="phone:text-center mb-4 text-3xl font-bold ombra text-primary">
+      <h1 className="phone:text-center ombra text-primary mb-4 text-3xl font-bold">
         Chi sono <span className="text-2xl">📖</span>
       </h1>
       <Container type="div" className="phone:justify-center flex w-full gap-10">
@@ -51,45 +51,48 @@ export default function About() {
           className="phone:hidden rounded-lg"
         />
       </Container>
-      <Container type="div" className="flex flex-col">
-        <p className="mt-5 text-lg ">
+      <Container
+        type="div"
+        className="text-foreground flex flex-col text-justify"
+      >
+        <p className="mt-5 text-lg">
           Mi chiamo Riccardo Mannino e sono un appassionato frontend developer
           con un forte interesse per la creazione di interfacce web eleganti e
           funzionali.
         </p>
-        <p className="mt-5 text-lg ">
+        <p className="mt-5 text-lg">
           Durante la mia carriera ho sviluppato competenze in HTML, CSS,
           JavaScript e specialmente nell&apos;utilizzo di React.js. Ho
           esperienza nella creazione di componenti personalizzati con Tailwind
           CSS e Styled Components e nel gestire stati con Redux.
         </p>
-        <p className="mt-5 text-lg ">
+        <p className="mt-5 text-lg">
           Inoltre, ho collaborato a progetti che richiedevano
           l&apos;integrazione con API e la gestione del routing delle pagine con
           Next.js.
         </p>
 
-        <p className="mt-5 text-lg ">
+        <p className="mt-5 text-lg">
           Ho iniziato la mia carriera lavorando per la Forneria Messina, dove ho
           mantenuto il sito aziendale con WordPress ed Elementor.
         </p>
-        <p className="mt-5 text-lg ">
+        <p className="mt-5 text-lg">
           Successivamente, ho lavorato come frontend developer per The Cove
           S.R.L, dove ho consolidato le mie competenze lavorando su progetti
           complessi.
         </p>
-        <p className="mt-5 text-lg ">
+        <p className="mt-5 text-lg">
           Mi dedico a migliorare continuamente le mie abilità, rimanendo sempre
           aggiornato sulle ultime tecnologie e metodologie di sviluppo. Se vuoi
           saperne di più o discutere di possibili collaborazioni, sentiti libero
           di contattarmi!
         </p>
-        <p className="mt-5 text-lg ">
+        <p className="mt-5 text-lg">
           Connettiamoci! Sono sempre aperto a nuove collaborazioni, idee
           interessanti o semplicemente a una chiacchierata sul mondo dello
           sviluppo web. Puoi trovarmi su{' '}
           <Link
-            className="font-bold text-primary ombraxs"
+            className="text-primary ombraxs font-bold"
             target="_blank"
             href="https://www.linkedin.com/in/riccardo-mannino/"
           >

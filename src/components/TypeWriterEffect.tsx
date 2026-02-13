@@ -5,12 +5,12 @@ import { TypewriterEffectSmooth } from '@/components/TypeWriterEffectSmooth'
 export default function TypewriterEffect() {
   const phrases = [
     [
-      { text: 'Riccardo', className: 'md:text-4xl text-3xl' },
-      { text: 'Mannino', className: 'md:text-4xl text-3xl' },
+      { text: 'Riccardo', className: 'text-foreground md:text-4xl text-3xl' },
+      { text: 'Mannino', className: 'text-foreground md:text-4xl text-3xl' },
     ],
     [
-      { text: 'Junior', className: 'md:text-4xl text-3xl' },
-      { text: 'Frontend', className: 'md:text-4xl text-3xl' },
+      { text: 'Junior', className: 'text-foreground md:text-4xl text-3xl' },
+      { text: 'Frontend', className: 'text-foreground md:text-4xl text-3xl' },
       { text: 'Developer', className: 'text-primary ombraxs md:text-4xl text-3xl' },
     ],
   ]

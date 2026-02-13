@@ -5,7 +5,6 @@ import React, { ReactNode } from 'react'
 import { motion } from 'motion/react'
 import {
   VariantLabels,
-
   TargetAndTransition,
   Target,
   Transition,
@@ -43,7 +42,7 @@ export default function Button({
       onClick={onClick}
       type={type}
       className={cn(
-        'phone:self-center phone:px-4 phone:py-2 flex w-fit hover:bg-primary-hover items-center justify-between rounded-full px-4 py-3 text-xs font-semibold shadow-md hover:shadow active:shadow-none bg-primary text-foreground border-2 border-black transition hover:translate-y-1 active:translate-y-2 active:translate-x-1 ',
+        'phone:self-center phone:px-4 phone:py-2 hover:bg-primary-hover bg-primary text-foreground flex w-fit items-center justify-between rounded-full border-2 border-black px-4 py-3 text-xs font-semibold shadow-md transition hover:translate-y-1 hover:shadow active:translate-x-1 active:translate-y-2 active:shadow-none',
         className,
       )}
       {...props}
