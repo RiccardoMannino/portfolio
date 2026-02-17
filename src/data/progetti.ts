@@ -74,7 +74,7 @@ export const progetti: progetti[] = [
   },
   {
     nome: 'SMOF',
-    descrizione: 'Sito web per festival outdoor',
+    descrizione: 'Sito web per festival outdoor, con possibilità di acquisto ticket',
     obiettivo: `Dare possibilità al cliente di modificare i contenuti tramite il pannello del CMS , gestendo utenti quantità dei ticket, ecc...                                                                                                                                Il Sito permette di acquistare biglietti per gli eventi`,
     immagine: Smof,
     tecnologie: [
@@ -103,3 +103,4 @@ export const progetti: progetti[] = [
     // stato: '',
   },
 ]
+
