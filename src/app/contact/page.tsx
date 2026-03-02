@@ -23,6 +23,20 @@ export const metadata: Metadata = {
       },
     ],
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Contattami - Riccardo Mannino',
+    description:
+      'Compila il form per metterti in contatto con Riccardo Mannino.',
+    images: [
+      {
+        url: '../../assets/Me.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Contattami - Riccardo Mannino',
+      },
+    ],
+  },
 }
 
 export default function Contact() {

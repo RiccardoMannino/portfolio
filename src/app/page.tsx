@@ -16,22 +16,21 @@ import Sanity from '../icons/sanity.png'
 import GitIcon from '../icons/git.svg'
 import TypewriterEffect from '@/components/TypeWriterEffect'
 import Button from '@/components/Button'
-import ThemeToggle from '@/components/ThemeToggle'
 import NextIconTheme from '@/components/NextIconThemes'
 
 export const metadata = {
-  title: 'Riccardo Mannino - Frontend Developer a Palermo',
+  title: 'Riccardo Mannino - Frontend Developer a Treviso',
   description:
     'Realizzo siti web moderni e personalizzati per aziende e privati. Trasformo idee in esperienze digitali di impatto, utilizzando tecnologie moderne e design funzionale.',
   keywords: [
     'Riccardo Mannino',
-    'sviluppatore web frontend a palermo',
+    'sviluppatore web frontend a treviso',
     'siti web personalizzati',
     'esperienze digitali',
   ],
   openGraph: {
     locale: 'it_IT',
-    title: 'Riccardo Mannino - Frontend Developer a Palermo',
+    title: 'Riccardo Mannino - Frontend Developer a Treviso',
     description:
       'Realizzo siti web moderni e personalizzati per aziende e privati.',
     url: 'https://www.riccardomannino.it/',

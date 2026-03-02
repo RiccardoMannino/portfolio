@@ -141,7 +141,7 @@ export default function ContactForm() {
             </div>
             <div className="flex flex-col">
               <p className="text-foreground text-lg font-semibold">Location</p>
-              <p className="text-foreground font-semibold">Palermo, IT</p>
+              <p className="text-foreground font-semibold">Treviso, IT</p>
             </div>
           </div>
 

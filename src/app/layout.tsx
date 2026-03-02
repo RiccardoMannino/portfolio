@@ -1,9 +1,9 @@
 import type { Metadata } from 'next'
 import './globals.css'
-import ThemeProvider from './context/theme/ThemeProvider';
+import ThemeProvider from './context/theme/ThemeProvider'
 
 import MainLayout from '@/components/MainLayout'
-import { Archivo_Black, Space_Grotesk } from "next/font/google";
+import { Archivo_Black, Space_Grotesk } from 'next/font/google'
 import { Toaster } from 'react-hot-toast'
 import ThemeContextProvider from '@/app/context/theme/ThemeContext'
 
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title: 'Riccardo Mannino | Frontend Developer',
   keywords: [
     'Riccardo mannino',
-    'Sviluppatore Frontend Junior Palermo',
+    'Sviluppatore Frontend Junior Treviso',
     'Frontend Developer Junior',
     'Sviluppatore Web',
   ],
@@ -36,20 +36,19 @@ export const metadata: Metadata = {
   },
 }
 
-
 const archivoBlack = Archivo_Black({
-  subsets: ["latin"],
-  weight: "400",
-  variable: "--font-head",
-  display: "swap",
-});
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--font-head',
+  display: 'swap',
+})
 
 const space = Space_Grotesk({
-  subsets: ["latin"],
-  weight: "400",
-  variable: "--font-sans",
-  display: "swap",
-});
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--font-sans',
+  display: 'swap',
+})
 
 export default function RootLayout({
   children,
@@ -58,14 +57,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="it" className="scroll-smooth antialiased">
-      
       <body className={`${archivoBlack.variable} ${space.variable} flex`}>
         <link rel="icon" href="favicon.ico" sizes="16x16" />
 
         {/* <Sidebar /> */}
-  
+
         <MainLayout>{children}</MainLayout>
-    
+
         <Toaster
           position="top-center"
           reverseOrder={false}
@@ -81,8 +79,7 @@ export default function RootLayout({
               padding: '1rem',
             },
           }}
-          />
-        
+        />
       </body>
     </html>
   )

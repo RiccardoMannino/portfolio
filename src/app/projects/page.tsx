@@ -3,6 +3,26 @@ import { progetti } from '@/data/progetti'
 import Link from 'next/link'
 import Image from 'next/image'
 
+export const metadata = {
+  title: 'Progetti - Riccardo Mannino',
+  description:
+    'Esplora i progetti realizzati da Riccardo Mannino, sviluppatore frontend. Scopri le soluzioni innovative e le tecnologie utilizzate nei suoi lavori.',
+  keywords: [
+    'progetti riccardo mannino',
+    'progetti frontend developer',
+    'progetti web development',
+    'portfolio progetti riccardo mannino',
+  ],
+  openGraph: {
+    title: 'Progetti - Riccardo Mannino',
+    description:
+      'Esplora i progetti realizzati da Riccardo Mannino, sviluppatore frontend. Scopri le soluzioni innovative e le tecnologie utilizzate nei suoi lavori.',
+    url: 'https://www.riccardomannino.it/projects',
+    siteName: 'Riccardo Mannino',
+    type: 'website',
+  },
+}
+
 export default function Projects() {
   return (
     <>

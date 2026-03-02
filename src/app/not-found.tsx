@@ -9,7 +9,7 @@ export default function NotFound() {
 
   return (
     <>
-      <div className="flex h-[25rem] flex-col justify-center">
+      <div className="flex h-100 flex-col justify-center">
         <div className="flex w-full flex-col items-center justify-between gap-7">
           <h2 className="text-3xl font-bold text-emerald-500">
             Pagina Non Trovata!

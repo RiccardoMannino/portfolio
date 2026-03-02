@@ -6,6 +6,41 @@ import Button from '@/components/Button'
 import BackButton from '@/components/BackButton'
 import NextIconTheme from '@/components/NextIconThemes'
 
+export const generateMetadata = async ({
+  params,
+}: {
+  params: Promise<{ progettos: string }>
+}) => {
+  const { progettos } = await params
+  const progetto = progetti.find(
+    (p) => p.nome.toLowerCase().split(' ').join('-') === progettos,
+  )
+  if (!progetto) {
+    return {
+      title: 'Progetto non trovato - Riccardo Mannino',
+      description: 'Il progetto che stai cercando non è stato trovato.',
+    }
+  }
+  return {
+    title: `${progetto.nome} - Riccardo Mannino`,
+    description: progetto.descrizione,
+    openGraph: {
+      title: `${progetto.nome} - Riccardo Mannino`,
+      description: progetto.descrizione,
+      url: `https://www.riccardomannino.it/projects/${progetto.nome.toLowerCase().split(' ').join('-')}`,
+      siteName: 'Riccardo Mannino',
+      type: 'article',
+      images: [
+        {
+          url: progetto.immagine,
+          width: 1200,
+          height: 630,
+        },
+      ],
+    },
+  }
+}
+
 export default async function Progetto({
   params,
 }: {

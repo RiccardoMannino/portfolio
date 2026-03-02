@@ -1,5 +1,4 @@
 import Container from '@/components/Container'
-import React from 'react'
 
 // app/privacy-policy/page.tsx
 import { Metadata } from 'next'
