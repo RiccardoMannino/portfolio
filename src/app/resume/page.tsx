@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   },
 }
 
-export default function page() {
+export default function Curriculum() {
   return (
     <>
       <h1 className="text-primary ombraxs mb-4 flex items-center gap-2 text-xl font-bold max-sm:text-center md:text-3xl">
@@ -48,7 +48,7 @@ export default function page() {
               <IconCircleCheckFilled className="text-primary h-4 w-8 sm:w-4" />
               <p className="font-semibold">
                 Realizzazione di progetti client-side con React, Next.js e
-                Tailwind
+                Tailwind CSS.
               </p>
             </div>
             <div className="my-2 flex items-center space-x-1">
