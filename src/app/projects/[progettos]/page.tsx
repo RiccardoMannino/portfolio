@@ -12,6 +12,7 @@ export const generateMetadata = async ({
   params: Promise<{ progettos: string }>
 }) => {
   const { progettos } = await params
+  console.log(progettos)
   const progetto = progetti.find(
     (p) => p.nome.toLowerCase().split(' ').join('-') === progettos,
   )
@@ -23,20 +24,13 @@ export const generateMetadata = async ({
   }
   return {
     title: `${progetto.nome} - Riccardo Mannino`,
-    description: progetto.descrizione,
+    description: `${progetto.descrizione}`,
     openGraph: {
       title: `${progetto.nome} - Riccardo Mannino`,
-      description: progetto.descrizione,
-      url: `https://www.riccardomannino.it/projects/${progetto.nome.toLowerCase().split(' ').join('-')}`,
+      description: `${progetto.descrizione}`,
+      url: `${progetto.href}`,
       siteName: 'Riccardo Mannino',
       type: 'article',
-      images: [
-        {
-          url: progetto.immagine,
-          width: 1200,
-          height: 630,
-        },
-      ],
     },
   }
 }
