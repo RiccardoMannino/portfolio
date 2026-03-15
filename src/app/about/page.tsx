@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: 'Chi sono - Riccardo Mannino',
   description:
     'Mi chiamo Riccardo Mannino e sono un appassionato frontend developer con un forte interesse per la creazione di interfacce web eleganti e funzionali.',
-  keywords: ['Chi sono', 'Riccardo Mannino', 'frontend developer', 'Palermo'],
+  keywords: ['Chi sono', 'Riccardo Mannino', 'frontend developer', 'Treviso'],
   openGraph: {
     title: 'Chi sono - Riccardo Mannino',
     description:

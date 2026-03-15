@@ -59,7 +59,7 @@ export default function Sidebar() {
             : { x: isVisible ? 0 : -220, opacity: 1 }
         }
         transition={{ type: 'spring', duration: 0.3, damping: 10 }}
-        className={`phone:bottom-0 phone:h-fit phone:w-full phone:gap-2 phone:bg-linear-to-t phone:from-primary/5 phone:to-primary phone:py-2 phone:px:4 from-primary to-primary/5 fixed left-0 z-50 flex h-full flex-col justify-between bg-linear-to-r px-5 py-10 transition-all duration-200 ease-out`}
+        className={`phone:bottom-0 phone:h-fit phone:w-full phone:gap-2 phone:bg-linear-to-t phone:from-primary/5 phone:to-primary phone:py-2 phone:px:4 from-primary to-primary/5 fixed left-0 z-50 flex h-full flex-col justify-between overflow-y-scroll bg-linear-to-r px-5 py-10 transition-all duration-200 ease-out`}
       >
         <div className="iphone:gap-0 phone:w-full phone:items-center phone:gap-1 flex flex-col gap-7">
           <Avatar />
@@ -68,7 +68,7 @@ export default function Sidebar() {
             variants={container}
             initial="hidden"
             animate="show"
-            className="phone:mt-0 phone:w-full phone:justify-center mt-4 flex flex-col gap-2"
+            className="phone:mt-0 phone:w-full phone:justify-center mt-4 mb-6 flex flex-col gap-2"
           >
             {listaPagine.map((li) => {
               const Icon = li.image
@@ -128,7 +128,7 @@ export default function Sidebar() {
           <div className="flex items-center gap-2">
             <IconFileInvoice
               size={20}
-              className={`${isActive('/resume') && 'stroke-background'} ${theme === 'dark' ? 'stroke-background' : 'stroke-foreground'}`}
+              className={`${isActive('/resume') && 'stroke-background'} ${theme === 'dark' ? 'stroke-background' : ''}`}
             />
             <span
               className={

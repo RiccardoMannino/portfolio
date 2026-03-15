@@ -24,7 +24,7 @@ export const metadata = {
     'Realizzo siti web moderni e personalizzati per aziende e privati. Trasformo idee in esperienze digitali di impatto, utilizzando tecnologie moderne e design funzionale.',
   keywords: [
     'Riccardo Mannino',
-    'sviluppatore web frontend a treviso',
+    'sviluppatore web frontend a Treviso',
     'siti web personalizzati',
     'esperienze digitali',
   ],

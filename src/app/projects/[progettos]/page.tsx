@@ -12,7 +12,7 @@ export const generateMetadata = async ({
   params: Promise<{ progettos: string }>
 }) => {
   const { progettos } = await params
-  console.log(progettos)
+
   const progetto = progetti.find(
     (p) => p.nome.toLowerCase().split(' ').join('-') === progettos,
   )

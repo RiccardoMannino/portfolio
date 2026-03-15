@@ -27,12 +27,12 @@ export const metadata: Metadata = {
 export default function Curriculum() {
   return (
     <>
-      <h1 className="text-primary ombraxs mb-4 flex items-center gap-2 text-xl font-bold max-sm:text-center md:text-3xl">
+      <h1 className="text-primary ombraxs mb-4 flex items-center gap-2 text-center text-xl font-bold md:text-3xl">
         Esperienza lavorativa <span className="text-2xl">💼</span>
       </h1>
       <p className="text-foreground mb-2 text-lg font-semibold max-sm:text-center max-sm:text-base">
         Sono un frontend developer con esperienza nell&apos;utilizzo di
-        tecnologie moderne come React.js, Material UI, e Styled Components.
+        tecnologie moderne come React.js, Tailwind CSS, e Styled Components.
       </p>
       <div className="text-lg max-sm:text-center max-sm:text-base">
         <div className="relative my-20 flex flex-col space-y-10 space-x-10 md:flex-row md:space-y-0">
