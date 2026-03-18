@@ -1,8 +1,9 @@
 'use client'
 import Link from 'next/link'
 
-import { ReactNode, useRef, useState } from 'react'
+import { ReactNode, useRef, useState, useContext } from 'react'
 import { FieldValues, useForm } from 'react-hook-form'
+import { ThemeContext } from '@/app/context/theme/ThemeContext'
 import { getCalApi } from '@calcom/embed-react'
 import {
   IconBrandGithub,
@@ -40,6 +41,7 @@ const social: Pagine[] = [
 ]
 
 export default function ContactForm() {
+  const { theme } = useContext(ThemeContext)
   const [IsSending, setIsSending] = useState(false)
 
   const form = useRef(null)
@@ -149,7 +151,7 @@ export default function ContactForm() {
             {social.map((so) => (
               <Button
                 key={so.href}
-                className="flex transform items-center font-medium delay-75 duration-100 ease-in hover:cursor-pointer"
+                className={`flex transform items-center font-medium delay-75 duration-100 ease-in ${theme === 'dark' ? 'text-background border-background' : ''} shadow-foreground hover:cursor-pointer`}
                 type="button"
               >
                 <Link
@@ -180,7 +182,7 @@ export default function ContactForm() {
                     maxLength: 50,
                     pattern: /^[A-Za-zÀ-ÿ]+(?: [A-Za-zÀ-ÿ]+)*$/,
                   })}
-                  className={`${(errors.name && 'border-destructive shadow-destructive border-2 shadow-md') || 'border-foreground'} text-foreground w-full rounded-xl border-2 p-3 shadow-md transition focus:shadow-xs focus:outline-hidden`}
+                  className={`${(errors.name && 'border-destructive shadow-destructive border-2 shadow-md') || 'border-foreground'} ${theme === 'dark' ? 'text-background border-background' : ''} shadow-foreground text-foreground w-full rounded-xl border-2 p-3 shadow-md transition focus:shadow-xs focus:outline-hidden`}
                 />
                 {errors.name && (
                   <p className="error mb-2 grid pt-1 text-sm md:text-base lg:text-lg">
@@ -198,7 +200,7 @@ export default function ContactForm() {
                     required: true,
                     pattern: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
                   })}
-                  className={`${(errors.email && 'border-destructive shadow-destructive border-2 shadow-md') || 'border-foreground'} text-foreground w-full rounded-xl border-2 p-3 shadow-md transition focus:shadow-xs focus:outline-hidden`}
+                  className={`${(errors.email && 'border-destructive shadow-destructive border-2 shadow-md') || 'border-foreground'} ${theme === 'dark' ? 'text-background border-background' : ''} shadow-foreground text-foreground w-full rounded-xl border-2 p-3 shadow-md transition focus:shadow-xs focus:outline-hidden`}
                 />
                 {errors.email && (
                   <p className="error mb-5 pt-1 text-sm md:text-base lg:text-lg">
@@ -211,7 +213,7 @@ export default function ContactForm() {
                 <textarea
                   disabled={IsSending}
                   // className={` ${(errors.message && 'border-destructive bg-red-100 focus:ring-3 focus:ring-red-300 focus:outline-hidden') || 'bg-neutral-100 focus:ring-emerald-200'} w-full rounded-xl border bg-neutral-100 p-3 indent-2 text-lg  focus:ring-3 focus:outline-hidden`}
-                  className={`${(errors.message && 'border-destructive shadow-destructive border-2 shadow-md') || 'border-foreground'} text-foreground w-full rounded-xl border-2 px-4 py-2 shadow-md transition focus:shadow-xs focus:outline-hidden`}
+                  className={`${(errors.message && 'border-destructive shadow-destructive border-2 shadow-md') || 'border-foreground'} ${theme === 'dark' ? 'text-background border-background' : ''} shadow-foreground text-foreground w-full rounded-xl border-2 px-4 py-2 shadow-md transition focus:shadow-xs focus:outline-hidden`}
                   rows={10}
                   maxLength={250}
                   placeholder="Inserisci il tuo messaggio"
@@ -234,7 +236,7 @@ export default function ContactForm() {
             <div className="mt-10 flex w-full justify-end">
               <Button
                 disabled={IsSending}
-                className={`w-full cursor-pointer justify-center text-lg text-black ${IsSending && 'bg-foreground shadow-primary text-background hover:bg-foreground shadow'}`}
+                className={`w-full ${theme === 'dark' ? 'text-background border-background' : ''} shadow-foreground cursor-pointer justify-center text-lg ${IsSending && 'bg-foreground shadow-primary text-background hover:bg-foreground shadow'}`}
                 type="submit"
               >
                 {IsSending ? 'Invio in corso...' : 'Invia Messaggio'}
