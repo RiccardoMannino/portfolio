@@ -74,7 +74,8 @@ export const progetti: progetti[] = [
   },
   {
     nome: 'SMOF',
-    descrizione: 'Sito web per festival outdoor, con possibilità di acquisto ticket',
+    descrizione:
+      'Sito web per festival outdoor, con possibilità di acquisto ticket',
     obiettivo: `Dare possibilità al cliente di modificare i contenuti tramite il pannello del CMS , gestendo utenti quantità dei ticket, ecc...                                                                                                                                Il Sito permette di acquistare biglietti per gli eventi`,
     immagine: Smof,
     tecnologie: [
@@ -85,7 +86,7 @@ export const progetti: progetti[] = [
       { nome: 'Stripe', image: StripeIcon },
     ],
     href: 'https://www.smofest.it',
-    stato: 'Progetto in fase di sviluppo',
+    stato: 'Progetto completato',
   },
   {
     nome: 'Davi Lavanderie',
@@ -103,4 +104,3 @@ export const progetti: progetti[] = [
     // stato: '',
   },
 ]
-

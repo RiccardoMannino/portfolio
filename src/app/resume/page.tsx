@@ -54,8 +54,9 @@ export default function Curriculum() {
             <div className="my-2 flex items-center space-x-1">
               <IconCircleCheckFilled className="text-primary h-4 w-8 sm:w-4" />
               <p className="font-semibold">
-                Sviluppo sito web er cliente con Sanity.io come CMS headless (in
-                corso)
+                Sviluppo sito web per cliente con Sanity.io come CMS headless
+                con possibilità attraverso Stripe per utenti autenticati con
+                google di acquisto biglietti.
               </p>
             </div>
             <div className="my-2 flex items-center space-x-1">
