@@ -14,9 +14,9 @@ export default function ThemeToggle() {
       className={`fixed top-4 left-4 z-100 flex cursor-pointer items-center justify-between ${theme === 'dark' ? 'shadow-foreground' : ''}`}
     >
       {theme === 'dark' ? (
-        <IconMoonFilled size={20} className="text-background" />
+        <IconSunFilled size={20} className="text-background" />
       ) : (
-        <IconSunFilled size={20} className="font-foreground" />
+        <IconMoonFilled size={20} className="text-foreground" />
       )}
     </Button>
   )

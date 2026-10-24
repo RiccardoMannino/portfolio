@@ -17,6 +17,8 @@ import GitIcon from '../icons/git.svg'
 import TypewriterEffect from '@/components/TypeWriterEffect'
 import Button from '@/components/Button'
 import NextIconTheme from '@/components/NextIconThemes'
+import { Recensioni } from '@/components/Recensioni'
+import { createClient } from '@/utils/supabase/server'
 
 export const metadata = {
   title: 'Riccardo Mannino - Frontend Developer a Treviso',
@@ -47,7 +49,19 @@ export const metadata = {
   },
 }
 
-export default function Home() {
+export default async function Home() {
+  const supabase = await createClient()
+
+  const {
+    data: { user },
+  } = await supabase.auth.getUser()
+
+  // Leggi i dati reali dalla tabella SQL ordinate per data
+  const { data: recensioni } = await supabase
+    .from('recensioni')
+    .select('*')
+    .order('created_at', { ascending: false })
+
   return (
     <>
       <Container
@@ -338,6 +352,13 @@ export default function Home() {
             </div>
           ))}
         </div>
+      </Container>
+      <Container
+        type="section"
+        className="flex flex-col gap-7 py-24 text-center"
+        id="recensioni"
+      >
+        <Recensioni reviews={recensioni || []} user={user} />
       </Container>
       <Container type="section" className="py-24" id="contact">
         <ContactForm />
