@@ -7,14 +7,12 @@ import Button from './Button'
 export function LoginButton() {
   const handleLogin = async () => {
     const supabase = createClient()
+    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? window.location.origin
 
-    // Attiva il login con Google tramite Supabase
     await supabase.auth.signInWithOAuth({
       provider: 'google',
       options: {
-        // Indica a Supabase dove rimandare l'utente dopo il login con Google.
-        // Questa rotta di callback gestirà lo scambio dei token e salverà i cookie.
-        redirectTo: `${window.location.origin}/auth/callback`,
+        redirectTo: new URL('/auth/callback', siteUrl).toString(),
       },
     })
   }
