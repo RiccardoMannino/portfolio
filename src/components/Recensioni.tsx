@@ -38,9 +38,9 @@ export function Recensioni({ reviews, user }: RecensioniProps) {
       <div className="z-30 flex w-full max-w-md flex-col items-center gap-3 px-4">
         {user ? (
           <div className="flex w-full flex-col items-center gap-2">
-            <p className="text-foreground mb-2 opacity-70">
+            <p className="text-foreground mb-2">
               Autenticato come{' '}
-              <strong className="opacity-100">{user.email}</strong>
+              <strong className="text-foreground">{user.email}</strong>
             </p>
             {hasAlreadyReviewed ? (
               <>
@@ -53,13 +53,14 @@ export function Recensioni({ reviews, user }: RecensioniProps) {
               <>
                 {!recensioni && (
                   <Button
-                    className="shadow-foreground bg-primary rounded-full border-2 border-black p-2 text-base font-semibold shadow hover:cursor-pointer"
+                    className="shadow-foreground bg-primary rounded-full border-2 border-black p-2 text-base font-semibold text-black shadow hover:cursor-pointer"
                     onClick={() => setRecensioni(!recensioni)}
                   >
                     Aggiungi recensione
                   </Button>
                 )}
-                Oppure <LogOut />
+                <span className="text-foreground text-base">Oppure</span>
+                <LogOut />
                 {recensioni && (
                   <ReviewForm closeForm={() => setRecensioni(!recensioni)} />
                 )}

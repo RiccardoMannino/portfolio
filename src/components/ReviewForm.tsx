@@ -6,12 +6,14 @@ export default function ReviewForm({ closeForm }: { closeForm?: () => void }) {
   return (
     <form
       action={addReview}
-      className="flex max-w-md flex-col gap-4 rounded-xl border-2 border-black bg-white p-6 shadow-md"
+      className="bg-background shadow-foreground border-foreground flex max-w-md flex-col gap-4 rounded-xl border-2 p-6 shadow-md"
     >
-      <div className="flex items-center justify-between">
-        <h3 className="text-lg font-bold text-black">Lascia una recensione</h3>
+      <div className="flex items-center justify-between max-sm:gap-2">
+        <h3 className="text-foreground text-lg font-bold">
+          Lascia una recensione
+        </h3>
         <Button
-          className="bg-primary p-2 py-0 text-base text-black"
+          className="bg-primary shadow-foreground p-2 py-0 text-base text-black hover:cursor-pointer max-sm:p-0 max-sm:text-sm"
           onClick={closeForm}
         >
           X
@@ -19,7 +21,10 @@ export default function ReviewForm({ closeForm }: { closeForm?: () => void }) {
       </div>
       {/* Campo Nome Utente (opzionale) */}
       <div className="flex flex-col gap-1">
-        <label htmlFor="persona" className="text-sm font-medium text-gray-600">
+        <label
+          htmlFor="persona"
+          className="text-foreground text-sm font-medium"
+        >
           Nome Utente
         </label>
         <input
@@ -34,7 +39,7 @@ export default function ReviewForm({ closeForm }: { closeForm?: () => void }) {
       </div>
       {/* Selezione del Voto */}
       <div className="flex flex-col gap-1">
-        <label htmlFor="rating" className="text-sm font-medium text-gray-600">
+        <label htmlFor="rating" className="text-foreground text-sm font-medium">
           Voto (da 1 a 5 stelle)
         </label>
         <select
@@ -56,7 +61,10 @@ export default function ReviewForm({ closeForm }: { closeForm?: () => void }) {
 
       {/* Campo di Testo */}
       <div className="flex flex-col gap-1">
-        <label htmlFor="comment" className="text-sm font-medium text-gray-600">
+        <label
+          htmlFor="comment"
+          className="text-foreground text-sm font-medium"
+        >
           Il tuo commento
         </label>
         <textarea
@@ -71,12 +79,12 @@ export default function ReviewForm({ closeForm }: { closeForm?: () => void }) {
       </div>
 
       {/* Pulsante Invia */}
-      <button
+      <Button
         type="submit"
-        className="shadow-foreground bg-primary rounded-full border-2 border-black p-2 font-semibold shadow"
+        className="shadow-foreground bg-primary rounded-full border-2 border-black p-2 text-base font-semibold text-black shadow hover:cursor-pointer"
       >
         Invia Recensione
-      </button>
+      </Button>
     </form>
   )
 }
