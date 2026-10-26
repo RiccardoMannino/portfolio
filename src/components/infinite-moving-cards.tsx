@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { cn } from '@/lib/utils'
 import { motion, useInView } from 'motion/react'
 import { useEffect, useRef } from 'react'
@@ -15,6 +16,7 @@ type InfiniteMovingCardsProps = {
     // Aggiungiamo nome ed e-mail se in futuro vorrai recuperarli da Google Auth
     persona?: string
     user_email?: string
+    user_avatar?: string
   }[]
   direction?: 'left' | 'right'
   speed?: 'fast' | 'normal' | 'slow'
@@ -99,6 +101,16 @@ export const InfiniteMovingCards = ({
                   <span className="text-foreground leading-[1.6] font-normal">
                     {item.persona}
                   </span>
+                  {item.user_avatar && (
+                    <Image
+                      width={40}
+                      height={40}
+                      src={item.user_avatar}
+                      alt={item.persona || 'Avatar'}
+                      className="border-foreground/20 h-10 w-10 rounded-full border object-cover"
+                      referrerPolicy="no-referrer" // ⚠️ Fondamentale per evitare che Google blocchi l'immagine
+                    />
+                  )}
                   <span className="text-foreground leading-[1.6] font-normal">
                     {item.rating}/5⭐
                   </span>

@@ -20,6 +20,7 @@ export async function addReview(formData: FormData) {
   const ratingInput = formData.get('rating')
   const commentInput = formData.get('comment')
   const userName = formData.get('persona')
+  const avatarUrl = user?.user_metadata?.avatar_url || ''
 
   const rating = Number(ratingInput)
   const comment = String(commentInput).trim()
@@ -59,6 +60,7 @@ export async function addReview(formData: FormData) {
       rating: rating,
       comment: comment,
       persona: persona,
+      avatar_url: avatarUrl,
     },
   ])
 
