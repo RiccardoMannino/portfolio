@@ -96,11 +96,8 @@ export const InfiniteMovingCards = ({
               >
                 {item.comment}
               </span>
-              <div className="relative z-20 mt-6 flex flex-row items-center">
-                <span className="flex flex-col gap-1">
-                  <span className="text-foreground leading-[1.6] font-normal">
-                    {item.persona}
-                  </span>
+              <div className="relative z-20 mt-6 flex justify-between gap-4">
+                <div className="flex items-center gap-4">
                   {item.user_avatar && (
                     <Image
                       width={40}
@@ -110,11 +107,19 @@ export const InfiniteMovingCards = ({
                       className="border-foreground/20 h-10 w-10 rounded-full border object-cover"
                       referrerPolicy="no-referrer" // ⚠️ Fondamentale per evitare che Google blocchi l'immagine
                     />
-                  )}
+                  )}{' '}
                   <span className="text-foreground leading-[1.6] font-normal">
-                    {item.rating}/5⭐
+                    {item.persona}
                   </span>
-                </span>
+                </div>
+                <div className="flex">
+                  <span className="text-foreground self-start leading-[1.6] font-normal">
+                    {item.rating}{' '}
+                    <span className="text-yellow-500">
+                      {'⭐'.repeat(item.rating)}
+                    </span>
+                  </span>
+                </div>
               </div>
             </blockquote>
           </li>
