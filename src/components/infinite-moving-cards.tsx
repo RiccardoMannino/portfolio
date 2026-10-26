@@ -105,7 +105,7 @@ export const InfiniteMovingCards = ({
                     <Image
                       width={40}
                       height={40}
-                      src={item.user_avatar}
+                      src={`${item.user_avatar}`}
                       alt={item.persona || 'Avatar'}
                       className="border-foreground/20 h-10 w-10 rounded-full border object-cover"
                       referrerPolicy="no-referrer" // ⚠️ Fondamentale per evitare che Google blocchi l'immagine
