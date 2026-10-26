@@ -4,6 +4,16 @@ const nextConfig = {
   experimental: {
     useTypeScriptCli: true,
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '*.googleusercontent.com', // Consente tutte le immagini del profilo di Google
+        port: '',
+        pathname: '/**',
+      },
+    ],
+  },
 }
 
 export default nextConfig
