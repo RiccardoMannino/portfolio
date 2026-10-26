@@ -20,11 +20,12 @@ export async function addReview(formData: FormData) {
   const ratingInput = formData.get('rating')
   const commentInput = formData.get('comment')
   const userName = formData.get('persona')
-  const avatarUrl = user?.user_metadata?.avatar_url || ''
+  const avatarUrl = user?.user_metadata?.avatar_url || null
 
   const rating = Number(ratingInput)
   const comment = String(commentInput).trim()
   const persona = String(userName ?? '').trim()
+  const avatar = String(avatarUrl ?? '').trim()
 
   // 3. Validazione minima dei dati di input
   if (!rating || rating < 1 || rating > 5) {
@@ -60,7 +61,7 @@ export async function addReview(formData: FormData) {
       rating: rating,
       comment: comment,
       persona: persona,
-      user_avatar: avatarUrl,
+      user_avatar: avatar,
     },
   ])
 
