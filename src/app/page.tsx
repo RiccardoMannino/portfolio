@@ -80,7 +80,7 @@ export default async function Home() {
           online.
         </h2>
         <div className="mt-10 flex w-full gap-6">
-          <Button>
+          <Button className="text-background phone:self-center shadow-foreground font-semibold">
             <Link
               className="items-center justify-between text-base font-semibold text-black"
               href={'#progetti'}
@@ -95,6 +95,14 @@ export default async function Home() {
               href="#contact"
             >
               Contattami Ora
+            </Link>
+          </Button>
+          <Button className="bg-foreground text-background phone:self-center shadow-primary hover:bg-foreground font-semibold">
+            <Link
+              className="flex w-fit items-center justify-between text-base"
+              href="#recensioni"
+            >
+              Recensioni
             </Link>
           </Button>
         </div>
