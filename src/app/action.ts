@@ -60,7 +60,7 @@ export async function addReview(formData: FormData) {
       rating: rating,
       comment: comment,
       persona: persona,
-      avatar_url: avatarUrl,
+      user_avatar: avatarUrl,
     },
   ])
 
