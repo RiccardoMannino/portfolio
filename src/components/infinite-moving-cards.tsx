@@ -112,13 +112,13 @@ export const InfiniteMovingCards = ({
                     {item.persona}
                   </span>
                 </div>
-                <div className="flex">
-                  <span className="text-foreground self-start leading-[1.6] font-normal">
+                <div className="flex items-center gap-2">
+                  <p className="text-foreground text-[16px] font-normal">
                     {item.rating}{' '}
-                    <span className="text-yellow-500">
+                    <span className="text-yellow-500 max-sm:text-[12px]">
                       {'⭐'.repeat(item.rating)}
                     </span>
-                  </span>
+                  </p>
                 </div>
               </div>
             </blockquote>
