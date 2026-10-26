@@ -12,8 +12,8 @@ export const metadata: Metadata = {
   title: 'Riccardo Mannino | Frontend Developer',
   keywords: [
     'Riccardo mannino',
-    'Sviluppatore Frontend Junior Treviso',
-    'Frontend Developer Junior',
+    'Sviluppatore Frontend  Treviso',
+    'Frontend Developer ',
     'Sviluppatore Web',
   ],
   description:

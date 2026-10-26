@@ -73,9 +73,7 @@ export default function Curriculum() {
             <h5 className="text-primary ombraxs font-bold">
               The Cove S.R.L Bergamo, Italia
             </h5>
-            <p className="font-semibold">
-              Sviluppatore Web Junior (Front-End).
-            </p>
+            <p className="font-semibold">Sviluppatore Web (Front-End).</p>
             <div className="my-2 flex items-center space-x-1">
               <IconCircleCheckFilled className="text-primary h-4 w-8 sm:w-4" />
               <span className="font-semibold">
